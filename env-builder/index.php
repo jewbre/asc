@@ -4,6 +4,10 @@
  * Date: 25/03/2017
  * Time: 16:16
  */
+if($_SERVER['SERVER_NAME'] !== 'localhost' && strpos($_SERVER['SERVER_NAME'], '.loc') === false) {
+    die('What are you doing?');
+}
+
 
 use envBuilder\helpers\Environment;
 use envBuilder\helpers\EnvironmentConfig;
@@ -41,7 +45,7 @@ if (isset($_POST['Environment']) && isset($_POST['Environment']['action'])) {
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Degordian Project Builder</title>
+    <title>Yii2 Environment Builder</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
