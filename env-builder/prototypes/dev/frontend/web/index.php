@@ -2,8 +2,8 @@
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 
-require(__DIR__ . '/%__vendor_path__%/autoload.php');
-require(__DIR__ . '/%__vendor_path__%/yiisoft/yii2/Yii.php');
+require(__DIR__ . '/../../%__vendor_path__%/autoload.php');
+require(__DIR__ . '/../../%__vendor_path__%/yiisoft/yii2/Yii.php');
 require(__DIR__ . '/../../common/config/bootstrap.php');
 require(__DIR__ . '/../config/bootstrap.php');
 
