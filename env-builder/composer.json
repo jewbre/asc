@@ -1,0 +1,10 @@
+{
+  "autoload": {
+    "files": [],
+    "classmap": [
+    ],
+    "psr-4": {
+      "envBuilder\\": "classes"
+    }
+  }
+}
