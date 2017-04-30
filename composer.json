@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "starcode-solutions/yii2-vault": "dev-master",
-        "mdmsoft/yii2-admin": "~2.0"
+        "mdmsoft/yii2-admin": "~2.0",
+        "schmunk42/yii2-giiant": "@stable"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
