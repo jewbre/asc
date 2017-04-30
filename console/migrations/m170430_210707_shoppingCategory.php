@@ -14,7 +14,7 @@ class m170430_210707_shoppingCategory extends Migration
             'updated_at' => $this->integer(11)->notNull(),
         ]);
 
-        $this->addForeignKey('fk_shopping_category_to_group', 'shoppingCategoru', 'groupID', 'group', 'id', 'CASCADE');
+        $this->addForeignKey('fk_shopping_category_to_group', 'shoppingCategory', 'groupID', 'group', 'id', 'CASCADE');
     }
 
     public function safeDown()

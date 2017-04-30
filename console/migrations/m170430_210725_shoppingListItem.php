@@ -15,7 +15,7 @@ class m170430_210725_shoppingListItem extends Migration
         ]);
 
         $this->addForeignKey('fk_shopping_list_item_to_shopping_list', 'shoppingListItem', 'shoppingListID', 'shoppingList', 'id', 'CASCADE');
-        $this->addForeignKey('fk_shopping_list_item_to_shopping_item', 'shoppingItem', 'shoppingItemID', 'shoppingItem', 'id', 'CASCADE');
+        $this->addForeignKey('fk_shopping_list_item_to_shopping_item', 'shoppingListItem', 'shoppingItemID', 'shoppingItem', 'id', 'CASCADE');
     }
 
     public function safeDown()
