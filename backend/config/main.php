@@ -24,7 +24,11 @@ return [
                     ]
                 ]
             ],
-        ]
+        ],
+        'api' => [
+            'basePath' => '@backend/modules/api',
+            'class' => 'backend\modules\api\ApiModule',
+        ],
     ],
     'components' => [
         'request' => [
@@ -51,14 +55,17 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['api/group']
+                ],
             ],
+
         ],
-        */
     ],
     'params' => $params,
 ];

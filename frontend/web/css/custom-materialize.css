@@ -1,0 +1,48 @@
+.main-content {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+    .main-content {
+        padding-left: 0;
+    }
+}
+
+.side-nav .userView .dropdown-content,.side-nav .userView .dropdown-content li{
+    width:100%;
+    margin-left:-32px;
+    padding-left: 32px;
+}
+
+.side-nav .userView .dropdown-content li a{
+    padding-left:32px;
+    margin-left:-32px;
+}
+
+.side-nav .userView .link {
+    font-size: 13px;
+    line-height: 44px;
+}
+
+.side-nav>li {
+    margin-left:16px;
+}
+
+.side-nav>li:first-child {
+    margin-left:0;
+}
+@media only screen and (min-width : 992px) {
+    .side-nav.fixed .userView a {
+        display:block;
+        height:auto;
+        padding:0;
+    }
+}
+
+.shopping-card .card {
+    border-radius: 6px;
+}
+
+.inline-block {
+    display: inline-block;
+}

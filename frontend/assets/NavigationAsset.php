@@ -10,22 +10,18 @@ namespace frontend\assets;
 
 use yii\web\AssetBundle;
 
-class MaterializeCSSAssets extends AssetBundle
+class NavigationAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
 
-    public $css = [
-        'css/ghpages-materialize.css',
-        'css/materialize.css',
-        'css/custom-materialize.css',
-    ];
+    public $css = [];
 
     public $js = [
-        'js/materialize.min.js'
+        'js/navigation.js'
     ];
     public $depends = [
-        'frontend\assets\JqueryAsset',
+        'frontend\assets\MaterializeCSSAssets',
     ];
 
 }

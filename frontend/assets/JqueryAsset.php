@@ -18,4 +18,8 @@ class JqueryAsset extends AssetBundle
     public $js = [
         'jquery/jquery.js'
     ];
+
+    public $depends = [
+        'yii\web\YiiAsset',
+    ];
 }

@@ -1,0 +1,10 @@
+{
+  "include": [
+    "static/ts/**/*.ts"
+  ],
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "target": "es5",
+    "typeRoots" : ["./node_modules/@types", "./static/typings"]
+  }
+}

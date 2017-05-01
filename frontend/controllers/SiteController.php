@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\navigation\ViewModelFactory as NavigationViewModelFactory;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -18,6 +19,19 @@ use frontend\models\ContactForm;
  */
 class SiteController extends Controller
 {
+    public function init()
+    {
+        parent::init();
+
+        if(Yii::$app->user->isGuest) {
+            $this->layout = 'logged-out';
+        } else {
+            $this->layout = 'main';
+            $this->view->params['navigationViewModel'] = (new NavigationViewModelFactory())->generateViewModel();
+        }
+    }
+
+
     /**
      * @inheritdoc
      */
