@@ -31,4 +31,22 @@ public function behaviors()
              ]
         );
     }
+
+    public function fields()
+    {
+        return [
+            'id',
+            'name',
+            'category' => function(ShoppingItem $model) {
+                return $model->shoppingCategory;
+            },
+            'isChecked' => function(ShoppingItem $model) {
+                // One shopping item is attached to only one shopping list for now.
+                // This is reasonable because each group has only one shopping list.
+                return !empty($model->shoppingListItems);
+            }
+        ];
+    }
+
+
 }

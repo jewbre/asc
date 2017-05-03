@@ -19,6 +19,7 @@ use yii\web\IdentityInterface;
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
+ * @property integer $selectedGroupID
  * @property string $password write-only password
  */
 class User extends ActiveRecord implements IdentityInterface
@@ -206,6 +207,24 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->hasMany(Group::className(), ['id' => 'groupID'])
             ->viaTable('groupMember', ['userID' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSelectedGroup()
+    {
+        return $this->hasOne(\common\models\Group::className(), ['id' => 'selectedGroupID']);
+    }
+
+    /**
+     * @return ShoppingList
+     */
+    public function getShoppingList()
+    {
+        return ShoppingList::findOne([
+            'groupID' => $this->selectedGroupID
+        ]);
     }
 
     public function fields()

@@ -14,6 +14,7 @@ use Yii;
  * @property integer $shoppingItemID
  * @property string $reminder
  * @property integer $isChecked
+ * @property string $nID
  *
  * @property \common\models\ShoppingItem $shoppingItem
  * @property \common\models\ShoppingList $shoppingList
@@ -42,8 +43,10 @@ abstract class ShoppingListItem extends \yii\db\ActiveRecord
             [['shoppingListID', 'shoppingItemID'], 'required'],
             [['shoppingListID', 'shoppingItemID', 'isChecked'], 'integer'],
             [['reminder'], 'string', 'max' => 1023],
+            [['nID'], 'string', 'max' => 255],
             [['shoppingItemID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\ShoppingItem::className(), 'targetAttribute' => ['shoppingItemID' => 'id']],
-            [['shoppingListID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\ShoppingList::className(), 'targetAttribute' => ['shoppingListID' => 'id']]
+            [['shoppingListID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\ShoppingList::className(), 'targetAttribute' => ['shoppingListID' => 'id']],
+            [['nID'], 'safe']
         ];
     }
 

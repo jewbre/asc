@@ -2,8 +2,7 @@
 
 namespace common\models;
 
-use Yii;
-use \common\models\base\Group as BaseGroup;
+use common\models\base\Group as BaseGroup;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -12,7 +11,7 @@ use yii\helpers\ArrayHelper;
 class Group extends BaseGroup
 {
 
-public function behaviors()
+    public function behaviors()
     {
         return ArrayHelper::merge(
             parent::behaviors(),
@@ -25,10 +24,23 @@ public function behaviors()
     public function rules()
     {
         return ArrayHelper::merge(
-             parent::rules(),
-             [
-                  # custom validation rules
-             ]
+            parent::rules(),
+            [
+                # custom validation rules
+            ]
         );
     }
+
+    public function fields()
+    {
+        return [
+            'id',
+            'name',
+            'members' => function (Group $model) {
+                return $model->groupMembers;
+            }
+        ];
+    }
+
+
 }

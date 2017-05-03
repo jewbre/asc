@@ -30,4 +30,22 @@ class GroupMember extends BaseGroupMember
             ]
         );
     }
+
+    public function fields()
+    {
+        $user = $this->user;
+        return [
+            'id' => function ($model) use ($user) {
+                return $user->id;
+            },
+            'username' => function ($model) use ($user) {
+                return $user->username;
+            },
+            'avatar' => function ($model) use ($user) {
+                return $user->getAvatar();
+            }
+        ];
+    }
+
+
 }

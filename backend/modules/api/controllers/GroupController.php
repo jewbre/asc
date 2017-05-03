@@ -11,29 +11,9 @@ namespace backend\modules\api\controllers;
 /**
  * This is the class for REST controller "GroupController".
  */
-use yii\filters\AccessControl;
-use yii\helpers\ArrayHelper;
+use backend\modules\api\controllers\base\BaseController;
 
-use yii\filters\auth\CompositeAuth;
-use yii\filters\auth\HttpBasicAuth;
-use yii\filters\auth\HttpBearerAuth;
-use yii\filters\auth\QueryParamAuth;
-
-class GroupController extends \yii\rest\ActiveController
+class GroupController extends BaseController
 {
-	public $modelClass = 'common\models\Group';
-
-    public function behaviors()
-    {
-        $behaviors = parent::behaviors();
-        $behaviors['authenticator'] = [
-            'class' => CompositeAuth::className(),
-            'authMethods' => [
-                HttpBasicAuth::className(),
-                HttpBearerAuth::className(),
-                QueryParamAuth::className(),
-            ],
-        ];
-        return $behaviors;
-    }
+    public $modelClass = 'common\models\Group';
 }
