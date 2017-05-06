@@ -16,6 +16,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $groupID
  * @property integer $created_at
  * @property integer $updated_at
+ * @property string $details
  *
  * @property \common\models\ShoppingCategory $shoppingCategory
  * @property \common\models\Group $group
@@ -57,6 +58,7 @@ abstract class ShoppingItem extends \yii\db\ActiveRecord
             [['name', 'shoppingCategoryID', 'groupID'], 'required'],
             [['shoppingCategoryID', 'groupID'], 'integer'],
             [['name'], 'string', 'max' => 255],
+            [['details'], 'string', 'max' => 255],
             [['shoppingCategoryID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\ShoppingCategory::className(), 'targetAttribute' => ['shoppingCategoryID' => 'id']],
             [['groupID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\Group::className(), 'targetAttribute' => ['groupID' => 'id']]
         ];
@@ -74,6 +76,7 @@ abstract class ShoppingItem extends \yii\db\ActiveRecord
             'groupID' => 'Group ID',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
+            'details' => 'Details',
         ];
     }
 

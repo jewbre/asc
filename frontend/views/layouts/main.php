@@ -25,6 +25,7 @@ JSUtilsAsset::register($this);
     <?php $this->head() ?>
 
     <script type="application/json" id="api-token"><?= Json::encode(Yii::$app->user->getIdentity()->getAuthKey())?></script>
+    <script type="application/json" id="api-base-path"><?= Json::encode('/asc/backend/web/api')?></script>
 </head>
 <body>
 <?php $this->beginBody() ?>

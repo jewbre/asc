@@ -16,6 +16,15 @@ class ShoppingListsAssets extends AssetBundle
     public $baseUrl = '@web';
 
     public $js = [
+        'static/js/models/Category.js',
+        'static/js/models/Item.js',
+
+
+        'static/js/models/builders/CategoryBuilder.js',
+        'static/js/models/builders/ItemBuilder.js',
+
+        'static/js/utils/Renderer.js',
+
         'static/js/shopping-list/ShoppingListView.js',
         'static/js/shopping-list/ShoppingListPresenter.js',
         'js/shoppingListsInit.js'

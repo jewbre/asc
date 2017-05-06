@@ -2,21 +2,21 @@
     padding-left: 300px;
 }
 
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width: 992px) {
     .main-content {
         padding-left: 0;
     }
 }
 
-.side-nav .userView .dropdown-content,.side-nav .userView .dropdown-content li{
-    width:100%;
-    margin-left:-32px;
+.side-nav .userView .dropdown-content, .side-nav .userView .dropdown-content li {
+    width: 100%;
+    margin-left: -32px;
     padding-left: 32px;
 }
 
-.side-nav .userView .dropdown-content li a{
-    padding-left:32px;
-    margin-left:-32px;
+.side-nav .userView .dropdown-content li a {
+    padding-left: 32px;
+    margin-left: -32px;
 }
 
 .side-nav .userView .link {
@@ -24,25 +24,103 @@
     line-height: 44px;
 }
 
-.side-nav>li {
-    margin-left:16px;
+.side-nav > li {
+    margin-left: 16px;
 }
 
-.side-nav>li:first-child {
-    margin-left:0;
+.side-nav > li:first-child {
+    margin-left: 0;
 }
-@media only screen and (min-width : 992px) {
+
+@media only screen and (min-width: 992px) {
     .side-nav.fixed .userView a {
-        display:block;
-        height:auto;
-        padding:0;
+        display: block;
+        height: auto;
+        padding: 0;
     }
+}
+
+.shopping-card {
+    margin-bottom: 0;
 }
 
 .shopping-card .card {
     border-radius: 6px;
+    margin: 0.1rem 0 0.3rem 0;
 }
 
 .inline-block {
     display: inline-block;
+}
+
+.shopping-card label {
+    color: #0f0f0f;
+    font-weight: bold;
+}
+
+.shopping-card .details {
+    color: #555;
+    margin-left: 34px;
+    font-size: 0.8rem;
+}
+
+#addNewShoppingListModal.edit #editShoppingItemBtn,
+#addNewShoppingListModal.edit #deleteShoppingItemBtn {
+    display: inline-block;
+}
+#addNewShoppingListModal.edit #addNewShoppingItemCreateBtn {
+    display: none;
+}
+
+#addNewShoppingListModal.create #editShoppingItemBtn,
+#addNewShoppingListModal.create #deleteShoppingItemBtn {
+    display: none;
+}
+#addNewShoppingListModal.create #addNewShoppingItemCreateBtn {
+    display: inline-block;
+}
+
+#shoppingList .checked {
+    background-color: #673ab7!important;
+    color:#fff;
+}
+
+
+#shoppingList .item-delete, #shoppingList .checked .item-add {
+    display:none;
+    opacity: 0;
+}
+
+#shoppingList .item-delete {
+    font-size: 42px;
+}
+
+#shoppingList .collection-item {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+    position:absolute;
+    left:0;
+    width:100%;
+}
+#shoppingList .item-add, #shoppingList .checked .item-delete {
+    display:block;
+    opacity: 1;
+}
+
+#shoppingList .checked p{
+    color:#fff;
+}
+
+#shoppingList .checked .deep-purple {
+    background-color: #fff!important;
+    color: #673ab7!important;;
+}
+
+.tabs-content {
+    height:600px!important;
+    overflow: visible;
 }

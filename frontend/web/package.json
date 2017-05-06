@@ -19,6 +19,7 @@
     "typescript": "^2.0.9"
   },
   "dependencies": {
-    "@types/es6-promise": "0.0.32"
+    "@types/es6-promise": "0.0.32",
+    "@types/materialize-css": "^0.98.0"
   }
 }

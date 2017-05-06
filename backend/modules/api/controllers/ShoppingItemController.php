@@ -15,6 +15,8 @@ use backend\modules\api\controllers\base\BaseController;
 use backend\modules\api\models\helpers\ErrorResponseBuilder;
 use common\models\ShoppingListItem;
 use common\models\ShoppingItem;
+use yii\web\NotFoundHttpException;
+use yii\web\UnauthorizedHttpException;
 
 class ShoppingItemController extends BaseController
 {
@@ -30,7 +32,13 @@ class ShoppingItemController extends BaseController
                     'modelClass' => $this->modelClass,
                     'checkAccess' => [$this, 'checkAccess'],
                     'scenario' => $this->createScenario,
-                ]
+                ],
+                'update' => [
+                    'class' => 'backend\modules\api\actions\shoppingItem\UpdateAction',
+                    'modelClass' => $this->modelClass,
+                    'checkAccess' => [$this, 'checkAccess'],
+                    'scenario' => $this->updateScenario,
+                ],
             ]
         );
     }
@@ -45,11 +53,11 @@ class ShoppingItemController extends BaseController
         }
 
         if(!$item) {
-            return ErrorResponseBuilder::buildResponse(404, 'Non existing item.');
+            throw new NotFoundHttpException('Non existing item.');
         }
 
         if(!$this->isUserAllowedAccessToComponent($item->groupID)) {
-            return ErrorResponseBuilder::buildResponse(403, 'You can not edit items from other groups.');
+            throw new UnauthorizedHttpException('You can not edit items from other groups.');
         }
 
         $shoppingListID = user()->getShoppingList()->id;

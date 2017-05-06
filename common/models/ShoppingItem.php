@@ -44,7 +44,11 @@ public function behaviors()
                 // One shopping item is attached to only one shopping list for now.
                 // This is reasonable because each group has only one shopping list.
                 return !empty($model->shoppingListItems);
-            }
+            },
+            'isBought' => function(ShoppingItem $model) {
+                return !empty($model->shoppingListItems) ? (bool) $model->shoppingListItems[0]->isChecked : false;
+            },
+            'details'
         ];
     }
 
