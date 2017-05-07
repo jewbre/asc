@@ -1,11 +1,41 @@
-.main-content {
+.main-content-wrapper {
     padding-left: 300px;
 }
 
 @media only screen and (max-width: 992px) {
-    .main-content {
+    .main-content-wrapper {
         padding-left: 0;
     }
+
+    .navbar-fixed nav {
+        z-index: 10;
+    }
+
+    .fixed-scroll {
+        position:fixed;
+        top:56px;
+        left:0;
+        z-index:1;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+
+    .navbar-fixed nav {
+        z-index: 10;
+        width: calc(100% - 300px)!important;
+    }
+
+    .fixed-scroll {
+        position:fixed;
+        top:64px;
+        left:300px;
+        z-index:1;
+    }
+}
+
+.main-content {
+    margin-top: 64px;
 }
 
 .side-nav .userView .dropdown-content, .side-nav .userView .dropdown-content li {
@@ -148,4 +178,152 @@ nav ul li a:hover, nav ul li.active {
     background-color: #673ab7;
     color: #fff;
     text-decoration: none;
+}
+
+.ious-list img.circle {
+    width:50px;
+}
+
+.ious-list li {
+    padding: 10px 5px!important;
+}
+
+.ious-list .surplus img.circle {
+    border:2px solid #4CAF50;
+}
+
+.ious-list .deficit img.circle {
+    border:2px solid #F44336;
+}
+
+.budget {
+    padding: 30px;
+}
+
+.bottom-drawer {
+    position:relative;
+    margin-top:500px;
+    box-shadow: 0 -5px 5px rgba(0,0,0,0.3);
+    background: #fff;
+    border-top: 1px solid rgba(0,0,0, 0.2);
+    z-index:9;
+}
+
+.bill-participants {
+    margin: 10px auto;
+}
+
+.bill-participants img.main {
+    width:50px;
+    border:1px solid white;
+}
+.bill-participants img.first,
+.bill-participants img.second,
+.bill-participants img.third {
+    width:20px;
+    position:absolute;
+    bottom:15px;
+    border:1px solid white;
+    box-shadow: 0 0 2px black;
+}
+
+.bill-participants span.third {
+    display:inline-block;
+    border-radius: 50%;
+    width:20px;
+    height:20px;
+    font-size:0.8rem;
+    padding: 0.15rem;
+    position:absolute;
+    bottom:15px;
+    box-shadow: 0 0 2px black;
+}
+
+.bill-participants img.first {
+    left:20px;
+}
+
+.bill-participants img.second {
+    left:35px;
+    bottom:11px;
+}
+
+.bill-participants img.third, .bill-participants span.third {
+    left:50px;
+}
+
+@media only screen and (min-width: 992px) {
+
+    .bill-participants img.first {
+        left:35px;
+    }
+
+    .bill-participants img.second {
+        left:50px;
+        bottom:11px;
+    }
+
+    .bill-participants img.third, .bill-participants span.third {
+        left:65px;
+    }
+}
+
+.bill-card-title {
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 15px 0 15px 0;
+}
+
+.bill-card {
+    margin: 0 0 5px 0!important;
+}
+
+.bill-card .category {
+    display: block;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin:-15px 0 0px;
+    text-transform: uppercase;
+}
+
+.bill-card .description {
+    display: block;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+
+.bill-card .date {
+    display: block;
+    opacity: 0.8;
+    font-size: 0.8rem;
+    margin:0 0 -15px;
+    text-transform: uppercase;
+}
+
+
+.bill-card .amount {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#addToBudget input[type="number"] {
+    border: none!important;
+    box-shadow: none!important;
+}
+
+#addToBudget .row {
+    font-size: 1.3rem;
+}
+
+#addToBudget .row.valign-wrapper {
+    position:relative;
+}
+
+#addToBudget .notice {
+    text-align: right;
+    position: absolute;
+    bottom: 7px;
+    font-size: 0.9rem;
+    opacity: 0.7;
 }

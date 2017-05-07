@@ -100,6 +100,30 @@ var ApiService = (function () {
             });
         });
     };
+    ApiService.prototype.getMineBudget = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.get(ApiService.BUDGET_MINE)
+                .then(function (budgetApiResponse) {
+                resolve((new BudgetBuilder()).buildFromApiResponse(budgetApiResponse));
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
+    ApiService.prototype.addToBudget = function (amount) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.post(ApiService.BUDGET_ADD, { amount: amount })
+                .then(function (budgetApiResponse) {
+                resolve((new BudgetBuilder()).buildFromApiResponse(budgetApiResponse));
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
     ApiService.prototype.checkShoppingItem = function (id) {
         var _this = this;
         var url = ApiService.CHECK_SHOPPING_ITEM + "?id=" + id;
@@ -190,4 +214,6 @@ ApiService.UPDATE_SHOPPING_ITEM = '/shopping-item/update/';
 ApiService.CHECK_SHOPPING_ITEM = '/shopping-item/check/';
 ApiService.UNCHECK_SHOPPING_ITEM = '/shopping-item/uncheck/';
 ApiService.SHOPPING_CATEGORIES_LIST = '/shopping-category';
+ApiService.BUDGET_MINE = '/budget/mine';
+ApiService.BUDGET_ADD = '/budget/add';
 ApiService.instance = null;

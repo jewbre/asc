@@ -33,5 +33,3 @@ ShoppingListsAssets::register($this);
         <i class="large material-icons">note_add</i>
     </a>
 </div>
-
-<?= $this->render('//shopping/add-new-item-modal')?>

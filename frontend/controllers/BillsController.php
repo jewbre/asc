@@ -7,19 +7,19 @@
 
 namespace frontend\controllers;
 
+use frontend\models\navigation\ViewModelFactory as NavigationViewModelFactory;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
-use frontend\models\navigation\ViewModelFactory as NavigationViewModelFactory;
 
-class ShoppingController extends Controller
+class BillsController extends Controller
 {
     public function init()
     {
         parent::init();
 
-        if(Yii::$app->user->isGuest) {
+        if (Yii::$app->user->isGuest) {
             $this->layout = 'logged-out';
         } else {
             $this->layout = 'main';
@@ -36,15 +36,10 @@ class ShoppingController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only' => ['logout', 'index'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['lists'],
+                        'actions' => ['index', 'logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -59,18 +54,19 @@ class ShoppingController extends Controller
         ];
     }
 
-    public function actionLists()
+    public function actionIndex()
     {
         $this->view->params['actionPartial'] = [
-            'name' => '//shopping/navbar-actions',
+            'name' => '//bills/navbar-actions',
             'data' => []
         ];
 
         $this->view->params['modals'] = [
-            '//shopping/add-new-item-modal',
+            '//bills/create-new-bill',
+            '//bills/add-to-budget-modal',
         ];
 
-        return $this->render('lists');
+        return $this->render('index');
     }
 
 }

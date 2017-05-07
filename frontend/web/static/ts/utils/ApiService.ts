@@ -7,6 +7,10 @@ class ApiService {
     static readonly UNCHECK_SHOPPING_ITEM = '/shopping-item/uncheck/';
     static readonly SHOPPING_CATEGORIES_LIST = '/shopping-category';
 
+    static readonly BUDGET_MINE = '/budget/mine';
+    static readonly BUDGET_ADD = '/budget/add';
+
+
     private static instance: ApiService = null;
 
     private token: string = '';
@@ -114,6 +118,30 @@ class ApiService {
             this.put<ItemApiResponse>(url, {name, category, details})
                 .then((itemApiResponse: ItemApiResponse) => {
                     resolve((new ItemBuilder()).buildFromApiResponse(itemApiResponse));
+                })
+                .catch((error) => {
+                    reject(error);
+                })
+        });
+    }
+
+    public getMineBudget(): Promise<Budget> {
+        return new Promise((resolve, reject) => {
+            this.get<BudgetApiResponse>(ApiService.BUDGET_MINE)
+                .then((budgetApiResponse: BudgetApiResponse) => {
+                    resolve((new BudgetBuilder()).buildFromApiResponse(budgetApiResponse));
+                })
+                .catch((error) => {
+                    reject(error);
+                })
+        });
+    }
+
+    public addToBudget(amount : number): Promise<Budget> {
+        return new Promise((resolve, reject) => {
+            this.post<BudgetApiResponse>(ApiService.BUDGET_ADD, {amount})
+                .then((budgetApiResponse: BudgetApiResponse) => {
+                    resolve((new BudgetBuilder()).buildFromApiResponse(budgetApiResponse));
                 })
                 .catch((error) => {
                     reject(error);

@@ -64,6 +64,14 @@ public function behaviors()
             },
             'group' => function(Bill $model) {
                 return $model->group;
+            },
+            'currency' => function(Bill $model) {
+                return [
+                    'id' => '1',
+                    'name' => 'Hrvatska kuna',
+                    'code' => 'HRK',
+                    'shortcode' => 'kn'
+                ];
             }
         ];
     }

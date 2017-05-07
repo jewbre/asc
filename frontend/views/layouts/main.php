@@ -30,7 +30,7 @@ JSUtilsAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="row main-content">
+<div class="row main-content-wrapper navbar-fixed">
     <nav class="valign-wrapper deep-purple">
         <a href="#" data-activates="mobile-navigation" class="button-collapse"><i class="material-icons">menu</i></a>
         <div class="container center-align">
@@ -43,12 +43,19 @@ JSUtilsAsset::register($this);
                 echo $this->render($partialName, $partialData);
             }
         ?>
-        <a href="#" data-activates="mobile-navigation" class="button-collapse"><i class="material-icons">menu</i></a>
     </nav>
-    <div class="col s12 m12 l12">
+    <div class="col s12 m12 l12 no-padding main-content" style="position: relative">
         <?= $content ?>
     </div>
 </div>
+
+<?php
+    if(isset($this->params['modals']) && !empty($this->params['modals'])) {
+        foreach ($this->params['modals'] as $modalPath) {
+            echo $this->render($modalPath);
+        }
+    }
+?>
 <header>
     <?= $this->render('//layouts/partials/navigation', ['viewModel' => $this->params['navigationViewModel']]) ?>
     <?= $this->render('//layouts/partials/mobile-navigation', ['viewModel' => $this->params['navigationViewModel']]) ?>
