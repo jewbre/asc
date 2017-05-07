@@ -24,5 +24,11 @@ var CategoryBuilder = (function () {
         this.category = tmpCategory;
         return newCategory;
     };
+    CategoryBuilder.prototype.buildApiResponse = function (category) {
+        return {
+            id: category.id,
+            name: category.name,
+        };
+    };
     return CategoryBuilder;
 }());

@@ -44,5 +44,15 @@ var ItemBuilder = (function () {
         this.item = tmpItem;
         return newItem;
     };
+    ItemBuilder.prototype.buildApiResponse = function (item) {
+        return {
+            id: item.id,
+            name: item.name,
+            details: item.details,
+            isChecked: item.isChecked,
+            isBought: item.isBought,
+            category: (new CategoryBuilder).buildApiResponse(item.category)
+        };
+    };
     return ItemBuilder;
 }());

@@ -1,5 +1,6 @@
 class ApiService {
     static readonly SHOPPING_ITEMS_LIST = '/shopping-item';
+    static readonly FINISH_SHOPPING = '/shopping-item/finish-shopping';
     static readonly CREATE_SHOPPING_ITEM = '/shopping-item/create/';
     static readonly UPDATE_SHOPPING_ITEM = '/shopping-item/update/';
     static readonly CHECK_SHOPPING_ITEM = '/shopping-item/check/';
@@ -34,6 +35,27 @@ class ApiService {
                             (new UserBuilder()).buildFromApiResponse(userApiResponse)
                     );
                     resolve(users);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
+    public finishShopping(items: Item[]): Promise<Item[]> {
+        const apiItems: ItemApiResponse[] = items.map((item: Item) => {
+            return (new ItemBuilder()).buildApiResponse(item);
+        });
+
+        return new Promise((resolve, reject) => {
+            this.post<ItemApiResponse[]>(ApiService.FINISH_SHOPPING, {items: apiItems})
+                .then((itemApiResponses: ItemApiResponse[]) => {
+                    const items: Item[] = itemApiResponses.map(
+                        (itemApiResponse: ItemApiResponse) =>
+                            (new ItemBuilder()).buildFromApiResponse(itemApiResponse)
+                    );
+
+                    resolve(items);
                 })
                 .catch(error => {
                     reject(error)
@@ -86,7 +108,7 @@ class ApiService {
         });
     }
 
-    public updateShoppingItem(id : number, name: string, category: string | number, details: string): Promise<Item> {
+    public updateShoppingItem(id: number, name: string, category: string | number, details: string): Promise<Item> {
         const url = `${ApiService.UPDATE_SHOPPING_ITEM}?id=${id}`;
         return new Promise((resolve, reject) => {
             this.put<ItemApiResponse>(url, {name, category, details})
@@ -99,11 +121,11 @@ class ApiService {
         });
     }
 
-    public checkShoppingItem(id : number) {
+    public checkShoppingItem(id: number) {
         const url = `${ApiService.CHECK_SHOPPING_ITEM}?id=${id}`;
         return new Promise((resolve, reject) => {
             this.get<ItemApiResponse>(url)
-                .then((itemApiResponse : ItemApiResponse) => {
+                .then((itemApiResponse: ItemApiResponse) => {
                     resolve((new ItemBuilder()).buildFromApiResponse(itemApiResponse));
                 })
                 .catch((error) => {
@@ -112,11 +134,11 @@ class ApiService {
         });
     }
 
-    public uncheckShoppingItem(id : number) {
+    public uncheckShoppingItem(id: number) {
         const url = `${ApiService.UNCHECK_SHOPPING_ITEM}?id=${id}`;
         return new Promise((resolve, reject) => {
             this.get<ItemApiResponse>(url)
-                .then((itemApiResponse : ItemApiResponse) => {
+                .then((itemApiResponse: ItemApiResponse) => {
                     resolve((new ItemBuilder()).buildFromApiResponse(itemApiResponse));
                 })
                 .catch((error) => {
@@ -153,7 +175,7 @@ class ApiService {
                     'Authorization': `Bearer ${this.token}`
                 },
                 data: data,
-                contentType:"application/x-www-form-urlencoded",
+                contentType: "application/x-www-form-urlencoded",
             }).done((data: T) => {
                 resolve(data);
             }).fail((error) => {
@@ -172,7 +194,7 @@ class ApiService {
                     'Authorization': `Bearer ${this.token}`
                 },
                 data: data,
-                contentType:"application/x-www-form-urlencoded",
+                contentType: "application/x-www-form-urlencoded",
             }).done((data: T) => {
                 resolve(data);
             }).fail((error) => {

@@ -31,11 +31,18 @@ JSUtilsAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="row main-content">
-    <nav class="valign-wrapper">
+    <nav class="valign-wrapper deep-purple">
         <a href="#" data-activates="mobile-navigation" class="button-collapse"><i class="material-icons">menu</i></a>
         <div class="container center-align">
-            <h5>Roomeo</h5>
+            <h5>Roomero</h5>
         </div>
+        <?php
+            if(isset($this->params['actionPartial'])) {
+                $partialName = $this->params['actionPartial']['name'];
+                $partialData = $this->params['actionPartial']['data'];
+                echo $this->render($partialName, $partialData);
+            }
+        ?>
         <a href="#" data-activates="mobile-navigation" class="button-collapse"><i class="material-icons">menu</i></a>
     </nav>
     <div class="col s12 m12 l12">

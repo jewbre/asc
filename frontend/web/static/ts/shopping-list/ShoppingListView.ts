@@ -39,12 +39,15 @@ class ShoppingListView {
         });
 
         $('#goToShopping').on('click', () => {
-            this.renderShoppingList();
-            $('ul.tabs').tabs('select_tab', 'tab2');
+            this.showShoppingScreen();
         });
 
         $('#goToCreation').on('click', () => {
-            $('ul.tabs').tabs('select_tab', 'tab1');
+            this.showAddingScreen();
+        });
+
+        $('#finishShopping').on('click', () => {
+            this.finishShopping();
         });
 
         $('ul.tabs').tabs({
@@ -78,10 +81,29 @@ class ShoppingListView {
         })
     }
 
+    public showAddingScreen() {
+        $('ul.tabs').tabs('select_tab', 'tab1');
+        $('#shoppingListDropdown').removeClass('shopping');
+    }
+
+    public showShoppingScreen() {
+        this.renderShoppingList();
+        $('ul.tabs').tabs('select_tab', 'tab2');
+        $('#shoppingListDropdown').addClass('shopping');
+    }
+
+    public finishShopping() {
+        this.presenter.finishShopping(this.items);
+    }
 
 
-    public renderShoppingList() {
+    private getShoppingItems() : Item[] {
         const items : Item[] = this.items.filter((item : Item) => item.isChecked);
+        this.sortShoppingItems(items);
+        return items;
+    }
+
+    private sortShoppingItems(items : Item[]) {
         items.sort((a : Item,b : Item) =>{
             if(a.isBought == b.isBought) {
                 return a.name < b.name ? 1 : -1;
@@ -89,6 +111,10 @@ class ShoppingListView {
 
             return a.isBought ? 1 : -1;
         });
+    }
+
+    public renderShoppingList() {
+        const items = this.getShoppingItems();
 
         const shoppingListHolder = $('#shoppingListHolder');
         shoppingListHolder.html('');
@@ -114,13 +140,7 @@ class ShoppingListView {
     }
 
     private resortItems(items : Item[]) : void {
-        items.sort((a : Item,b : Item) =>{
-            if(a.isBought == b.isBought) {
-                return a.name < b.name ? 1 : -1;
-            }
-            return a.isBought ? 1 : -1;
-        });
-
+        this.sortShoppingItems(items);
         let counter = 0;
         for(const item of items) {
             const shoppingItem = $(`#shopping-item-${item.id}`);

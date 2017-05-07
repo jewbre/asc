@@ -36,4 +36,14 @@ class UserController extends BaseController
 
         return $users;
     }
+
+    public function actionMe()
+    {
+        $me = \user();
+        return [
+            'id' => $me->id,
+            'username' => $me->username,
+            'avatar' => $me->getAvatar(),
+        ];
+    }
 }

@@ -12,13 +12,10 @@ namespace backend\modules\api\controllers;
  * This is the class for REST controller "GroupController".
  */
 use backend\modules\api\controllers\base\BaseController;
-use backend\modules\api\models\helpers\ErrorResponseBuilder;
-use common\models\ShoppingListItem;
-use common\models\ShoppingItem;
 
 class ShoppingCategoryController extends BaseController
 {
-	public $modelClass = 'common\models\ShoppingCategory';
+    public $modelClass = 'common\models\ShoppingCategory';
 
     public function actions()
     {

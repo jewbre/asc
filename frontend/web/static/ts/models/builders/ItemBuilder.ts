@@ -57,4 +57,15 @@ class ItemBuilder {
 
         return newItem;
     }
+
+    public buildApiResponse(item : Item) : ItemApiResponse {
+        return {
+            id : item.id,
+            name : item.name,
+            details : item.details,
+            isChecked : item.isChecked,
+            isBought : item.isBought,
+            category : (new CategoryBuilder).buildApiResponse(item.category)
+        }
+    }
 }

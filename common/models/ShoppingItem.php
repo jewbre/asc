@@ -48,7 +48,8 @@ public function behaviors()
             'isBought' => function(ShoppingItem $model) {
                 return !empty($model->shoppingListItems) ? (bool) $model->shoppingListItems[0]->isChecked : false;
             },
-            'details'
+            'details',
+            'lastBought'
         ];
     }
 

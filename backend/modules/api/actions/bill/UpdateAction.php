@@ -5,11 +5,12 @@
  * Time: 23:06
  */
 
-namespace backend\modules\api\actions\shoppingItem;
+namespace backend\modules\api\actions\bill;
 
+use common\models\Bill;
+use common\models\BillCategory;
+use common\models\BillParticipants;
 use common\models\Group;
-use common\models\ShoppingCategory;
-use common\models\ShoppingItem;
 use common\models\User;
 use yii\rest\UpdateAction as BaseUpdateAction;
 use yii\web\NotFoundHttpException;
@@ -19,54 +20,70 @@ class UpdateAction extends BaseUpdateAction
 {
     public function run($id)
     {
-        $model = ShoppingItem::findOne(['id' => $id]);
-        if(!$model) {
+        $model = Bill::findOne(['id' => $id]);
+        if (!$model) {
             throw new NotFoundHttpException('Non existing item.');
         }
 
         /** @var User $user */
-        $user = \Yii::$app->getUser()->getIdentity();
         $groupID = $model->groupID;
-        $isAllowedAccess = $user && array_reduce($user->groups, function($acc, Group $group) use ($groupID) {
+        $user = \Yii::$app->getUser()->getIdentity();
+        $isAllowedAccess = $user && array_reduce($user->groups, function ($acc, Group $group) use ($groupID) {
                 return $acc || $groupID == $group->id;
             }, false);
 
-        if(!$isAllowedAccess) {
+        if (!$isAllowedAccess) {
             throw new UnauthorizedHttpException("You are not authorized to edit other people's items.");
         }
 
-        $groupID = user()->selectedGroupID;
         $category = \Yii::$app->getRequest()->post('category', null);
         if (!is_numeric($category)) {
             $name = trim($category);
 
-            $shoppingCategory = ShoppingCategory::findOne([
+            $billCategory = BillCategory::findOne([
                 'name' => $name,
                 'groupID' => $groupID
             ]);
 
-            if (!$shoppingCategory) {
-                $shoppingCategory = new ShoppingCategory();
-                $shoppingCategory->setAttributes([
+            if (!$billCategory) {
+                $billCategory = new BillCategory();
+                $billCategory->setAttributes([
                     'name' => $name,
                     'groupID' => $groupID
                 ]);
-                $shoppingCategory->save();
+                $billCategory->save();
             }
         } else {
-            $shoppingCategory = ShoppingCategory::findOne([
+            $billCategory = BillCategory::findOne([
                 'id' => $category
             ]);
         }
 
         $request = \Yii::$app->getRequest();
         $bodyParams = $request->bodyParams;
+
+        $participants = $bodyParams['participants'];
+
         unset($bodyParams['category']);
-        $bodyParams['shoppingCategoryID'] = $shoppingCategory->id;
+        $bodyParams['payerID'] = user()->id;
+        $bodyParams['billCategoryID'] = $billCategory->id;
         $bodyParams['groupID'] = $groupID;
         $request->bodyParams = $bodyParams;
 
-        return parent::run($id);
+        /** @var Bill $model */
+        $model = parent::run($id);
+
+        BillParticipants::deleteAll(['billID' => $model->id]);
+        foreach ($participants as $participant) {
+            $p = new BillParticipants();
+            $p->setAttributes([
+                'billID' => $model->id,
+                'participantID' => $participant
+            ]);
+            $p->save();
+        }
+
+        return $model;
     }
 
 

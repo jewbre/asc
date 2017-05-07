@@ -61,6 +61,11 @@ class ShoppingController extends Controller
 
     public function actionLists()
     {
+        $this->view->params['actionPartial'] = [
+            'name' => '//shopping/navbar-actions',
+            'data' => []
+        ];
+
         return $this->render('lists');
     }
 

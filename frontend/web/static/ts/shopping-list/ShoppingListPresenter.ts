@@ -15,6 +15,15 @@ class ShoppingListPresenter {
 
     }
 
+    public finishShopping(items : Item[]) {
+        ApiService.getInstance()
+            .finishShopping(items)
+            .then((items : Item[]) => {
+                this.view.setItems(items);
+                this.view.showAddingScreen();
+            })
+    }
+
     public createNewShoppingItem(name : string, category : string|number, reminder : string) {
         ApiService.getInstance()
             .createNewShoppingItem(name, category, reminder)

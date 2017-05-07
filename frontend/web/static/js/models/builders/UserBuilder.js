@@ -34,5 +34,13 @@ var UserBuilder = (function () {
         this.user = tmpUser;
         return newUser;
     };
+    UserBuilder.prototype.buildApiResponse = function (user) {
+        return {
+            id: user.id,
+            username: user.username,
+            email: user.email,
+            avatar: user.avatar,
+        };
+    };
     return UserBuilder;
 }());

@@ -124,3 +124,28 @@
     height:600px!important;
     overflow: visible;
 }
+
+
+[type="checkbox"].filled-in:checked + label:after {
+    background-color: #673ab7!important;
+    border-color: #673ab7!important;
+}
+
+#shoppingListDropdown li.shopping-action, #shoppingListDropdown.shopping li.non-shopping-action {
+    display: none;
+}
+
+#shoppingListDropdown.shopping li.shopping-action, #shoppingListDropdown li.non-shopping-action {
+    display: list-item;
+}
+
+.dropdown-button-navbar {
+    margin: 5px 10px -5px;
+    padding-bottom: 10px;
+}
+
+nav ul li a:hover, nav ul li.active {
+    background-color: #673ab7;
+    color: #fff;
+    text-decoration: none;
+}

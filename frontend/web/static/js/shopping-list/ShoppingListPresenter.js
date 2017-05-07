@@ -11,6 +11,15 @@ var ShoppingListPresenter = (function () {
             _this.view.setCategories(categories);
         });
     }
+    ShoppingListPresenter.prototype.finishShopping = function (items) {
+        var _this = this;
+        ApiService.getInstance()
+            .finishShopping(items)
+            .then(function (items) {
+            _this.view.setItems(items);
+            _this.view.showAddingScreen();
+        });
+    };
     ShoppingListPresenter.prototype.createNewShoppingItem = function (name, category, reminder) {
         var _this = this;
         ApiService.getInstance()

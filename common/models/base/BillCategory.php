@@ -8,23 +8,18 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 
 /**
- * This is the base-model class for table "shoppingItem".
+ * This is the base-model class for table "billCategory".
  *
  * @property integer $id
  * @property string $name
- * @property integer $shoppingCategoryID
  * @property integer $groupID
  * @property integer $created_at
  * @property integer $updated_at
- * @property string $details
- * @property integer $lastBought
  *
- * @property \common\models\ShoppingCategory $shoppingCategory
- * @property \common\models\Group $group
- * @property \common\models\ShoppingListItem[] $shoppingListItems
+ * @property \common\models\Bill[] $bills
  * @property string $aliasModel
  */
-abstract class ShoppingItem extends \yii\db\ActiveRecord
+abstract class BillCategory extends \yii\db\ActiveRecord
 {
 
 
@@ -34,7 +29,7 @@ abstract class ShoppingItem extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'shoppingItem';
+        return 'billCategory';
     }
 
 
@@ -56,12 +51,9 @@ abstract class ShoppingItem extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'shoppingCategoryID', 'groupID'], 'required'],
-            [['shoppingCategoryID', 'groupID'], 'integer'],
+            [['name'], 'required'],
+            [['groupID'], 'integer'],
             [['name'], 'string', 'max' => 255],
-            [['details'], 'string', 'max' => 255],
-            [['lastBought'], 'safe'],
-            [['shoppingCategoryID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\ShoppingCategory::className(), 'targetAttribute' => ['shoppingCategoryID' => 'id']],
             [['groupID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\Group::className(), 'targetAttribute' => ['groupID' => 'id']]
         ];
     }
@@ -74,21 +66,10 @@ abstract class ShoppingItem extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'shoppingCategoryID' => 'Shopping Category ID',
-            'groupID' => 'Group ID',
+            'groupID' => 'Group',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'details' => 'Details',
-            'lastBought' => 'Last bought',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getShoppingCategory()
-    {
-        return $this->hasOne(\common\models\ShoppingCategory::className(), ['id' => 'shoppingCategoryID']);
     }
 
     /**
@@ -102,9 +83,9 @@ abstract class ShoppingItem extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getShoppingListItems()
+    public function getBills()
     {
-        return $this->hasMany(\common\models\ShoppingListItem::className(), ['shoppingItemID' => 'id']);
+        return $this->hasMany(\common\models\Bill::className(), ['categoryID' => 'id']);
     }
 
 

@@ -28,11 +28,13 @@ var ShoppingListView = (function () {
             _this.renderShoppingList();
         });
         $('#goToShopping').on('click', function () {
-            _this.renderShoppingList();
-            $('ul.tabs').tabs('select_tab', 'tab2');
+            _this.showShoppingScreen();
         });
         $('#goToCreation').on('click', function () {
-            $('ul.tabs').tabs('select_tab', 'tab1');
+            _this.showAddingScreen();
+        });
+        $('#finishShopping').on('click', function () {
+            _this.finishShopping();
         });
         $('ul.tabs').tabs({
             swipeable: true
@@ -58,15 +60,34 @@ var ShoppingListView = (function () {
             $('#categoryNameInput').hide();
         });
     };
-    ShoppingListView.prototype.renderShoppingList = function () {
-        var _this = this;
+    ShoppingListView.prototype.showAddingScreen = function () {
+        $('ul.tabs').tabs('select_tab', 'tab1');
+        $('#shoppingListDropdown').removeClass('shopping');
+    };
+    ShoppingListView.prototype.showShoppingScreen = function () {
+        this.renderShoppingList();
+        $('ul.tabs').tabs('select_tab', 'tab2');
+        $('#shoppingListDropdown').addClass('shopping');
+    };
+    ShoppingListView.prototype.finishShopping = function () {
+        this.presenter.finishShopping(this.items);
+    };
+    ShoppingListView.prototype.getShoppingItems = function () {
         var items = this.items.filter(function (item) { return item.isChecked; });
+        this.sortShoppingItems(items);
+        return items;
+    };
+    ShoppingListView.prototype.sortShoppingItems = function (items) {
         items.sort(function (a, b) {
             if (a.isBought == b.isBought) {
                 return a.name < b.name ? 1 : -1;
             }
             return a.isBought ? 1 : -1;
         });
+    };
+    ShoppingListView.prototype.renderShoppingList = function () {
+        var _this = this;
+        var items = this.getShoppingItems();
         var shoppingListHolder = $('#shoppingListHolder');
         shoppingListHolder.html('');
         var renderer = new Renderer();
@@ -94,12 +115,7 @@ var ShoppingListView = (function () {
         shoppingListHolder.css('height', counter++ * ShoppingListView.SELECT_ITEM_BOX_HEIGHT + "px");
     };
     ShoppingListView.prototype.resortItems = function (items) {
-        items.sort(function (a, b) {
-            if (a.isBought == b.isBought) {
-                return a.name < b.name ? 1 : -1;
-            }
-            return a.isBought ? 1 : -1;
-        });
+        this.sortShoppingItems(items);
         var counter = 0;
         for (var _i = 0, items_2 = items; _i < items_2.length; _i++) {
             var item = items_2[_i];

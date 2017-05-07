@@ -13,12 +13,17 @@ namespace backend\modules\api\controllers;
  */
 use backend\modules\api\controllers\base\BaseController;
 
-class GroupController extends BaseController
+class BillCategoryController extends BaseController
 {
-    public $modelClass = 'common\models\Group';
+    public $modelClass = 'common\models\BillCategory';
 
-    public function actionMembers()
+    public function actions()
     {
-        return user()->selectedGroup->groupMembers;
+        $actions = parent::actions();
+
+        unset($actions['create']);
+        unset($actions['update']);
+
+        return $actions;
     }
 }

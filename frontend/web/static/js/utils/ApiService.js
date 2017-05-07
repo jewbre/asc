@@ -27,6 +27,24 @@ var ApiService = (function () {
             });
         });
     };
+    ApiService.prototype.finishShopping = function (items) {
+        var _this = this;
+        var apiItems = items.map(function (item) {
+            return (new ItemBuilder()).buildApiResponse(item);
+        });
+        return new Promise(function (resolve, reject) {
+            _this.post(ApiService.FINISH_SHOPPING, { items: apiItems })
+                .then(function (itemApiResponses) {
+                var items = itemApiResponses.map(function (itemApiResponse) {
+                    return (new ItemBuilder()).buildFromApiResponse(itemApiResponse);
+                });
+                resolve(items);
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
     ApiService.prototype.getShoppingListItems = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
@@ -166,6 +184,7 @@ var ApiService = (function () {
     return ApiService;
 }());
 ApiService.SHOPPING_ITEMS_LIST = '/shopping-item';
+ApiService.FINISH_SHOPPING = '/shopping-item/finish-shopping';
 ApiService.CREATE_SHOPPING_ITEM = '/shopping-item/create/';
 ApiService.UPDATE_SHOPPING_ITEM = '/shopping-item/update/';
 ApiService.CHECK_SHOPPING_ITEM = '/shopping-item/check/';

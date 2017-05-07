@@ -21,6 +21,7 @@ use yii\web\IdentityInterface;
  * @property integer $updated_at
  * @property integer $selectedGroupID
  * @property string $password write-only password
+ * @property \common\models\Group $selectedGroup
  */
 class User extends ActiveRecord implements IdentityInterface
 {

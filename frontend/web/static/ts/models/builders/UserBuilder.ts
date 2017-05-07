@@ -45,4 +45,13 @@ class UserBuilder {
 
         return newUser;
     }
+
+    public buildApiResponse(user : User) : UserApiResponse{
+        return {
+            id : user.id,
+            username : user.username,
+            email : user.email,
+            avatar : user.avatar,
+        }
+    }
 }

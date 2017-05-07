@@ -33,4 +33,11 @@ class CategoryBuilder {
 
         return newCategory;
     }
+
+    public buildApiResponse(category : Category) : CategoryApiResponse {
+        return {
+            id : category.id,
+            name : category.name,
+        }
+    }
 }
