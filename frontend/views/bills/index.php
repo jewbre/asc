@@ -41,62 +41,8 @@ BillsAssets::register($this);
     </div>
 </div>
 <div class="bottom-drawer">
-    <div class="row">
-        <?php
-        $items = ['May 2017' => 3, 'April 2017' => 2, 'March 2017' => 5];
-        foreach ($items as $key => $repeat) {
-            ?>
-            <ul class="col s12">
-                <p class="bill-card-title"><?= $key ?></p>
-                <?php
-                for ($i = 0; $i < $repeat; $i++) {
-                    $rand = random_int(1, 5);
-                    ?>
-                    <li class="card col s12 l6 row valign-wrapper bill-card">
-                        <div class="col s3 l3 bill-participants">
-                            <img class="circle main"
-                                 src="https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344"/>
-                            <img class="circle first"
-                                 src="https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344"/>
-                            <?php if ($rand > 1) { ?>
-                                <?php if ($rand > 2) { ?>
-                                    <img class="circle second"
-                                         src="https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344"/>
-                                <?php } ?>
-
-                                <?php if ($rand == 2) { ?>
-                                    <img class="circle third"
-                                         src="https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344"/>
-                                <?php } elseif ($rand == 3) { ?>
-                                    <img class="circle third"
-                                         src="https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344"/>
-                                <?php } elseif ($rand > 3) { ?>
-                                    <span class="deep-purple white-text third">
-                                    +<?= $rand - 3 ?>
-                                </span>
-                                <?php } ?>
-
-                            <?php } ?>
-
-
-                        </div>
-                        <div class="col s5 l5">
-                            <span class="category deep-purple-text">Hrana</span>
-                            <span class="description">Vilim</span>
-                            <span class="date">20.03.2017.</span>
-                        </div>
-                        <div class="col s4 l3">
-                            <span class="amount">4333.20 kn</span>
-                        </div>
-                    </li>
-                    <?php
-                }
-                ?>
-            </ul>
-
-            <?php
-        }
-        ?>
+    <div class="row" id="billsHolder">
+<!--        Bills are comming from api-->
     </div>
 
 </div>

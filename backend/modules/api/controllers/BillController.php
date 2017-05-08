@@ -15,7 +15,7 @@ use backend\modules\api\controllers\base\BaseController;
 
 class BillController extends BaseController
 {
-    public $modelClass = 'common\models\ShoppingItem';
+    public $modelClass = 'common\models\Bill';
 
     public function actions()
     {

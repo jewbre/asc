@@ -20,7 +20,11 @@ class BillsAssets extends AssetBundle
         'static/js/models/Group.js',
         'static/js/models/User.js',
         'static/js/models/Category.js',
+        'static/js/models/Bill.js',
+        'static/js/models/BillCategory.js',
 
+        'static/js/models/builders/BillCategoryBuilder.js',
+        'static/js/models/builders/BillBuilder.js',
         'static/js/models/builders/UserBuilder.js',
         'static/js/models/builders/BudgetBuilder.js',
         'static/js/models/builders/GroupBuilder.js',
@@ -29,6 +33,7 @@ class BillsAssets extends AssetBundle
 
         'static/js/budget/BillsPresenterImpl.js',
         'static/js/budget/BudgetView.js',
+        'static/js/bills/BillView.js',
         'js/billsInit.js'
     ];
 

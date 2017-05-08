@@ -35,7 +35,7 @@ public function behaviors()
 
     public function fields()
     {
-        $user = $this->user;
+        $user = $this->participant;
         return [
             'id' => function ($model) use ($user) {
                 return $user->id;

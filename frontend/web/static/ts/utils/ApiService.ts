@@ -10,6 +10,14 @@ class ApiService {
     static readonly BUDGET_MINE = '/budget/mine';
     static readonly BUDGET_ADD = '/budget/add';
 
+    static readonly GET_BILLS = '/bill';
+    static readonly BILL_CATEGORIES_LIST = '/bill-category';
+    static readonly CREATE_NEW_BILL = '/bill/create';
+    static readonly UPDATE_BILL = '/bill/update';
+
+    static readonly GROUP_MEMBER_LIST = '/group/members';
+
+    static readonly ME = '/user/me';
 
     private static instance: ApiService = null;
 
@@ -67,6 +75,39 @@ class ApiService {
         });
     }
 
+    public createNewBill(category : number|string, amount : number, description : string,
+                          date : string, payer : number, participants : number[]): Promise<Bill> {
+        return new Promise((resolve, reject) => {
+            this.post<BillApiResponse>(ApiService.CREATE_NEW_BILL, {
+                category, amount, description, date, payer, participants
+            })
+                .then((billApiResponse: BillApiResponse) => {
+                    const bill: Bill = (new BillBuilder()).buildFromApiResponse(billApiResponse);
+                    resolve(bill);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
+    public updateBill(id : number, category : number|string, amount : number, description : string,
+                          date : string, payer : number, participants : number[]): Promise<Bill> {
+        return new Promise((resolve, reject) => {
+            const finalPath = `${ApiService.UPDATE_BILL}?id=${id}`;
+            this.put<BillApiResponse>(finalPath, {
+                category, amount, description, date, payer, participants
+            })
+                .then((billApiResponse: BillApiResponse) => {
+                    const bill: Bill = (new BillBuilder()).buildFromApiResponse(billApiResponse);
+                    resolve(bill);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
     public getShoppingListItems(): Promise<Item[]> {
         return new Promise((resolve, reject) => {
             this.get<ItemApiResponse[]>(ApiService.SHOPPING_ITEMS_LIST)
@@ -84,10 +125,71 @@ class ApiService {
         });
     }
 
+    public getBills(): Promise<Bill[]> {
+        return new Promise((resolve, reject) => {
+            this.get<BillApiResponse[]>(ApiService.GET_BILLS)
+                .then((billApiResponses: BillApiResponse[]) => {
+                    const bills: Bill[] = billApiResponses.map(
+                        (billApiResponse: BillApiResponse) =>
+                            (new BillBuilder()).buildFromApiResponse(billApiResponse)
+                    );
+                    resolve(bills);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
+    public getBillCategories(): Promise<BillCategory[]> {
+        return new Promise((resolve, reject) => {
+            this.get<BillCategoryApiResponse[]>(ApiService.BILL_CATEGORIES_LIST)
+                .then((categoryApiResponses: BillCategoryApiResponse[]) => {
+                    const categories: BillCategory[] = categoryApiResponses.map(
+                        (categoryApiResponse: BillCategoryApiResponse) =>
+                            (new BillCategoryBuilder()).buildFromApiResponse(categoryApiResponse)
+                    );
+                    resolve(categories);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
+    public getMe(): Promise<User> {
+        return new Promise((resolve, reject) => {
+            this.get<UserApiResponse>(ApiService.ME)
+                .then((userApiResponse: UserApiResponse) => {
+                    const user: User = (new UserBuilder()).buildFromApiResponse(userApiResponse);
+                    resolve(user);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
+    public getGroupMembers(): Promise<User[]> {
+        return new Promise((resolve, reject) => {
+            this.get<UserApiResponse[]>(ApiService.GROUP_MEMBER_LIST)
+                .then((userApiResponse: UserApiResponse[]) => {
+                    const users: User[] = userApiResponse.map(
+                        (userApiResponse: UserApiResponse) =>
+                            (new UserBuilder()).buildFromApiResponse(userApiResponse)
+                    );
+                    resolve(users);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
     public getShoppingCategories(): Promise<Category[]> {
         return new Promise((resolve, reject) => {
             this.get<CategoryApiResponse[]>(ApiService.SHOPPING_CATEGORIES_LIST)
-                .then((categoryApiResponses: ItemApiResponse[]) => {
+                .then((categoryApiResponses: CategoryApiResponse[]) => {
                     const categories: Category[] = categoryApiResponses.map(
                         (categoryApiResponse: CategoryApiResponse) =>
                             (new CategoryBuilder()).buildFromApiResponse(categoryApiResponse)

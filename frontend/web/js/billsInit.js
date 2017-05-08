@@ -1,5 +1,9 @@
 (function($){
     $(function(){
+        $('select').material_select();
+
+        $('.datepicker').pickadate();
+
         $('.modal').modal();
 
         $('.dropdown-button-navbar').dropdown({
@@ -14,10 +18,15 @@
             }
         );
 
-        const presenter = new BillsPresenterImpl();
+        var presenter = new BillsPresenterImpl();
         var budgetView = new BudgetView(
             presenter
         );
+
+        var billsView = new BillView(
+            presenter
+        );
+
 
     }); // end of document ready
 })(jQuery); // end of jQuery name space

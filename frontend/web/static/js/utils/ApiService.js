@@ -45,6 +45,37 @@ var ApiService = (function () {
             });
         });
     };
+    ApiService.prototype.createNewBill = function (category, amount, description, date, payer, participants) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.post(ApiService.CREATE_NEW_BILL, {
+                category: category, amount: amount, description: description, date: date, payer: payer, participants: participants
+            })
+                .then(function (billApiResponse) {
+                var bill = (new BillBuilder()).buildFromApiResponse(billApiResponse);
+                resolve(bill);
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
+    ApiService.prototype.updateBill = function (id, category, amount, description, date, payer, participants) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var finalPath = ApiService.UPDATE_BILL + "?id=" + id;
+            _this.put(finalPath, {
+                category: category, amount: amount, description: description, date: date, payer: payer, participants: participants
+            })
+                .then(function (billApiResponse) {
+                var bill = (new BillBuilder()).buildFromApiResponse(billApiResponse);
+                resolve(bill);
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
     ApiService.prototype.getShoppingListItems = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
@@ -54,6 +85,64 @@ var ApiService = (function () {
                     return (new ItemBuilder()).buildFromApiResponse(itemApiResponse);
                 });
                 resolve(items);
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
+    ApiService.prototype.getBills = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.get(ApiService.GET_BILLS)
+                .then(function (billApiResponses) {
+                var bills = billApiResponses.map(function (billApiResponse) {
+                    return (new BillBuilder()).buildFromApiResponse(billApiResponse);
+                });
+                resolve(bills);
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
+    ApiService.prototype.getBillCategories = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.get(ApiService.BILL_CATEGORIES_LIST)
+                .then(function (categoryApiResponses) {
+                var categories = categoryApiResponses.map(function (categoryApiResponse) {
+                    return (new BillCategoryBuilder()).buildFromApiResponse(categoryApiResponse);
+                });
+                resolve(categories);
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
+    ApiService.prototype.getMe = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.get(ApiService.ME)
+                .then(function (userApiResponse) {
+                var user = (new UserBuilder()).buildFromApiResponse(userApiResponse);
+                resolve(user);
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
+    ApiService.prototype.getGroupMembers = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.get(ApiService.GROUP_MEMBER_LIST)
+                .then(function (userApiResponse) {
+                var users = userApiResponse.map(function (userApiResponse) {
+                    return (new UserBuilder()).buildFromApiResponse(userApiResponse);
+                });
+                resolve(users);
             })
                 .catch(function (error) {
                 reject(error);
@@ -216,4 +305,10 @@ ApiService.UNCHECK_SHOPPING_ITEM = '/shopping-item/uncheck/';
 ApiService.SHOPPING_CATEGORIES_LIST = '/shopping-category';
 ApiService.BUDGET_MINE = '/budget/mine';
 ApiService.BUDGET_ADD = '/budget/add';
+ApiService.GET_BILLS = '/bill';
+ApiService.BILL_CATEGORIES_LIST = '/bill-category';
+ApiService.CREATE_NEW_BILL = '/bill/create';
+ApiService.UPDATE_BILL = '/bill/update';
+ApiService.GROUP_MEMBER_LIST = '/group/members';
+ApiService.ME = '/user/me';
 ApiService.instance = null;

@@ -12,7 +12,7 @@
         </a>
     </li>
     <li>
-        <a href="#" id="goToCreation">
+        <a href="#createNewExpense" class="modal-trigger" id="createNewExpenseNavbar">
             <i class="material-icons">note_add</i>
             Create new expense
         </a>

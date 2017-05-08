@@ -81,5 +81,15 @@ var Bill = (function () {
         enumerable: true,
         configurable: true
     });
+    Bill.prototype.getFormatedDate = function () {
+        var d = new Date(this.date);
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        return months[d.getMonth()] + " " + d.getFullYear();
+    };
+    Bill.prototype.getSelectFormatedDate = function () {
+        var d = new Date(this.date);
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        return d.getDate() + " " + months[d.getMonth()] + ", " + d.getFullYear();
+    };
     return Bill;
 }());

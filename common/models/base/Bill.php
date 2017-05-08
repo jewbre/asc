@@ -47,6 +47,7 @@ abstract class Bill extends \yii\db\ActiveRecord
         return [
             [
                 'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'updated_at',
             ],
         ];
     }
@@ -61,6 +62,7 @@ abstract class Bill extends \yii\db\ActiveRecord
             [['description', 'categoryID', 'payerID', 'groupID'], 'required'],
             [['categoryID', 'payerID', 'groupID'], 'integer'],
             [['description'], 'string', 'max' => 255],
+            [['created_at'], 'integer'],
             [['categoryID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\BillCategory::className(), 'targetAttribute' => ['categoryID' => 'id']],
             [['groupID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\User::className(), 'targetAttribute' => ['groupID' => 'id']],
             [['payerID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\User::className(), 'targetAttribute' => ['payerID' => 'id']]

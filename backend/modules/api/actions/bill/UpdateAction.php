@@ -63,11 +63,18 @@ class UpdateAction extends BaseUpdateAction
         $bodyParams = $request->bodyParams;
 
         $participants = $bodyParams['participants'];
+        $date = new \DateTime($bodyParams['date']);
+
+        $payer = User::findOne(['id' => $bodyParams['payer']]);
+        if(!$payer) {
+//            throw new InvalidArgumentException
+        }
 
         unset($bodyParams['category']);
         $bodyParams['payerID'] = user()->id;
-        $bodyParams['billCategoryID'] = $billCategory->id;
+        $bodyParams['categoryID'] = $billCategory->id;
         $bodyParams['groupID'] = $groupID;
+        $bodyParams['created_at'] = $date->getTimestamp();
         $request->bodyParams = $bodyParams;
 
         /** @var Bill $model */

@@ -327,3 +327,30 @@ nav ul li a:hover, nav ul li.active {
     font-size: 0.9rem;
     opacity: 0.7;
 }
+
+
+.bill-currency-code-holder {
+    margin-top: 27px;
+}
+
+#createNewExpense .row {
+    margin-bottom:0px;
+}
+
+#createNewExpense.adding .create-title,
+#createNewExpense .update-title,
+#createNewExpense #updateBillBtn,
+#createNewExpense #deleteBillBtn,
+#createNewExpense.adding #createBillBtn
+{
+    display:block;
+}
+
+#createNewExpense .create-title,
+#createNewExpense.adding .update-title,
+#createNewExpense.adding #updateBillBtn,
+#createNewExpense.adding #deleteBillBtn,
+#createNewExpense #createBillBtn
+{
+    display:none;
+}

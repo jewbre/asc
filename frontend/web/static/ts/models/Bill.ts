@@ -72,4 +72,16 @@ class Bill {
     set participants(value: User[]) {
         this._participants = value;
     }
+
+    public getFormatedDate() : string {
+        const d = new Date(this.date);
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        return `${months[d.getMonth()]} ${d.getFullYear()}`;
+    }
+
+    public getSelectFormatedDate() : string {
+        const d = new Date(this.date);
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        return `${d.getDate()} ${months[d.getMonth()]}, ${d.getFullYear()}`;
+    }
 }

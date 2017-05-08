@@ -10,6 +10,7 @@ namespace backend\modules\api\actions\bill;
 use common\models\Bill;
 use common\models\BillCategory;
 use common\models\BillParticipants;
+use common\models\User;
 use yii\rest\CreateAction as BaseCreateAction;
 
 class CreateAction extends BaseCreateAction
@@ -17,6 +18,8 @@ class CreateAction extends BaseCreateAction
     public function run()
     {
         $groupID = user()->selectedGroupID;
+
+
         $category = \Yii::$app->getRequest()->post('category', null);
         if (!is_numeric($category)) {
             $name = trim($category);
@@ -45,10 +48,18 @@ class CreateAction extends BaseCreateAction
 
         $participants = $bodyParams['participants'];
 
+        $date = new \DateTime($bodyParams['date']);
+
+        $payer = User::findOne(['id' => $bodyParams['payer']]);
+        if(!$payer) {
+//            throw new InvalidArgumentException
+        }
+
         unset($bodyParams['category']);
         $bodyParams['payerID'] = user()->id;
-        $bodyParams['billCategoryID'] = $billCategory->id;
+        $bodyParams['categoryID'] = $billCategory->id;
         $bodyParams['groupID'] = $groupID;
+        $bodyParams['created_at'] = $date->getTimestamp();
         $request->bodyParams = $bodyParams;
 
         /** @var Bill $model */
