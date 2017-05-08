@@ -5,7 +5,7 @@ class BudgetView {
 
     constructor(presenter: BudgetPresenter) {
         this.presenter = presenter;
-        this.presenter.setView(this);
+        this.presenter.setBudgetView(this);
 
         this.initListeners();
         this.presenter.updateBudget();

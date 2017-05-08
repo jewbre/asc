@@ -14,8 +14,9 @@
             }
         );
 
+        const presenter = new BillsPresenterImpl();
         var budgetView = new BudgetView(
-            new BudgetPresenter()
+            presenter
         );
 
     }); // end of document ready

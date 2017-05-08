@@ -2,7 +2,7 @@ var BudgetView = (function () {
     function BudgetView(presenter) {
         this.budget = null;
         this.presenter = presenter;
-        this.presenter.setView(this);
+        this.presenter.setBudgetView(this);
         this.initListeners();
         this.presenter.updateBudget();
     }

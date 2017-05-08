@@ -38,6 +38,14 @@ class Group extends BaseGroup
             'name',
             'members' => function (Group $model) {
                 return $model->groupMembers;
+            },
+            'currency' => function(Group $model) {
+                return [
+                    'id' => 1,
+                    'name' => 'Hrvatska kuna',
+                    'code' => 'HRK',
+                    'shortcode' => 'kn'
+                ];
             }
         ];
     }

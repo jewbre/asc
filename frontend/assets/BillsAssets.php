@@ -27,7 +27,7 @@ class BillsAssets extends AssetBundle
 
         'static/js/utils/Renderer.js',
 
-        'static/js/budget/BudgetPresenter.js',
+        'static/js/budget/BillsPresenterImpl.js',
         'static/js/budget/BudgetView.js',
         'js/billsInit.js'
     ];
