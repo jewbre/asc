@@ -21,7 +21,8 @@
         "starcode-solutions/yii2-vault": "dev-master",
         "mdmsoft/yii2-admin": "~2.0",
         "schmunk42/yii2-giiant": "@stable",
-        "facebook/graph-sdk": "^5.5"
+        "facebook/graph-sdk": "^5.5",
+        "google/apiclient": "^2.1"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

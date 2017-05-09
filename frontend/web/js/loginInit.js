@@ -19,3 +19,17 @@
         });
     }); // end of document ready
 })(jQuery); // end of jQuery name space
+
+function onGoogleSignIn(googleUser) {
+    var id_token = googleUser.getAuthResponse().id_token;
+    LoginApiService.getInstance()
+        .googleLogin(id_token)
+        .then(function (key) {
+            window.location.href = '/asc/frontend/web/site/redirect-login?key=' + key.redirectKey
+        })
+        .catch(function (error) {
+            console.log(error);
+            alert('something went wrong');
+        })
+
+}

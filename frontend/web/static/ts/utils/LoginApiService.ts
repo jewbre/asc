@@ -1,9 +1,9 @@
 class LoginApiService {
     static readonly FB_LOGIN = '/user/login-facebook';
+    static readonly GOOGLE_LOGIN = '/user/login-google';
 
     private static instance: LoginApiService = null;
 
-    private token: string = '';
     private basePath: string = '';
 
     public static getInstance(): LoginApiService {
@@ -18,12 +18,26 @@ class LoginApiService {
         this.basePath = JSON.parse(document.getElementById('api-base-path').innerText);
     }
 
-    public facebookLogin(accessToken : string): Promise<{redirectKey : string}> {
+    public facebookLogin(accessToken: string): Promise<{ redirectKey: string }> {
         return new Promise((resolve, reject) => {
-            this.post<{redirectKey : string}>(LoginApiService.FB_LOGIN, {
+            this.post<{ redirectKey: string }>(LoginApiService.FB_LOGIN, {
                 accessToken
             })
-                .then((key : {redirectKey : string}) => {
+                .then((key: { redirectKey: string }) => {
+                    resolve(key);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
+    public googleLogin(accessToken: string): Promise<{ redirectKey: string }> {
+        return new Promise((resolve, reject) => {
+            this.post<{ redirectKey: string }>(LoginApiService.GOOGLE_LOGIN, {
+                accessToken
+            })
+                .then((key: { redirectKey: string }) => {
                     resolve(key);
                 })
                 .catch(error => {

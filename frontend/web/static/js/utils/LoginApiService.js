@@ -1,6 +1,5 @@
 var LoginApiService = (function () {
     function LoginApiService() {
-        this.token = '';
         this.basePath = '';
         this.basePath = JSON.parse(document.getElementById('api-base-path').innerText);
     }
@@ -14,6 +13,20 @@ var LoginApiService = (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.post(LoginApiService.FB_LOGIN, {
+                accessToken: accessToken
+            })
+                .then(function (key) {
+                resolve(key);
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
+    LoginApiService.prototype.googleLogin = function (accessToken) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.post(LoginApiService.GOOGLE_LOGIN, {
                 accessToken: accessToken
             })
                 .then(function (key) {
@@ -70,4 +83,5 @@ var LoginApiService = (function () {
     return LoginApiService;
 }());
 LoginApiService.FB_LOGIN = '/user/login-facebook';
+LoginApiService.GOOGLE_LOGIN = '/user/login-google';
 LoginApiService.instance = null;

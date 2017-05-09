@@ -18,6 +18,7 @@ use common\models\User;
 use Facebook\Exceptions\FacebookResponseException;
 use Facebook\Exceptions\FacebookSDKException;
 use Facebook\Facebook;
+use Google_Client;
 use Yii;
 use yii\filters\Cors;
 use yii\web\BadRequestHttpException;
@@ -50,7 +51,7 @@ class UserController extends BaseController
         ];
 
         $behaviors['authenticator'] = $auth;
-        $behaviors['authenticator']['except'] = ['facebook-login', 'login-facebook'];
+        $behaviors['authenticator']['except'] = ['facebook-login', 'login-facebook','google-login', 'login-google'];
 
         return $behaviors;
     }
@@ -145,6 +146,69 @@ class UserController extends BaseController
         $registrationHelper->setFbID($id);
 
         $user = $registrationHelper->userExists($email, $id);
+
+        if ($user) {
+            return $user;
+        }
+
+        $user = $registrationHelper->registerUser($username, $email);
+        return $user;
+    }
+
+    public function actionGoogleLogin()
+    {
+        $user = $this->doGoogleLogin();
+
+        if ($user instanceof User) {
+            return $user;
+        }
+
+        throw new BadRequestHttpException($user);
+    }
+
+
+    public function actionLoginGoogle()
+    {
+        $user = $this->doGoogleLogin();
+
+        if ($user instanceof User) {
+            $loginRedirect = new LoginRedirect();
+            $loginRedirect->setAttributes([
+                'loginHash' => Yii::$app->security->generateRandomString(),
+                'userID' => $user->id
+            ]);
+            $loginRedirect->save();
+            return $loginRedirect;
+        }
+
+        throw new BadRequestHttpException($user);
+    }
+
+    private function doGoogleLogin()
+    {
+        User::$withAccessToken = true;
+        $accessToken = \Yii::$app->getRequest()->post('accessToken', '');
+
+        if (!$accessToken) {
+            throw new BadRequestHttpException("Invalid access token.");
+        }
+        $client = new Google_Client(['client_id' => param('googleClientID')]);
+        $payload = $client->verifyIdToken($accessToken);
+        if ($payload) {
+            // If request specified a G Suite domain:
+            //$domain = $payload['hd'];
+        } else {
+            throw new BadRequestHttpException("Invalid token.");
+        }
+
+        $username = $payload['name'];
+        $email = $payload['email'];
+        $id = $payload['sub'];
+
+        $registrationHelper = new RegistrationHelper();
+        $registrationHelper->setGoogleID($id);
+
+        $user = $registrationHelper->userExists($email, null, $id);
 
         if ($user) {
             return $user;

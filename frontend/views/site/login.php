@@ -7,14 +7,14 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Login';
+$this->title = 'Roomero';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
+    <p class="grey-text">Please fill out the following fields to login:</p>
 
-    <button id="facebook-login">Facebook</button>
-    <button id="google-login">Google</button>
+    <button id="facebook-login blue" class="fb-btn">Facebook</button>
+    <div class="g-signin2 google-btn red" data-onsuccess="onGoogleSignIn"></div>
 </div>
