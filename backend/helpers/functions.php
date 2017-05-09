@@ -7,3 +7,9 @@ use common\models\User;
 function user() {
     return \Yii::$app->getUser()->getIdentity();
 }
+/**
+ * @return string
+ */
+function param($key) {
+    return \Yii::$app->params[$key];
+}

@@ -18,6 +18,12 @@ use yii\filters\auth\QueryParamAuth;
 abstract class BaseController extends \yii\rest\ActiveController
 {
 
+    public function init()
+    {
+        parent::init();
+        \Yii::$app->user->enableSession = false;
+    }
+
     public function behaviors()
     {
         $behaviors = parent::behaviors();

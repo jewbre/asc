@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\LoginRedirect;
 use frontend\models\navigation\ViewModelFactory as NavigationViewModelFactory;
 use Yii;
 use yii\base\InvalidParamException;
@@ -57,7 +58,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['get', 'post'],
                 ],
             ],
         ];
@@ -96,6 +97,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout = 'login';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -119,7 +121,7 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        return $this->redirect('login');
     }
 
     /**
@@ -174,6 +176,23 @@ class SiteController extends Controller
         return $this->render('signup', [
             'model' => $model,
         ]);
+    }
+
+    public function actionRedirectLogin($key)
+    {
+        $loginRedirect = LoginRedirect::findOne(['loginHash' => $key]);
+
+        if($loginRedirect) {
+            $user = $loginRedirect->user;
+
+            $loginRedirect->delete();
+
+            if (Yii::$app->getUser()->login($user)) {
+                return $this->redirect(['bills/index']);
+            }
+        }
+
+        $this->redirect('login');
     }
 
     /**

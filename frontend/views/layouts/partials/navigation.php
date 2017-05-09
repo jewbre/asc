@@ -1,5 +1,6 @@
 <?php
 use frontend\models\navigation\ViewModel;
+use yii\helpers\Url;
 
 /** @var ViewModel $viewModel */
 
@@ -46,9 +47,7 @@ use frontend\models\navigation\ViewModel;
         <div class="divider"></div>
         <span class="subheader">Settings</span>
     </li>
-    <li><a href="#!">Second Link</a></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <li><a href="<?= Url::to(['/site/logout']);?>">Logout</a></li>
 </ul>
 <!--/DESKTOP MENU-->
 

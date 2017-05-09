@@ -11,6 +11,20 @@ var ApiService = (function () {
         }
         return ApiService.instance;
     };
+    ApiService.prototype.facebookLogin = function (accessToken) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.post(ApiService.FB_LOGIN, {
+                accessToken: accessToken
+            })
+                .then(function () {
+                resolve();
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
     ApiService.prototype.searchUsers = function (query) {
         var _this = this;
         var fullPath = "/asc/backend/web/api/user/search?query=" + query;
@@ -345,4 +359,5 @@ ApiService.GROUP_MEMBER_LIST = '/group/members';
 ApiService.ME = '/user/me';
 ApiService.DEBTS = '/debt';
 ApiService.CLEAR_DEBTS = '/debt/clear';
+ApiService.FB_LOGIN = '/user/facebook-login';
 ApiService.instance = null;

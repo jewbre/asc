@@ -19,6 +19,8 @@ use yii\web\IdentityInterface;
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
+ * @property string $fbUserID
+ * @property integer $googleUserID
  * @property integer $selectedGroupID
  * @property string $password write-only password
  * @property \common\models\Group $selectedGroup
@@ -27,6 +29,8 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
+
+    public static $withAccessToken = false;
 
 
     /**
@@ -230,7 +234,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function fields()
     {
-        return [
+        $fields = [
             'id',
             'username',
             'email',
@@ -239,6 +243,14 @@ class User extends ActiveRecord implements IdentityInterface
                 return $model->getAvatar();
             }
         ];
+
+        if(self::$withAccessToken) {
+            $fields['accessToken'] = function(User $model) {
+                return $model->auth_key;
+            };
+        }
+
+        return $fields;
     }
 
     /**

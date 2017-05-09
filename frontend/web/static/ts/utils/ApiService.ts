@@ -22,6 +22,9 @@ class ApiService {
     static readonly DEBTS = '/debt';
     static readonly CLEAR_DEBTS = '/debt/clear';
 
+
+    static readonly FB_LOGIN = '/user/facebook-login';
+
     private static instance: ApiService = null;
 
     private token: string = '';
@@ -38,6 +41,22 @@ class ApiService {
     private constructor() {
         this.token = JSON.parse(document.getElementById('api-token').innerText);
         this.basePath = JSON.parse(document.getElementById('api-base-path').innerText);
+    }
+
+
+
+    public facebookLogin(accessToken : string): Promise<null> {
+        return new Promise((resolve, reject) => {
+            this.post<null>(ApiService.FB_LOGIN, {
+                accessToken
+            })
+                .then(() => {
+                    resolve();
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
     }
 
     public searchUsers(query: string): Promise<User[]> {

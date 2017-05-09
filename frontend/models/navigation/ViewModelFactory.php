@@ -10,6 +10,7 @@ namespace frontend\models\navigation;
 
 use common\models\Group;
 use common\models\User;
+use yii\helpers\Url;
 
 class ViewModelFactory
 {
@@ -19,17 +20,24 @@ class ViewModelFactory
     public function generateViewModel()
     {
         /** @var User $user */
-        $user = \Yii::$app->getUser()->getIdentity();
+        $user = user();
 
-        // TODO: add features to selection
-        $features = [['name' => 'Shopping list', 'link' => '#']];
+        $features = [
+            [
+                'name' => 'Shopping list',
+                'link' => Url::to(['/shopping/lists'])
+            ],
+            [
+                'name' => 'Bills',
+                'link' => Url::to(['/bills'])
+            ],
+        ];
 
         /** @var Group[] $groups */
         $groups = $user->groups;
 
-        // TODO: selected group in groups
         /** @var Group $selectedGroup */
-        $selectedGroup = $groups[0];
+        $selectedGroup = $user->selectedGroup;
 
         $viewModelBuilder = new ViewModelBuilder();
         $viewModelBuilder

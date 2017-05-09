@@ -16,4 +16,8 @@ class JSUtilsAsset extends AssetBundle
     public $js = [
         'ApiService.js'
     ];
+
+    public $depends = [
+        'frontend\assets\JqueryAsset'
+    ];
 }

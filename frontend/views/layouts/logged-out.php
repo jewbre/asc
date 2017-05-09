@@ -3,13 +3,8 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use common\widgets\Alert;
 use frontend\assets\MaterializeCSSAssets;
-use frontend\assets\NavigationAsset;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
 
 MaterializeCSSAssets::register($this);
 ?>
@@ -26,8 +21,7 @@ MaterializeCSSAssets::register($this);
 <body>
 <?php $this->beginBody() ?>
 <div class="wrap">
-        <?= $content ?>
-    </div>
+    <?= $content ?>
 </div>
 
 <footer class="footer">
