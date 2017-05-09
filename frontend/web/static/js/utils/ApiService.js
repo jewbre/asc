@@ -60,6 +60,23 @@ var ApiService = (function () {
             });
         });
     };
+    ApiService.prototype.clearDebts = function (participants) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.post(ApiService.CLEAR_DEBTS, {
+                participants: participants
+            })
+                .then(function (debtApiResponses) {
+                var debts = debtApiResponses.map(function (debtApiResponse) {
+                    return (new DebtBuilder()).buildFromApiResponse(debtApiResponse);
+                });
+                resolve(debts);
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
     ApiService.prototype.updateBill = function (id, category, amount, description, date, payer, participants) {
         var _this = this;
         return new Promise(function (resolve, reject) {
@@ -85,6 +102,21 @@ var ApiService = (function () {
                     return (new ItemBuilder()).buildFromApiResponse(itemApiResponse);
                 });
                 resolve(items);
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
+    ApiService.prototype.getDebts = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.get(ApiService.DEBTS)
+                .then(function (debtApiResponses) {
+                var debts = debtApiResponses.map(function (debtApiResponse) {
+                    return (new DebtBuilder()).buildFromApiResponse(debtApiResponse);
+                });
+                resolve(debts);
             })
                 .catch(function (error) {
                 reject(error);
@@ -311,4 +343,6 @@ ApiService.CREATE_NEW_BILL = '/bill/create';
 ApiService.UPDATE_BILL = '/bill/update';
 ApiService.GROUP_MEMBER_LIST = '/group/members';
 ApiService.ME = '/user/me';
+ApiService.DEBTS = '/debt';
+ApiService.CLEAR_DEBTS = '/debt/clear';
 ApiService.instance = null;

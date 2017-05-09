@@ -36,7 +36,12 @@ class Budget extends BaseBudget
         return [
             'id',
             'amount' => function(Budget $model) {
-                return (double) $model->amount;
+                $totalBills = Bill::find()
+                    ->select(['SUM(amount) AS amount'])
+                    ->where('groupID = :group', ['group' => $model->groupID])
+                    ->groupBy(['groupID'])
+                    ->one();
+                return ((double) $model->amount) - ((double)$totalBills->amount);
             },
             'currency' => function (Budget $model) {
                 return [

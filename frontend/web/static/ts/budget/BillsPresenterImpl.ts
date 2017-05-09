@@ -1,5 +1,5 @@
-class BillsPresenterImpl implements BudgetPresenter, BillPresenter {
-
+class BillsPresenterImpl implements BudgetPresenter, BillPresenter, DebtPresenter {
+    private debtView: DebtView;
     private budgetView: BudgetView;
     private billView: BillView;
 
@@ -11,11 +11,32 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter {
         this.budgetView = view;
     }
 
+    setDebtView(view: DebtView): void {
+        this.debtView = view;
+    }
+
     public updateBudget(): void {
         ApiService.getInstance()
             .getMineBudget()
             .then((budget: Budget) => {
                 this.budgetView.displayBudget(budget);
+            });
+    }
+
+    public updateDebts(): void {
+        ApiService.getInstance()
+            .getDebts()
+            .then((debts: Debt[]) => {
+                this.debtView.displayDebts(debts);
+            });
+    }
+
+    public clearDebts(users: number[]): void {
+        ApiService.getInstance()
+            .clearDebts(users)
+            .then((debts: Debt[]) => {
+                this.debtView.displayDebts(debts);
+                this.debtView.hideClearDebtsPopup();
             });
     }
 
@@ -41,6 +62,7 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter {
             .getMe()
             .then((user: User) => {
                 this.billView.setSelectedPayer(user);
+                this.debtView.clearFromGroup(user);
             })
     }
 
@@ -48,6 +70,7 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter {
         ApiService.getInstance().getGroupMembers()
             .then((members: User[]) => {
                 this.billView.setGroupMembers(members);
+                this.debtView.setGroupMembers(members);
             })
     }
 
@@ -58,6 +81,9 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter {
             .then((bill : Bill) => {
                 this.billView.addBill(bill);
                 this.billView.hideAddNewBillModal();
+
+                this.updateDebts();
+                this.updateBudget();
             })
     }
 
@@ -68,6 +94,9 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter {
             .then((bill : Bill) => {
                 this.billView.replaceBill(bill);
                 this.billView.hideAddNewBillModal();
+
+                this.updateDebts();
+                this.updateBudget();
             })
     }
 

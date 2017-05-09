@@ -30,5 +30,18 @@ var Renderer = (function () {
                 "<img class=\"circle third\" src=\"" + bill.participants[2].avatar + "\"/>" : '') + "\n                    " + (bill.participants.length > 3 ?
                 "<span class=\"deep-purple white-text third\">+" + (bill.participants.length - 3) + "</span>" : '') + "\n                    ")) + "\n            </div>\n            <div class=\"col s5 l5\">\n                <span class=\"category deep-purple-text\">" + bill.category.name + "</span>\n                <span class=\"description\">" + bill.description + "</span>\n                <span class=\"date\">" + bill.getFormatedDate() + "</span>\n            </div>\n            <div class=\"col s4 l3\">\n                <span class=\"amount\">" + bill.amount + " kn</span>\n            </div>\n        </li>\n        ";
     };
+    Renderer.prototype.getRenderedDebt = function (debt) {
+        var category = '';
+        var prefix = '';
+        if (debt.amount > 0) {
+            category = 'surplus';
+            prefix = '+ ';
+        }
+        else if (debt.amount < 0) {
+            category = 'deficit';
+            prefix = '';
+        }
+        return "\n        <li class=\"col s12 l6 row valign-wrapper collection-item " + category + "\">\n                    <div class=\"col s3 l3\">\n                        <img class=\"circle\" src=\"" + debt.user.avatar + "\"/>\n                    </div>\n                    <div class=\"col s5 l5\">\n                        <p class=\"title\">" + debt.user.username + "</p>\n                    </div>\n                    <div class=\"col s4 l3\">\n                        <span class=\"right\">" + prefix + " " + debt.amount + " " + debt.currency.shortcode + "</span>\n                    </div>\n                </li>\n        ";
+    };
     return Renderer;
 }());

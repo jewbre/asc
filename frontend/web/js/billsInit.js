@@ -27,6 +27,10 @@
             presenter
         );
 
+        var debtView = new DebtView(
+            presenter
+        );
+
 
     }); // end of document ready
 })(jQuery); // end of jQuery name space

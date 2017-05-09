@@ -64,6 +64,7 @@ class BillsController extends Controller
         $this->view->params['modals'] = [
             '//bills/create-new-bill',
             '//bills/add-to-budget-modal',
+            '//bills/clear-debts',
         ];
 
         return $this->render('index');

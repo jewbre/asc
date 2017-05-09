@@ -1,0 +1,56 @@
+<?php
+
+namespace common\models;
+
+use Yii;
+use \common\models\base\Debt as BaseDebt;
+use yii\helpers\ArrayHelper;
+
+/**
+ * This is the model class for table "debt".
+ */
+class Debt extends BaseDebt
+{
+
+public function behaviors()
+    {
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                # custom behaviors
+            ]
+        );
+    }
+
+    public function rules()
+    {
+        return ArrayHelper::merge(
+             parent::rules(),
+             [
+                  # custom validation rules
+             ]
+        );
+    }
+
+    public function fields()
+    {
+        return [
+            'amount' => function(Debt $model) {
+                return $model->firstPersonID == user()->id ? ((double) $model->amount) : -((double) $model->amount);
+            },
+            'user' => function(Debt $model) {
+                return $model->firstPersonID == user()->id ? $model->secondPerson : $model->firstPerson;
+            },
+            'currency' => function(Debt $model) {
+                return [
+                    'id' => '1',
+                    'name' => 'Hrvatska kuna',
+                    'code' => 'HRK',
+                    'shortcode' => 'kn'
+                ];
+            }
+        ];
+    }
+
+
+}

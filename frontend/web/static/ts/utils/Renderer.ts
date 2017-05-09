@@ -93,4 +93,30 @@ class Renderer {
         </li>
         `;
     }
+
+    public getRenderedDebt(debt : Debt) : string {
+        let category = '';
+        let prefix = '';
+        if(debt.amount > 0) {
+            category = 'surplus';
+            prefix = '+ ';
+        } else if(debt.amount < 0){
+            category = 'deficit';
+            prefix = '';
+        }
+
+        return `
+        <li class="col s12 l6 row valign-wrapper collection-item ${ category }">
+                    <div class="col s3 l3">
+                        <img class="circle" src="${debt.user.avatar}"/>
+                    </div>
+                    <div class="col s5 l5">
+                        <p class="title">${debt.user.username}</p>
+                    </div>
+                    <div class="col s4 l3">
+                        <span class="right">${prefix} ${debt.amount} ${debt.currency.shortcode}</span>
+                    </div>
+                </li>
+        `;
+    }
 }

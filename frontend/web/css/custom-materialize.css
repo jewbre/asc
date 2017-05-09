@@ -31,6 +31,7 @@
         top:64px;
         left:300px;
         z-index:1;
+        width: calc(100% - 300px)!important;
     }
 }
 
@@ -188,12 +189,24 @@ nav ul li a:hover, nav ul li.active {
     padding: 10px 5px!important;
 }
 
+.ious-list span {
+    font-size: 1.5rem;
+}
+
 .ious-list .surplus img.circle {
     border:2px solid #4CAF50;
 }
 
 .ious-list .deficit img.circle {
     border:2px solid #F44336;
+}
+
+.ious-list .surplus span {
+    color:#4CAF50;
+}
+
+.ious-list .deficit span {
+    color: #F44336;
 }
 
 .budget {

@@ -7,12 +7,32 @@ var BillsPresenterImpl = (function () {
     BillsPresenterImpl.prototype.setBudgetView = function (view) {
         this.budgetView = view;
     };
+    BillsPresenterImpl.prototype.setDebtView = function (view) {
+        this.debtView = view;
+    };
     BillsPresenterImpl.prototype.updateBudget = function () {
         var _this = this;
         ApiService.getInstance()
             .getMineBudget()
             .then(function (budget) {
             _this.budgetView.displayBudget(budget);
+        });
+    };
+    BillsPresenterImpl.prototype.updateDebts = function () {
+        var _this = this;
+        ApiService.getInstance()
+            .getDebts()
+            .then(function (debts) {
+            _this.debtView.displayDebts(debts);
+        });
+    };
+    BillsPresenterImpl.prototype.clearDebts = function (users) {
+        var _this = this;
+        ApiService.getInstance()
+            .clearDebts(users)
+            .then(function (debts) {
+            _this.debtView.displayDebts(debts);
+            _this.debtView.hideClearDebtsPopup();
         });
     };
     BillsPresenterImpl.prototype.addToBudget = function (amount) {
@@ -38,6 +58,7 @@ var BillsPresenterImpl = (function () {
             .getMe()
             .then(function (user) {
             _this.billView.setSelectedPayer(user);
+            _this.debtView.clearFromGroup(user);
         });
     };
     BillsPresenterImpl.prototype.getGroupMembers = function () {
@@ -45,6 +66,7 @@ var BillsPresenterImpl = (function () {
         ApiService.getInstance().getGroupMembers()
             .then(function (members) {
             _this.billView.setGroupMembers(members);
+            _this.debtView.setGroupMembers(members);
         });
     };
     BillsPresenterImpl.prototype.createNewBill = function (category, amount, description, date, payer, participants) {
@@ -53,6 +75,8 @@ var BillsPresenterImpl = (function () {
             .then(function (bill) {
             _this.billView.addBill(bill);
             _this.billView.hideAddNewBillModal();
+            _this.updateDebts();
+            _this.updateBudget();
         });
     };
     BillsPresenterImpl.prototype.updateBill = function (id, category, amount, description, date, payer, participants) {
@@ -61,6 +85,8 @@ var BillsPresenterImpl = (function () {
             .then(function (bill) {
             _this.billView.replaceBill(bill);
             _this.billView.hideAddNewBillModal();
+            _this.updateDebts();
+            _this.updateBudget();
         });
     };
     BillsPresenterImpl.prototype.getNextBillsPage = function () {

@@ -12,6 +12,12 @@
         </a>
     </li>
     <li>
+        <a href="#clearDebts">
+            <i class="material-icons">receipt</i>
+            Clear debt
+        </a>
+    </li>
+    <li>
         <a href="#createNewExpense" class="modal-trigger" id="createNewExpenseNavbar">
             <i class="material-icons">note_add</i>
             Create new expense

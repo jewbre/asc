@@ -19,6 +19,9 @@ class ApiService {
 
     static readonly ME = '/user/me';
 
+    static readonly DEBTS = '/debt';
+    static readonly CLEAR_DEBTS = '/debt/clear';
+
     private static instance: ApiService = null;
 
     private token: string = '';
@@ -91,6 +94,25 @@ class ApiService {
         });
     }
 
+    public clearDebts(participants : number[]): Promise<Debt[]> {
+        return new Promise((resolve, reject) => {
+            this.post<DebtApiResponse[]>(ApiService.CLEAR_DEBTS, {
+                participants
+            })
+                .then((debtApiResponses: DebtApiResponse[]) => {
+                    const debts: Debt[] = debtApiResponses.map(
+                        (debtApiResponse: DebtApiResponse) =>
+                            (new DebtBuilder()).buildFromApiResponse(debtApiResponse)
+                    );
+
+                    resolve(debts);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
     public updateBill(id : number, category : number|string, amount : number, description : string,
                           date : string, payer : number, participants : number[]): Promise<Bill> {
         return new Promise((resolve, reject) => {
@@ -118,6 +140,23 @@ class ApiService {
                     );
 
                     resolve(items);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
+    public getDebts(): Promise<Debt[]> {
+        return new Promise((resolve, reject) => {
+            this.get<DebtApiResponse[]>(ApiService.DEBTS)
+                .then((debtApiResponses: DebtApiResponse[]) => {
+                    const debts: Debt[] = debtApiResponses.map(
+                        (debtApiResponse: DebtApiResponse) =>
+                            (new DebtBuilder()).buildFromApiResponse(debtApiResponse)
+                    );
+
+                    resolve(debts);
                 })
                 .catch(error => {
                     reject(error)
