@@ -5,7 +5,6 @@
 /* @var $model \common\models\LoginForm */
 
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
 
 $this->title = 'Roomero';
 $this->params['breadcrumbs'][] = $this->title;
@@ -15,6 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p class="grey-text">Please fill out the following fields to login:</p>
 
-    <button id="facebook-login blue" class="fb-btn">Facebook</button>
+    <button id="facebook-login" class="blue fb-btn">Facebook</button>
     <div class="g-signin2 google-btn red" data-onsuccess="onGoogleSignIn"></div>
 </div>
