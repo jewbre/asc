@@ -27,7 +27,7 @@ var ApiService = (function () {
     };
     ApiService.prototype.searchUsers = function (query) {
         var _this = this;
-        var fullPath = "/asc/backend/web/api/user/search?query=" + query;
+        var fullPath = ApiService.USER_SEARCH + "?query=" + query;
         return new Promise(function (resolve, reject) {
             _this.get(fullPath)
                 .then(function (userApiResponses) {
@@ -361,6 +361,7 @@ ApiService.CREATE_NEW_BILL = '/bill/create';
 ApiService.UPDATE_BILL = '/bill/update';
 ApiService.GROUP_MEMBER_LIST = '/group/members';
 ApiService.ME = '/user/me';
+ApiService.USER_SEARCH = '/user/search';
 ApiService.DEBTS = '/debt';
 ApiService.CLEAR_DEBTS = '/debt/clear';
 ApiService.FB_LOGIN = '/user/facebook-login';

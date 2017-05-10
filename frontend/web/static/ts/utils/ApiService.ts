@@ -18,6 +18,7 @@ class ApiService {
     static readonly GROUP_MEMBER_LIST = '/group/members';
 
     static readonly ME = '/user/me';
+    static readonly USER_SEARCH = '/user/search';
 
     static readonly DEBTS = '/debt';
     static readonly CLEAR_DEBTS = '/debt/clear';
@@ -60,7 +61,7 @@ class ApiService {
     }
 
     public searchUsers(query: string): Promise<User[]> {
-        const fullPath = `/asc/backend/web/api/user/search?query=${query}`;
+        const fullPath = `${ApiService.USER_SEARCH}?query=${query}`;
         return new Promise<User[]>((resolve, reject) => {
             this.get<UserApiResponse[]>(fullPath)
                 .then((userApiResponses: UserApiResponse[]) => {

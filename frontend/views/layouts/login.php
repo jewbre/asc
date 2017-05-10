@@ -23,7 +23,7 @@ LoginAssets::register($this);
 
     <meta name="google-signin-client_id" content="<?= param('googleClientID')?>">
 
-    <script type="application/json" id="api-base-path"><?= Json::encode('/asc/backend/web/api')?></script>
+    <script type="application/json" id="api-base-path"><?= Json::encode(param('apiUrl'))?></script>
 
     <?php $this->head() ?>
 </head>
