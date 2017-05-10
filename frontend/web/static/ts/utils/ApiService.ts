@@ -183,15 +183,20 @@ class ApiService {
         });
     }
 
-    public getBills(): Promise<Bill[]> {
+    public getBills(page? : number): Promise<{ bills : Bill[], pagination : Pagination}> {
+        const finalUrl = `${ApiService.GET_BILLS}${ page ? '?page=' + page : ''}`;
+
         return new Promise((resolve, reject) => {
-            this.get<BillApiResponse[]>(ApiService.GET_BILLS)
-                .then((billApiResponses: BillApiResponse[]) => {
-                    const bills: Bill[] = billApiResponses.map(
+            this.get<PaginatedApiResponse<BillApiResponse>>(finalUrl)
+                .then((paginatedResponse: PaginatedApiResponse<BillApiResponse>) => {
+                    const bills: Bill[] = paginatedResponse.items.map(
                         (billApiResponse: BillApiResponse) =>
                             (new BillBuilder()).buildFromApiResponse(billApiResponse)
                     );
-                    resolve(bills);
+                    resolve({
+                        bills,
+                        pagination : paginatedResponse._pagination
+                    });
                 })
                 .catch(error => {
                     reject(error)

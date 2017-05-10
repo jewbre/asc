@@ -1,5 +1,6 @@
 var BillsPresenterImpl = (function () {
     function BillsPresenterImpl() {
+        this.page = 1;
     }
     BillsPresenterImpl.prototype.setBillView = function (view) {
         this.billView = view;
@@ -92,8 +93,13 @@ var BillsPresenterImpl = (function () {
     BillsPresenterImpl.prototype.getNextBillsPage = function () {
         var _this = this;
         ApiService.getInstance()
-            .getBills()
-            .then(function (bills) {
+            .getBills(this.page)
+            .then(function (_a) {
+            var bills = _a.bills, pagination = _a.pagination;
+            _this.page++;
+            if (pagination.totalPages < _this.page) {
+                $('#loadMoreBills').remove();
+            }
             _this.billView.addBills(bills);
         });
     };

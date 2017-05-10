@@ -18,6 +18,9 @@ var BillView = (function () {
             $('#createNewExpense').addClass('adding');
             _this.setSelectedPayer(_this.selectedPayer);
         });
+        $('#loadMoreBills').on('click', function () {
+            _this.presenter.getNextBillsPage();
+        });
         $('#showAddNewCategory').on('click', function () {
             $('#categoryNameInput').show();
             $('#categoryNameSelect').hide();

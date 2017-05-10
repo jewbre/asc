@@ -26,6 +26,10 @@ class BillView {
             this.setSelectedPayer(this.selectedPayer);
         });
 
+
+        $('#loadMoreBills').on('click', () => {
+            this.presenter.getNextBillsPage();
+        });
         $('#showAddNewCategory').on('click', () => {
             $('#categoryNameInput').show();
             $('#categoryNameSelect').hide();

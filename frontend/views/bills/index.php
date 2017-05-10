@@ -31,6 +31,6 @@ BillsAssets::register($this);
     <div class="row" id="billsHolder">
         <!--        Bills are comming from api-->
     </div>
-
+    <button id="loadMoreBills" class="btn deep-purple">Load more</button>
 </div>
 

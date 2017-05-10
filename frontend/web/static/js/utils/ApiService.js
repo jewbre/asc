@@ -137,15 +137,19 @@ var ApiService = (function () {
             });
         });
     };
-    ApiService.prototype.getBills = function () {
+    ApiService.prototype.getBills = function (page) {
         var _this = this;
+        var finalUrl = "" + ApiService.GET_BILLS + (page ? '?page=' + page : '');
         return new Promise(function (resolve, reject) {
-            _this.get(ApiService.GET_BILLS)
-                .then(function (billApiResponses) {
-                var bills = billApiResponses.map(function (billApiResponse) {
+            _this.get(finalUrl)
+                .then(function (paginatedResponse) {
+                var bills = paginatedResponse.items.map(function (billApiResponse) {
                     return (new BillBuilder()).buildFromApiResponse(billApiResponse);
                 });
-                resolve(bills);
+                resolve({
+                    bills: bills,
+                    pagination: paginatedResponse._pagination
+                });
             })
                 .catch(function (error) {
                 reject(error);

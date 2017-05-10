@@ -2,6 +2,7 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter, DebtPresente
     private debtView: DebtView;
     private budgetView: BudgetView;
     private billView: BillView;
+    private page : number = 1;
 
     public setBillView(view: BillView): void {
         this.billView = view;
@@ -102,8 +103,14 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter, DebtPresente
 
     public getNextBillsPage(): void {
         ApiService.getInstance()
-            .getBills()
-            .then((bills : Bill[]) => {
+            .getBills(this.page)
+            .then(({bills, pagination}: { bills : Bill[], pagination : Pagination}) => {
+                this.page++;
+
+                if(pagination.totalPages < this.page) {
+                    $('#loadMoreBills').remove();
+                }
+
                 this.billView.addBills(bills);
             });
     }
