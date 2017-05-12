@@ -64,6 +64,10 @@ class UpdateAction extends BaseUpdateAction
         $bodyParams = $request->bodyParams;
 
         $participants = $bodyParams['participants'];
+        if(!$participants || empty($participants)) {
+            $participants = [];
+        }
+
         $date = new \DateTime($bodyParams['date']);
 
         $payer = User::findOne(['id' => $bodyParams['payer']]);

@@ -48,6 +48,9 @@ class CreateAction extends BaseCreateAction
         $bodyParams = $request->bodyParams;
 
         $participants = $bodyParams['participants'];
+        if(!$participants || empty($participants)) {
+            $participants = [];
+        }
 
         $date = new \DateTime($bodyParams['date']);
 
