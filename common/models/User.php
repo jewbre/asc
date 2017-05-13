@@ -15,6 +15,7 @@ use yii\web\IdentityInterface;
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
+ * @property string $avatar
  * @property string $auth_key
  * @property integer $status
  * @property integer $created_at
@@ -258,8 +259,17 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function getAvatar()
     {
-        return 'https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344';
+        if($this->avatar) {
+            return $this->avatar;
+        }
+
+        return 'https://www.gravatar.com/avatar/' . md5($this->email);
     }
 
+    public function updateAvatar($path)
+    {
+        $this->avatar = $path;
+        $this->update();
+    }
 
 }

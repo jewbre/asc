@@ -19,6 +19,7 @@ class RegistrationHelper extends Model
 {
     public $username;
     public $email;
+    private $avatar = null;
     private $fbID = null;
     private $googleID = null;
 
@@ -68,11 +69,12 @@ class RegistrationHelper extends Model
         $user->email = $this->email;
         $user->fbUserID = $this->fbID;
         $user->googleUserID = $this->googleID;
+        $user->avatar = $this->avatar;
         $user->selectedGroupID = $group->id;
         $user->setPassword($user->generateAuthKey());
         $user->generateAuthKey();
 
-        if($user->save()) {
+        if ($user->save()) {
             $groupMember = new GroupMember();
             $groupMember->setAttributes([
                 'groupID' => $group->id,
@@ -107,11 +109,11 @@ class RegistrationHelper extends Model
             'email' => $email
         ];
 
-        if($fbID != null) {
+        if ($fbID != null) {
             $args['fbUserID'] = $fbID;
         }
 
-        if($googleID != null) {
+        if ($googleID != null) {
             $args['googleUserID'] = $googleID;
         }
 
@@ -150,4 +152,14 @@ class RegistrationHelper extends Model
     {
         $this->googleID = $googleID;
     }
+
+    /**
+     * @param null $avatar
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+    }
+
+
 }

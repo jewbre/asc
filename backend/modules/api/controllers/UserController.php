@@ -33,6 +33,8 @@ class UserController extends BaseController
         return [];
     }
 
+
+
     public function behaviors()
     {
         $behaviors = parent::behaviors();
@@ -141,9 +143,11 @@ class UserController extends BaseController
         $username = $me->getName();
         $email = $me->getEmail();
         $id = $me->getId();
+        $avatar = 'http://graph.facebook.com/' . $id . '/picture?width=96&height=96';
 
         $registrationHelper = new RegistrationHelper();
         $registrationHelper->setFbID($id);
+        $registrationHelper->setAvatar($avatar);
 
         $user = $registrationHelper->userExists($email, $id);
 
@@ -207,14 +211,29 @@ class UserController extends BaseController
 
         $registrationHelper = new RegistrationHelper();
         $registrationHelper->setGoogleID($id);
+        $registrationHelper->setAvatar($payload['picture']);
 
         $user = $registrationHelper->userExists($email, null, $id);
 
         if ($user) {
+            $user->updateAvatar($payload['picture']);
             return $user;
         }
 
         $user = $registrationHelper->registerUser($username, $email);
+        return $user;
+    }
+
+    public function actionUpdate()
+    {
+        $username = Yii::$app->getRequest()->bodyParams['username'];
+
+        $user = user();
+        if($username) {
+            $user->setAttribute('username', $username);
+            $user->update();
+        }
+
         return $user;
     }
 
@@ -224,6 +243,10 @@ class UserController extends BaseController
             'search' => ['GET'],
             'me' => ['GET'],
             'facebook-login' => ['POST'],
+            'google-login' => ['POST'],
+            'login-facebook' => ['POST'],
+            'login-google' => ['POST'],
+            'update' => ['PUT'],
         ];
     }
 }
