@@ -10,7 +10,6 @@ class GroupView {
         this.initListeners();
     }
 
-
     private initListeners(): void {
         $('#createGroupBtn').on('click', () => {
             this.addNewGroup();
@@ -27,19 +26,16 @@ class GroupView {
 
         $('#member').on('keypress', (event) => {
             if (event.charCode == 13) {
-                console.log("pressed");
+                this.addMember($('#member').val());
             }
         })
     }
 
     private addMember(email : string) : void {
-
         if(this.members.filter((item) => email ==item).length == 0) {
-            this.renderMember(email).appendTo($('#ul'))
-            // TODO: user list
+            this.renderMember(email).appendTo($('#members-list'));
+            this.members.push(email);
         }
-
-
     }
 
     private renderMember(email : string) : JQuery {
@@ -58,7 +54,7 @@ class GroupView {
     private addNewGroup(): void {
         this.presenter.createNewGroup(
             $('#group_name').val(),
-            $('#group_members').val(),
+            this.members
         )
     }
 

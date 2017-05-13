@@ -30,8 +30,8 @@ $userList = array_reduce($viewModel->getUsers(), function ($acc, User $user) {
                     </div>
                 </div>
                 <div class="col s12">
-                    <ul class="collection">
-                        <li class="collection-item dismissable"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a></div></li>
+                    <ul class="collection" id="members-list">
+<!--                        Members will be added here-->
                     </ul>
 
                 </div>

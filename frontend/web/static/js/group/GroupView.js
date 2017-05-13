@@ -18,14 +18,14 @@ var GroupView = (function () {
         });
         $('#member').on('keypress', function (event) {
             if (event.charCode == 13) {
-                console.log("pressed");
+                _this.addMember($('#member').val());
             }
         });
     };
     GroupView.prototype.addMember = function (email) {
         if (this.members.filter(function (item) { return email == item; }).length == 0) {
-            this.renderMember(email).appendTo($('#ul'));
-            // TODO: user list
+            this.renderMember(email).appendTo($('#members-list'));
+            this.members.push(email);
         }
     };
     GroupView.prototype.renderMember = function (email) {
@@ -39,7 +39,7 @@ var GroupView = (function () {
         return member;
     };
     GroupView.prototype.addNewGroup = function () {
-        this.presenter.createNewGroup($('#group_name').val(), $('#group_members').val());
+        this.presenter.createNewGroup($('#group_name').val(), this.members);
     };
     GroupView.prototype.selectGroup = function (id) {
         this.presenter.selectGroup(id);

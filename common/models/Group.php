@@ -46,6 +46,9 @@ class Group extends BaseGroup
                     'code' => 'HRK',
                     'shortcode' => 'kn'
                 ];
+            },
+            'isPersonal' => function(Group $model) {
+                return (bool) $model->isPersonal;
             }
         ];
     }
