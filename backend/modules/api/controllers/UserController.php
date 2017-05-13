@@ -152,6 +152,7 @@ class UserController extends BaseController
         $user = $registrationHelper->userExists($email, $id);
 
         if ($user) {
+            $user->updateAvatar($avatar);
             return $user;
         }
 
