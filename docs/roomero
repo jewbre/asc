@@ -352,19 +352,40 @@
 		},
 		{
 			"id": "1259a9c5-2bc3-77f7-f104-19f419b8efc8",
-			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/json\n",
-			"url": "http://localhost/asc/backend/web/api/group/create",
-			"pathVariables": {},
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/group/create?XDEBUG_SESSION_START=PHPSTORM",
 			"preRequestScript": null,
+			"pathVariables": {},
 			"method": "POST",
-			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
-			"data": [],
-			"dataMode": "raw",
+			"data": [
+				{
+					"key": "name",
+					"value": "Nova grupa",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "members[]",
+					"value": "vilim.stubican@gmail.com",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "members[]",
+					"value": "vilim.stubican@degordian.com",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1494673388377,
 			"name": "group/create",
 			"description": "Create new group",
-			"descriptionFormat": "html",
-			"time": 1494667584362,
-			"version": 2,
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
 			"responses": [
 				{
 					"status": "",
@@ -459,12 +480,7 @@
 						"dataMode": "raw"
 					}
 				}
-			],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "89db0177-4d26-179e-d993-7c854e85d080",
-			"rawModeData": "{\n\t\"name\" : \"Nova grupa\",\n\t\"members\" : [\n\t\t\"vilim.stubican@gmail.com\",\n\t\t\"vilim.stubican@degordian.com\"\n\t]\n}"
+			]
 		},
 		{
 			"id": "2671edf2-8908-35db-93fe-5afb3a4003d0",
@@ -716,18 +732,25 @@
 		},
 		{
 			"id": "347b56cf-6ec7-7d96-f006-4f8a8e69e289",
-			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/json\n",
-			"url": "http://localhost/asc/backend/web/api/group/create",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/group/members",
 			"preRequestScript": null,
 			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
+			"method": "GET",
+			"data": [
+				{
+					"key": "id",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
 			"version": 2,
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1494667545484,
+			"time": 1494673415336,
 			"name": "group/members",
 			"description": "List of members in currently selected group",
 			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
@@ -825,11 +848,7 @@
 						"dataMode": "raw"
 					}
 				}
-			],
-			"isFromCollection": true,
-			"collectionRequestId": "347b56cf-6ec7-7d96-f006-4f8a8e69e289",
-			"folder": "89db0177-4d26-179e-d993-7c854e85d080",
-			"rawModeData": "{\n\t\"name\" : \"Nova grupa\",\n\t\"members\" : [\n\t\t\"vilim.stubican@gmail.com\",\n\t\t\"vilim.stubican@degordian.com\"\n\t]\n}"
+			]
 		},
 		{
 			"id": "5236c8cb-7bea-f0e1-be63-fd9c88447743",

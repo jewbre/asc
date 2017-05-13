@@ -1,15 +1,17 @@
 /**
- * @api {POST} http://localhost/asc/backend/web/api/group/create group/create
+ * @api {POST} http://localhost/asc/backend/web/api/group/create?XDEBUG_SESSION_START=PHPSTORM group/create
  * @apiName POST/group/create
  * @apiGroup group
  * @apiDescription Create new group
  *
  *
  * @apiHeader Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 
  * 
- ...
+ * @apiParam {text} name "Nova grupa"
+* @apiParam {text} members[] "vilim.stubican@gmail.com"
+* @apiParam {text} members[] "vilim.stubican@degordian.com"
  *
  * @apiSuccess {Bool} success true
  * @apiSuccess {Number} code Response code
@@ -34,17 +36,17 @@ Content-Type: application/json
  *
  *
  *//**
- * @api {POST} http://localhost/asc/backend/web/api/group/create group/members
- * @apiName POST/group/members
+ * @api {GET} http://localhost/asc/backend/web/api/group/members group/members
+ * @apiName GET/group/members
  * @apiGroup group
  * @apiDescription List of members in currently selected group
  *
  *
  * @apiHeader Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 
  * 
- ...
+ * @apiParam {text} id "1"
  *
  * @apiSuccess {Bool} success true
  * @apiSuccess {Number} code Response code
