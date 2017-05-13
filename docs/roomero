@@ -1,0 +1,3372 @@
+{
+	"id": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+	"name": "roomero",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"id": "d470d2ff-bef4-6603-c70a-f9b59b600751",
+			"name": "bill",
+			"description": "",
+			"order": [
+				"31220ff1-1273-f5d5-7caf-4d506239f2e5",
+				"ec3d9cd5-64fb-062f-6df3-c4ab05076efb",
+				"54f379f9-b1a9-c660-dea8-0e1ea51f2f0c",
+				"52931044-fb1d-f8a4-cd5e-6f49e589b0cc"
+			],
+			"owner": "639636"
+		},
+		{
+			"id": "252ebb79-1ca7-dabe-b665-dd496372875c",
+			"name": "budget",
+			"description": "",
+			"order": [
+				"919c8280-8643-5e7f-01d4-94d9f8c4e47e",
+				"fe3a8fc9-68ba-a310-10af-081c196ed1c6"
+			],
+			"owner": "639636"
+		},
+		{
+			"id": "3a96c96b-d261-b3db-1dde-d9304df9db8e",
+			"name": "debt",
+			"description": "",
+			"order": [
+				"ff837697-adf5-65a9-9f8d-92d67bec0f5d",
+				"2671edf2-8908-35db-93fe-5afb3a4003d0"
+			],
+			"owner": "639636"
+		},
+		{
+			"id": "89db0177-4d26-179e-d993-7c854e85d080",
+			"name": "group",
+			"description": "",
+			"order": [
+				"347b56cf-6ec7-7d96-f006-4f8a8e69e289",
+				"1259a9c5-2bc3-77f7-f104-19f419b8efc8",
+				"d36471b1-0baa-8e48-d338-b890c2074a91"
+			],
+			"owner": "639636"
+		},
+		{
+			"id": "07adda48-f06e-08f7-7bc5-0416b2dccdfb",
+			"name": "shopping-list",
+			"description": "",
+			"order": [
+				"ddf450d1-e13f-79dc-30cb-608f993d91ef",
+				"91fab799-9791-8511-f73c-8a8d4449586f",
+				"5236c8cb-7bea-f0e1-be63-fd9c88447743",
+				"e2cb774e-0abb-de44-3e72-06dbd6f33b45",
+				"f354cffa-360a-365d-b07b-78ad5383ad6a",
+				"a4aa0aee-f034-9935-1db9-0ac865ab6a61",
+				"c6423ca9-85a9-2139-a21f-bd94d2d3eb07"
+			],
+			"owner": "639636"
+		},
+		{
+			"id": "ee1a18a3-9c8f-26ff-aec1-f2377ad7182c",
+			"name": "user",
+			"description": "",
+			"order": [
+				"6403da1b-d6eb-df1a-9cc2-2cb5165bc4cb",
+				"05667a6a-d493-8822-ce2f-4a70a583209c",
+				"07e6c7cf-a162-001b-a543-ff462664aa27"
+			],
+			"owner": "639636"
+		}
+	],
+	"timestamp": 1494665881202,
+	"owner": "639636",
+	"public": false,
+	"requests": [
+		{
+			"id": "05667a6a-d493-8822-ce2f-4a70a583209c",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/user/facebook-login",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "accessToken",
+					"value": "EAACZCfR2pd2MBALGwtGfYFULPtx8WyC0gaZBu7ZCd6OSmqiZCBKk1hXZCfK94LCiTrFAOGYZBpHcGf0gqiV1PNn2UzeowgfKbXPZBnQ3SKuxF4Ofimerepz6pyfyA6xZAm1VinSHpB358E9iZCPVYdZCnrDycPEcVayO2XS2SwcyWlPiXdwykPZAU0a",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "user/facebook-login",
+			"description": "Login facebook.\nReturning access token is used for further api calls",
+			"descriptionFormat": "html",
+			"time": 1494668323546,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 460,
+					"headers": [
+						{
+							"name": "Access-Control-Allow-Credentials",
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true",
+							"description": "Indicates whether or not the response to the request can be exposed when the credentials flag is true. When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "190",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:55:03 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":1,\"username\":\"vilim.stubican\",\"email\":\"jewbre18@gmail.com\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\",\"accessToken\":\"VeXnOTNog70h2yjla8coXTIuKq-8eK5e\"}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "f7ec394e-bcae-27db-e06c-1783c9904f25",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/user/facebook-login",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "accessToken",
+								"value": "EAACZCfR2pd2MBALGwtGfYFULPtx8WyC0gaZBu7ZCd6OSmqiZCBKk1hXZCfK94LCiTrFAOGYZBpHcGf0gqiV1PNn2UzeowgfKbXPZBnQ3SKuxF4Ofimerepz6pyfyA6xZAm1VinSHpB358E9iZCPVYdZCnrDycPEcVayO2XS2SwcyWlPiXdwykPZAU0a",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "ee1a18a3-9c8f-26ff-aec1-f2377ad7182c"
+		},
+		{
+			"id": "07e6c7cf-a162-001b-a543-ff462664aa27",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/user/google-login",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "accessToken",
+					"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImY5N2VkZmM2MDY3ZTViN2M4YzU0ZjJkMmQwY2RiMGI0NmIzNTRkNTIifQ.eyJhenAiOiI4Nzk5NDczMjA2MjAtcHJ2Y3VodHJoYjJyZDRmdTNhMnQ4cWYxY2tnYTZkMjguYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI4Nzk5NDczMjA2MjAtcHJ2Y3VodHJoYjJyZDRmdTNhMnQ4cWYxY2tnYTZkMjguYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDIyNTU1MjU3MTExODI5NDc4NzEiLCJlbWFpbCI6InZpbGltLnN0dWJpY2FuQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoieUZqVnczck1ZN1ZpTkpaRzNZSUVsZyIsImlzcyI6ImFjY291bnRzLmdvb2dsZS5jb20iLCJpYXQiOjE0OTQ2NjgzNTYsImV4cCI6MTQ5NDY3MTk1NiwibmFtZSI6IlZpbGltIFN0dWJpxI1hbiIsInBpY3R1cmUiOiJodHRwczovL2xoNi5nb29nbGV1c2VyY29udGVudC5jb20vLXFlTVh0aUFFSFVRL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFBL0FIYWxHaHFIUXNTY3ZjZWtJSzRSZXlQWEZCQ2tUelQ3Z3cvczk2LWMvcGhvdG8uanBnIiwiZ2l2ZW5fbmFtZSI6IlZpbGltIiwiZmFtaWx5X25hbWUiOiJTdHViacSNYW4iLCJsb2NhbGUiOiJlbiJ9.m3HZyvTMvZKFxSwlNnsjDHpN6KiyXXsKrGKTnHMDEX2r4iTDphcmxnwTZTtFyalrZK-kzDRle6noI07pjzP1UHscpfCGswNzj5Nx3ONOmlhZHig2a8lClO5XlmNge72YrI5piNwOVphpY4VK1lH_8kknQhsJq4ivvlSwN4ePOWyxQokMqbOYusfR0vtyi5Oh6PD4EdbNhxy0bLn3vb5ecFi9bdAEmun9v3KA9XQyrpdTeo4XUd0vTnXwa9njE86MQfkK1xcLLTxJRfdwBgIVsXNF6hGqfySzvX_hybxi7dRNH6Ta-_PGSr2-qORoIO6SoACyMkJt2e0NSfcNMqas6g",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "user/google-login",
+			"description": "Login google.\nReturning access token is used for further api calls",
+			"descriptionFormat": "html",
+			"time": 1494668397859,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 450,
+					"headers": [
+						{
+							"name": "Access-Control-Allow-Credentials",
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true",
+							"description": "Indicates whether or not the response to the request can be exposed when the credentials flag is true. When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "202",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:55:09 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"email\":\"vilim.stubican@gmail.com\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\",\"accessToken\":\"uWhEZQbIx63Op3eGX2OAwUBkujYmuiEI\"}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "5311c017-6264-f921-d9b4-b3b1eb324319",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/user/google-login",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "accessToken",
+								"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImY5N2VkZmM2MDY3ZTViN2M4YzU0ZjJkMmQwY2RiMGI0NmIzNTRkNTIifQ.eyJhenAiOiI4Nzk5NDczMjA2MjAtcHJ2Y3VodHJoYjJyZDRmdTNhMnQ4cWYxY2tnYTZkMjguYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI4Nzk5NDczMjA2MjAtcHJ2Y3VodHJoYjJyZDRmdTNhMnQ4cWYxY2tnYTZkMjguYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDIyNTU1MjU3MTExODI5NDc4NzEiLCJlbWFpbCI6InZpbGltLnN0dWJpY2FuQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoieUZqVnczck1ZN1ZpTkpaRzNZSUVsZyIsImlzcyI6ImFjY291bnRzLmdvb2dsZS5jb20iLCJpYXQiOjE0OTQ2NjgzNTYsImV4cCI6MTQ5NDY3MTk1NiwibmFtZSI6IlZpbGltIFN0dWJpxI1hbiIsInBpY3R1cmUiOiJodHRwczovL2xoNi5nb29nbGV1c2VyY29udGVudC5jb20vLXFlTVh0aUFFSFVRL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFBL0FIYWxHaHFIUXNTY3ZjZWtJSzRSZXlQWEZCQ2tUelQ3Z3cvczk2LWMvcGhvdG8uanBnIiwiZ2l2ZW5fbmFtZSI6IlZpbGltIiwiZmFtaWx5X25hbWUiOiJTdHViacSNYW4iLCJsb2NhbGUiOiJlbiJ9.m3HZyvTMvZKFxSwlNnsjDHpN6KiyXXsKrGKTnHMDEX2r4iTDphcmxnwTZTtFyalrZK-kzDRle6noI07pjzP1UHscpfCGswNzj5Nx3ONOmlhZHig2a8lClO5XlmNge72YrI5piNwOVphpY4VK1lH_8kknQhsJq4ivvlSwN4ePOWyxQokMqbOYusfR0vtyi5Oh6PD4EdbNhxy0bLn3vb5ecFi9bdAEmun9v3KA9XQyrpdTeo4XUd0vTnXwa9njE86MQfkK1xcLLTxJRfdwBgIVsXNF6hGqfySzvX_hybxi7dRNH6Ta-_PGSr2-qORoIO6SoACyMkJt2e0NSfcNMqas6g",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "ee1a18a3-9c8f-26ff-aec1-f2377ad7182c"
+		},
+		{
+			"id": "1259a9c5-2bc3-77f7-f104-19f419b8efc8",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/json\n",
+			"url": "http://localhost/asc/backend/web/api/group/create",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [],
+			"dataMode": "raw",
+			"name": "group/create",
+			"description": "Create new group",
+			"descriptionFormat": "html",
+			"time": 1494667584362,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 201,
+						"name": "Created"
+					},
+					"time": 100,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": ""
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "219",
+							"description": ""
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": ""
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:53:06 GMT",
+							"description": ""
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": ""
+						},
+						{
+							"name": "Location",
+							"key": "Location",
+							"value": "http://localhost/asc/backend/web/api/groups/10",
+							"description": ""
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": ""
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": ""
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":10,\"name\":null,\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "4fb908f5-d423-6724-2b55-9880564695bd",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/group/create",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": "{\n\t\"name\" : \"Nova grupa\",\n\t\"members\" : [\n\t\t\"vilim.stubican@gmail.com\",\n\t\t\"vilim.stubican@degordian.com\"\n\t]\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "89db0177-4d26-179e-d993-7c854e85d080",
+			"rawModeData": "{\n\t\"name\" : \"Nova grupa\",\n\t\"members\" : [\n\t\t\"vilim.stubican@gmail.com\",\n\t\t\"vilim.stubican@degordian.com\"\n\t]\n}"
+		},
+		{
+			"id": "2671edf2-8908-35db-93fe-5afb3a4003d0",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/debt/clear",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "participants[]",
+					"value": "2",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "debt/clear",
+			"description": "Send list of ids for which to clear debt.\n\nReturn is whole list of debts.",
+			"descriptionFormat": "html",
+			"time": 1494668054152,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 78,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "250",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:53:44 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "[{\"amount\":0,\"user\":{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"email\":\"vilim.stubican@gmail.com\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},\"currency\":{\"id\":\"1\",\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}]",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "ab0d44c7-fcfc-5b1c-3af0-453d51a25c46",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/debt/clear",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "participants[]",
+								"value": "2",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "3a96c96b-d261-b3db-1dde-d9304df9db8e"
+		},
+		{
+			"id": "31220ff1-1273-f5d5-7caf-4d506239f2e5",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/bill",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "amount",
+					"value": "200",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "bill",
+			"description": "List of bills",
+			"descriptionFormat": "html",
+			"time": 1494667196582,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 244,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "2931",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:52:26 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"items\":[{\"id\":8,\"description\":\"12345\",\"date\":\"2017-05-02T22:00:00+00:00\",\"amount\":123,\"payer\":{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},\"participants\":[],\"category\":{\"id\":1,\"name\":\"Hrana\"},\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}},\"currency\":{\"id\":\"1\",\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}},{\"id\":9,\"description\":\"Opis\",\"date\":\"2017-05-02T22:00:00+00:00\",\"amount\":200,\"payer\":{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},\"participants\":[],\"category\":{\"id\":1,\"name\":\"Hrana\"},\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}},\"currency\":{\"id\":\"1\",\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}},{\"id\":10,\"description\":\"Opis\",\"date\":\"2017-05-02T22:00:00+00:00\",\"amount\":300,\"payer\":{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},\"participants\":[],\"category\":{\"id\":1,\"name\":\"Hrana\"},\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}},\"currency\":{\"id\":\"1\",\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}},{\"id\":11,\"description\":\"opis\",\"date\":\"2017-05-10T22:00:00+00:00\",\"amount\":200,\"payer\":{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"category\":{\"id\":2,\"name\":\"Cuga\"},\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}},\"currency\":{\"id\":\"1\",\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}],\"_pagination\":{\"totalItems\":\"4\",\"totalPages\":1,\"currentPage\":1}}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "3562f2e9-cabf-6610-f77e-691a6dfcf3ad",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/bill",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "amount",
+								"value": "200",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "GET",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "d470d2ff-bef4-6603-c70a-f9b59b600751"
+		},
+		{
+			"id": "347b56cf-6ec7-7d96-f006-4f8a8e69e289",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/json\n",
+			"url": "http://localhost/asc/backend/web/api/group/create",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1494667545484,
+			"name": "group/members",
+			"description": "List of members in currently selected group",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 201,
+						"name": "Created"
+					},
+					"time": 110,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": ""
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "218",
+							"description": ""
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": ""
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:52:58 GMT",
+							"description": ""
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": ""
+						},
+						{
+							"name": "Location",
+							"key": "Location",
+							"value": "http://localhost/asc/backend/web/api/groups/9",
+							"description": ""
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": ""
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": ""
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":9,\"name\":null,\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "605fdd00-89bd-8e86-2c69-d1e903716bb3",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/group/create",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": "{\n\t\"name\" : \"Nova grupa\",\n\t\"members\" : [\n\t\t\"vilim.stubican@gmail.com\",\n\t\t\"vilim.stubican@degordian.com\"\n\t]\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					}
+				}
+			],
+			"isFromCollection": true,
+			"collectionRequestId": "347b56cf-6ec7-7d96-f006-4f8a8e69e289",
+			"folder": "89db0177-4d26-179e-d993-7c854e85d080",
+			"rawModeData": "{\n\t\"name\" : \"Nova grupa\",\n\t\"members\" : [\n\t\t\"vilim.stubican@gmail.com\",\n\t\t\"vilim.stubican@degordian.com\"\n\t]\n}"
+		},
+		{
+			"id": "5236c8cb-7bea-f0e1-be63-fd9c88447743",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/shopping-item/create",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "Nesto trece",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "category",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "details",
+					"value": "400 g",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1494666619953,
+			"name": "shopping-item/create",
+			"description": "Create item\n- category: either id or name of the category (automaticly will be created)",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 201,
+						"name": "Created",
+						"detail": "The request has been fulfilled and resulted in a new resource being created."
+					},
+					"time": 103,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "500",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:54:27 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Location",
+							"key": "Location",
+							"value": "http://localhost/asc/backend/web/api/shopping-item/view?id=8",
+							"description": "Used in redirection, or when a new resource has been created."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":8,\"name\":\"Nesto trece\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":false,\"isBought\":false,\"details\":\"400 g\",\"lastBought\":null}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "e4208a52-79a6-ed1b-94f2-f94cebfb2c0b",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/shopping-item/create",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "name",
+								"value": "Nesto trece",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "category",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "details",
+								"value": "400 g",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "urlencoded"
+					}
+				}
+			]
+		},
+		{
+			"id": "52931044-fb1d-f8a4-cd5e-6f49e589b0cc",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/bill/update?id=10",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "category",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "300",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "Opis",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "date",
+					"value": "2017-05-02T22:00:00.000Z",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "payer",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "participants",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "bill/update",
+			"description": "Create new bill\nParticipants: array od ids",
+			"descriptionFormat": "html",
+			"time": 1494667390293,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 113,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "684",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:52:51 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":10,\"description\":\"Opis\",\"date\":\"2017-05-02T22:00:00+00:00\",\"amount\":300,\"payer\":{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},\"participants\":[],\"category\":{\"id\":1,\"name\":\"Hrana\"},\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}},\"currency\":{\"id\":\"1\",\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "0b062dec-be7b-e07f-dfa9-46b9d32e4960",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/bill/update?id=10",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "category",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "amount",
+								"value": "300",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "description",
+								"value": "Opis",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "date",
+								"value": "2017-05-02T22:00:00.000Z",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "payer",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "participants",
+								"value": "",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "PUT",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "d470d2ff-bef4-6603-c70a-f9b59b600751"
+		},
+		{
+			"id": "54f379f9-b1a9-c660-dea8-0e1ea51f2f0c",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/bill/create",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "category",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "amount",
+					"value": "200",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "Opis",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "date",
+					"value": "2017-05-02T22:00:00.000Z",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "payer",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "participants",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "bill/create",
+			"description": "Create new bill\nParticipants: array od ids",
+			"descriptionFormat": "html",
+			"time": 1494667350984,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 201,
+						"name": "Created",
+						"detail": "The request has been fulfilled and resulted in a new resource being created."
+					},
+					"time": 126,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "684",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:52:43 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Location",
+							"key": "Location",
+							"value": "http://localhost/asc/backend/web/api/bill/view?id=12",
+							"description": "Used in redirection, or when a new resource has been created."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":12,\"description\":\"Opis\",\"date\":\"2017-05-02T22:00:00+00:00\",\"amount\":200,\"payer\":{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},\"participants\":[],\"category\":{\"id\":1,\"name\":\"Hrana\"},\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}},\"currency\":{\"id\":\"1\",\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "1cbf3074-96ae-f41f-8812-6679cf55b135",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/bill/create",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "category",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "amount",
+								"value": "200",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "description",
+								"value": "Opis",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "date",
+								"value": "2017-05-02T22:00:00.000Z",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "payer",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "participants",
+								"value": "",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "d470d2ff-bef4-6603-c70a-f9b59b600751"
+		},
+		{
+			"id": "6403da1b-d6eb-df1a-9cc2-2cb5165bc4cb",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/user/me",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "id",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "user/me",
+			"description": "Data for current user",
+			"descriptionFormat": "html",
+			"time": 1494667693487,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 83,
+					"headers": [
+						{
+							"name": "Access-Control-Allow-Credentials",
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true",
+							"description": "Indicates whether or not the response to the request can be exposed when the credentials flag is true. When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials."
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "112",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:54:57 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "8d56bbe1-577b-e6f9-ec00-65611f4017ee",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/user/me",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "id",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "GET",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "ee1a18a3-9c8f-26ff-aec1-f2377ad7182c"
+		},
+		{
+			"id": "919c8280-8643-5e7f-01d4-94d9f8c4e47e",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/budget/mine",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "name",
+					"value": "Nesto trece",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "category",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "details",
+					"value": "400 g",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "budget/mine",
+			"description": "Budget of mine group",
+			"descriptionFormat": "html",
+			"time": 1494667110327,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 100,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "452",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:53:22 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":1,\"amount\":2187,\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"},\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "1a244560-8a2b-b288-eebb-62c36c0f7eda",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/budget/mine",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "name",
+								"value": "Nesto trece",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "category",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "details",
+								"value": "400 g",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "GET",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "252ebb79-1ca7-dabe-b665-dd496372875c"
+		},
+		{
+			"id": "91fab799-9791-8511-f73c-8a8d4449586f",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/json\n",
+			"url": "http://localhost/asc/backend/web/api/shopping-item/finish-shopping",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "items[0][id]",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[0][name]",
+					"value": "test item promjena",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[0][details]",
+					"value": "detalji",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[0][isChecked]",
+					"value": "true",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[0][isBought]",
+					"value": "false",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[0][category][id]",
+					"value": "2",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[0][category][name]",
+					"value": "Hrana",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[1][id]",
+					"value": "3",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[1][name]",
+					"value": "test new item",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[1][details]",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[1][isChecked]",
+					"value": "true",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[1][isBought]",
+					"value": "true",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[1][category][id]",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[1][category][name]",
+					"value": "test category",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[2][id]",
+					"value": "4",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[2][name]",
+					"value": "test trelksdj",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[2][details]",
+					"value": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[2][isChecked]",
+					"value": "true",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[2][isBought]",
+					"value": "true",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[2][category][id]",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[2][category][name]",
+					"value": "test category",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[3][id]",
+					"value": "5",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[3][name]",
+					"value": "Salama",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[3][details]",
+					"value": "Piko parizer",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[3][isChecked]",
+					"value": "false",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[3][isBought]",
+					"value": "false",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[3][category][id]",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "items[3][category][name]",
+					"value": "test category",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "shopping-item/finish-shopping",
+			"description": "Finish shopping",
+			"descriptionFormat": "html",
+			"time": 1494666360499,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 107,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "3018",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:54:22 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "[{\"id\":1,\"name\":\"test item promjena\",\"category\":{\"id\":2,\"name\":\"Hrana\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":true,\"isBought\":false,\"details\":\"detalji\",\"lastBought\":1494361088},{\"id\":3,\"name\":\"test new item\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":false,\"isBought\":false,\"details\":\"\",\"lastBought\":1494666221},{\"id\":4,\"name\":\"test trelksdj\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":false,\"isBought\":false,\"details\":null,\"lastBought\":1494666221},{\"id\":5,\"name\":\"Salama\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":false,\"isBought\":false,\"details\":\"Piko parizer\",\"lastBought\":1494251855},{\"id\":6,\"name\":\"Salama\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":false,\"isBought\":false,\"details\":\"500 g\",\"lastBought\":0},{\"id\":7,\"name\":\"Nesto trece\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":false,\"isBought\":false,\"details\":\"400 g\",\"lastBought\":0}]",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "8481b583-a22a-4b51-1d6f-6d8ade40f9ae",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/shopping-item/finish-shopping",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "items[0][id]",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[0][name]",
+								"value": "test item promjena",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[0][details]",
+								"value": "detalji",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[0][isChecked]",
+								"value": "true",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[0][isBought]",
+								"value": "false",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[0][category][id]",
+								"value": "2",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[0][category][name]",
+								"value": "Hrana",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[1][id]",
+								"value": "3",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[1][name]",
+								"value": "test new item",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[1][details]",
+								"value": "",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[1][isChecked]",
+								"value": "true",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[1][isBought]",
+								"value": "true",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[1][category][id]",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[1][category][name]",
+								"value": "test category",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[2][id]",
+								"value": "4",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[2][name]",
+								"value": "test trelksdj",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[2][details]",
+								"value": "",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[2][isChecked]",
+								"value": "true",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[2][isBought]",
+								"value": "true",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[2][category][id]",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[2][category][name]",
+								"value": "test category",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[3][id]",
+								"value": "5",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[3][name]",
+								"value": "Salama",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[3][details]",
+								"value": "Piko parizer",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[3][isChecked]",
+								"value": "false",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[3][isBought]",
+								"value": "false",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[3][category][id]",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "items[3][category][name]",
+								"value": "test category",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "params"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "07adda48-f06e-08f7-7bc5-0416b2dccdfb"
+		},
+		{
+			"id": "a4aa0aee-f034-9935-1db9-0ac865ab6a61",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/shopping-item/uncheck?id=7",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "name",
+					"value": "Nesto trece",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "category",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "details",
+					"value": "400 g",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "shopping-item/uncheck",
+			"description": "Uncheck item in shopping list",
+			"descriptionFormat": "html",
+			"time": 1494666690479,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 92,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "497",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:54:45 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":7,\"name\":\"Nesto trece\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":false,\"isBought\":false,\"details\":\"400 g\",\"lastBought\":0}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "fdd3d090-1edd-40ce-ed7f-d1ece195c349",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/shopping-item/uncheck?id=7",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "name",
+								"value": "Nesto trece",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "category",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "details",
+								"value": "400 g",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "07adda48-f06e-08f7-7bc5-0416b2dccdfb"
+		},
+		{
+			"id": "c6423ca9-85a9-2139-a21f-bd94d2d3eb07",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/shopping-category",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "name",
+					"value": "Nesto trece",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "category",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "details",
+					"value": "400 g",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "shopping-category",
+			"description": "List of shopping categories",
+			"descriptionFormat": "html",
+			"time": 1494666718403,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 90,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "771",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:54:50 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=99",
+							"description": "Custom header"
+						},
+						{
+							"name": "Link",
+							"key": "Link",
+							"value": "<http://localhost/asc/backend/web/api/shopping-category/index?page=1>; rel=self",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988",
+							"isLink": true
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Pagination-Current-Page",
+							"key": "X-Pagination-Current-Page",
+							"value": "1",
+							"description": "Custom header"
+						},
+						{
+							"name": "X-Pagination-Page-Count",
+							"key": "X-Pagination-Page-Count",
+							"value": "1",
+							"description": "Custom header"
+						},
+						{
+							"name": "X-Pagination-Per-Page",
+							"key": "X-Pagination-Per-Page",
+							"value": "20",
+							"description": "Custom header"
+						},
+						{
+							"name": "X-Pagination-Total-Count",
+							"key": "X-Pagination-Total-Count",
+							"value": "2",
+							"description": "Custom header"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "[{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},{\"id\":2,\"name\":\"Hrana\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}}]",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "5fd584be-fd73-bedc-76e6-2a8353f93242",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/shopping-category",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "name",
+								"value": "Nesto trece",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "category",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "details",
+								"value": "400 g",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "GET",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "07adda48-f06e-08f7-7bc5-0416b2dccdfb"
+		},
+		{
+			"id": "d36471b1-0baa-8e48-d338-b890c2074a91",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/group/select",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "id",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "group/select",
+			"description": "Select new group",
+			"descriptionFormat": "html",
+			"time": 1494667642143,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK"
+					},
+					"time": 99,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": ""
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "348",
+							"description": ""
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": ""
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:53:14 GMT",
+							"description": ""
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": ""
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": ""
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": ""
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "085d859f-e231-c3ef-1b35-cddb51dc98f7",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/group/select",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "id",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "89db0177-4d26-179e-d993-7c854e85d080"
+		},
+		{
+			"id": "ddf450d1-e13f-79dc-30cb-608f993d91ef",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/shopping-item",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "name",
+					"value": "test item",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "category",
+					"value": "test category",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "shopping-item",
+			"description": "Get list of shopping items",
+			"descriptionFormat": "html",
+			"time": 1494666013170,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 207,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "3018",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:54:15 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Link",
+							"key": "Link",
+							"value": "<http://localhost/asc/backend/web/api/shopping-item/index?page=1>; rel=self",
+							"description": "Used to express a typed relationship with another resource, where the relation type is defined by RFC 5988",
+							"isLink": true
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Pagination-Current-Page",
+							"key": "X-Pagination-Current-Page",
+							"value": "1",
+							"description": "Custom header"
+						},
+						{
+							"name": "X-Pagination-Page-Count",
+							"key": "X-Pagination-Page-Count",
+							"value": "1",
+							"description": "Custom header"
+						},
+						{
+							"name": "X-Pagination-Per-Page",
+							"key": "X-Pagination-Per-Page",
+							"value": "20",
+							"description": "Custom header"
+						},
+						{
+							"name": "X-Pagination-Total-Count",
+							"key": "X-Pagination-Total-Count",
+							"value": "6",
+							"description": "Custom header"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "[{\"id\":1,\"name\":\"test item promjena\",\"category\":{\"id\":2,\"name\":\"Hrana\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":true,\"isBought\":false,\"details\":\"detalji\",\"lastBought\":1494361088},{\"id\":3,\"name\":\"test new item\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":false,\"isBought\":false,\"details\":\"\",\"lastBought\":1494666221},{\"id\":4,\"name\":\"test trelksdj\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":false,\"isBought\":false,\"details\":null,\"lastBought\":1494666221},{\"id\":5,\"name\":\"Salama\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":false,\"isBought\":false,\"details\":\"Piko parizer\",\"lastBought\":1494251855},{\"id\":6,\"name\":\"Salama\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":false,\"isBought\":false,\"details\":\"500 g\",\"lastBought\":0},{\"id\":7,\"name\":\"Nesto trece\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":false,\"isBought\":false,\"details\":\"400 g\",\"lastBought\":0}]",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "5a1bfd69-43f3-6a3a-a67c-b8e3f4e381bd",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/shopping-item",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "name",
+								"value": "test item",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "category",
+								"value": "test category",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "GET",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "07adda48-f06e-08f7-7bc5-0416b2dccdfb"
+		},
+		{
+			"id": "e2cb774e-0abb-de44-3e72-06dbd6f33b45",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/shopping-item/update?id=6",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "name",
+					"value": "Salama",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "category",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "details",
+					"value": "500 g",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "shopping-item/update",
+			"description": "Update item",
+			"descriptionFormat": "html",
+			"time": 1494666601182,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 97,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "492",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:54:34 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":6,\"name\":\"Salama\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":false,\"isBought\":false,\"details\":\"500 g\",\"lastBought\":0}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "ed59158d-f0fc-c58c-eed8-4d2a0843c825",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/shopping-item/update?id=6",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "name",
+								"value": "Salama",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "category",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "details",
+								"value": "500 g",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "PUT",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "07adda48-f06e-08f7-7bc5-0416b2dccdfb"
+		},
+		{
+			"id": "ec3d9cd5-64fb-062f-6df3-c4ab05076efb",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/bill-category",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "amount",
+					"value": "200",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "bill-category",
+			"description": "List of bill categories",
+			"descriptionFormat": "html",
+			"time": 1494667231681,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 100,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "48",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:52:36 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "[{\"id\":1,\"name\":\"Hrana\"},{\"id\":2,\"name\":\"Cuga\"}]",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "14453e1c-d4f6-54bc-2a6a-3c476f2d2bec",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/bill-category",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "amount",
+								"value": "200",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "GET",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "d470d2ff-bef4-6603-c70a-f9b59b600751"
+		},
+		{
+			"id": "f354cffa-360a-365d-b07b-78ad5383ad6a",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/shopping-item/check?id=7",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "name",
+					"value": "Nesto trece",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "category",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "details",
+					"value": "400 g",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "shopping-item/check",
+			"description": "Check item in shopping list",
+			"descriptionFormat": "html",
+			"time": 1494666675558,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 99,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "496",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:54:40 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":7,\"name\":\"Nesto trece\",\"category\":{\"id\":1,\"name\":\"test category\",\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}},\"isChecked\":true,\"isBought\":false,\"details\":\"400 g\",\"lastBought\":0}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "1afe1d90-3c95-f844-e035-d7f3603c92f1",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/shopping-item/check?id=7",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "name",
+								"value": "Nesto trece",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "category",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "details",
+								"value": "400 g",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "07adda48-f06e-08f7-7bc5-0416b2dccdfb"
+		},
+		{
+			"id": "fe3a8fc9-68ba-a310-10af-081c196ed1c6",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/budget/add",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "amount",
+					"value": "200",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "budget/add",
+			"description": "Add to group budget",
+			"descriptionFormat": "html",
+			"time": 1494667137166,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 108,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "452",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:53:30 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":1,\"amount\":2387,\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"},\"group\":{\"id\":1,\"name\":\"PersonalGroup\",\"members\":[{\"id\":1,\"username\":\"vilim.stubican\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"}],\"currency\":{\"id\":1,\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "b27a1fbe-3403-7890-b2ed-46f928b9737b",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/budget/add",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "amount",
+								"value": "200",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "252ebb79-1ca7-dabe-b665-dd496372875c"
+		},
+		{
+			"id": "ff837697-adf5-65a9-9f8d-92d67bec0f5d",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/debt",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "id",
+					"value": "1",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "debt",
+			"description": "List of debts for current user.\n\nCurrent user will get that much from other user (positive - gets money, negative: loses money)",
+			"descriptionFormat": "html",
+			"time": 1494667979685,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 94,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "250",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 13 May 2017 09:53:38 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "[{\"amount\":0,\"user\":{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"email\":\"vilim.stubican@gmail.com\",\"avatar\":\"https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344\"},\"currency\":{\"id\":\"1\",\"name\":\"Hrvatska kuna\",\"code\":\"HRK\",\"shortcode\":\"kn\"}}]",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "b0b033da-dea5-24f6-bb7a-b964cc91bc86",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/debt",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "id",
+								"value": "1",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "GET",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "3a96c96b-d261-b3db-1dde-d9304df9db8e"
+		}
+	]
+}

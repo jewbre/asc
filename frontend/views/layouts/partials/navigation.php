@@ -28,9 +28,15 @@ use yii\helpers\Url;
         <ul id='groupDropdown' class='dropdown-content'>
             <?php foreach ($viewModel->getGroups() as $group) { ?>
                 <li>
-                    <a href="#" data-id="<?= $group['id'] ?>"><?= $group['name'] ?></a>
+                    <a href="#" class="select-group" data-id="<?= $group['id'] ?>"><?= $group['name'] ?></a>
                 </li>
             <?php } ?>
+            <li>
+                <a href="#addNewGroupModal" class="modal-trigger">
+                    <i class="material-icons left white-text">plus</i>
+                    Add new group
+                </a>
+            </li>
         </ul>
     </li>
     <li>

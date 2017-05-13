@@ -39,11 +39,14 @@ class ViewModelFactory
         /** @var Group $selectedGroup */
         $selectedGroup = $user->selectedGroup;
 
+        $users = User::find()->all();
+
         $viewModelBuilder = new ViewModelBuilder();
         $viewModelBuilder
             ->setUsername($user->username)
             ->setAvatar($user->getAvatar())
             ->setEmail($user->email)
+            ->setUsers($users)
             ->setSelectedGroup($selectedGroup->id, $selectedGroup->name);
 
         foreach ($groups as $group) {

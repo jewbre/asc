@@ -86,6 +86,16 @@ class ViewModelBuilder
     }
 
     /**
+     * @param $users
+     * @return $this
+     */
+    public function setUsers($users)
+    {
+        $this->model->setUsers($users);
+        return $this;
+    }
+
+    /**
      * @return ViewModel
      */
     public function build()

@@ -16,15 +16,14 @@ class ApiService {
     static readonly UPDATE_BILL = '/bill/update';
 
     static readonly GROUP_MEMBER_LIST = '/group/members';
+    static readonly CREATE_NEW_GROUP = '/group/create';
+    static readonly SELECT_GROUP = '/group/select';
 
     static readonly ME = '/user/me';
     static readonly USER_SEARCH = '/user/search';
 
     static readonly DEBTS = '/debt';
     static readonly CLEAR_DEBTS = '/debt/clear';
-
-
-    static readonly FB_LOGIN = '/user/facebook-login';
 
     private static instance: ApiService = null;
 
@@ -42,22 +41,6 @@ class ApiService {
     private constructor() {
         this.token = JSON.parse(document.getElementById('api-token').innerText);
         this.basePath = JSON.parse(document.getElementById('api-base-path').innerText);
-    }
-
-
-
-    public facebookLogin(accessToken : string): Promise<null> {
-        return new Promise((resolve, reject) => {
-            this.post<null>(ApiService.FB_LOGIN, {
-                accessToken
-            })
-                .then(() => {
-                    resolve();
-                })
-                .catch(error => {
-                    reject(error)
-                });
-        });
     }
 
     public searchUsers(query: string): Promise<User[]> {
@@ -126,6 +109,37 @@ class ApiService {
                     );
 
                     resolve(debts);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
+    public createNewGroup(name : string, members : string[]): Promise<Group> {
+        return new Promise((resolve, reject) => {
+            this.post<GroupApiResponse>(ApiService.CREATE_NEW_GROUP, {
+                name,
+                members
+            })
+                .then((groupApiResponse: GroupApiResponse) => {
+                    const group = (new GroupBuilder()).buildFromApiResponse(groupApiResponse);
+                    resolve(group);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
+    public selectGroup(id : number): Promise<Group> {
+        return new Promise((resolve, reject) => {
+            this.post<GroupApiResponse>(ApiService.SELECT_GROUP, {
+                id
+            })
+                .then((groupApiResponse: GroupApiResponse) => {
+                    const group = (new GroupBuilder()).buildFromApiResponse(groupApiResponse);
+                    resolve(group);
                 })
                 .catch(error => {
                     reject(error)

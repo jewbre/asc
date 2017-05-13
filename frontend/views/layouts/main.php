@@ -3,15 +3,17 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use frontend\assets\GroupAssets;
+use frontend\assets\JSUtilsAsset;
 use frontend\assets\MaterializeCSSAssets;
 use frontend\assets\NavigationAsset;
-use frontend\assets\JSUtilsAsset;
 use yii\helpers\Html;
 use yii\helpers\Json;
 
 MaterializeCSSAssets::register($this);
 NavigationAsset::register($this);
 JSUtilsAsset::register($this);
+GroupAssets::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -24,8 +26,9 @@ JSUtilsAsset::register($this);
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <?php $this->head() ?>
 
-    <script type="application/json" id="api-token"><?= Json::encode(Yii::$app->user->getIdentity()->getAuthKey())?></script>
-    <script type="application/json" id="api-base-path"><?= Json::encode(param('apiUrl'))?></script>
+    <script type="application/json"
+            id="api-token"><?= Json::encode(Yii::$app->user->getIdentity()->getAuthKey()) ?></script>
+    <script type="application/json" id="api-base-path"><?= Json::encode(param('apiUrl')) ?></script>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -37,11 +40,11 @@ JSUtilsAsset::register($this);
             <h5>Roomero</h5>
         </div>
         <?php
-            if(isset($this->params['actionPartial'])) {
-                $partialName = $this->params['actionPartial']['name'];
-                $partialData = $this->params['actionPartial']['data'];
-                echo $this->render($partialName, $partialData);
-            }
+        if (isset($this->params['actionPartial'])) {
+            $partialName = $this->params['actionPartial']['name'];
+            $partialData = $this->params['actionPartial']['data'];
+            echo $this->render($partialName, $partialData);
+        }
         ?>
     </nav>
     <div class="col s12 m12 l12 no-padding main-content" style="position: relative">
@@ -50,11 +53,13 @@ JSUtilsAsset::register($this);
 </div>
 
 <?php
-    if(isset($this->params['modals']) && !empty($this->params['modals'])) {
-        foreach ($this->params['modals'] as $modalPath) {
-            echo $this->render($modalPath);
-        }
+if (isset($this->params['modals']) && !empty($this->params['modals'])) {
+    foreach ($this->params['modals'] as $modalPath) {
+        echo $this->render($modalPath);
     }
+}
+
+echo $this->render('//group/create-new-group', ['viewModel' => $this->params['navigationViewModel']]);
 ?>
 <header>
     <?= $this->render('//layouts/partials/navigation', ['viewModel' => $this->params['navigationViewModel']]) ?>

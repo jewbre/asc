@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\GroupInvitation;
+use common\models\helpers\RegistrationHelper;
 use common\models\LoginRedirect;
 use frontend\models\navigation\ViewModelFactory as NavigationViewModelFactory;
 use Yii;
@@ -97,6 +99,21 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $groupID = Yii::$app->getRequest()->get('group', 0);
+        $email = Yii::$app->getRequest()->get('email', 0);
+
+        if($groupID && $email) {
+            $groupInvitation = GroupInvitation::findOne([
+                'groupID' => $groupID,
+                'email' => $email
+            ]);
+
+            if($groupInvitation) {
+                $groupInvitation->accepted = 1;
+                $groupInvitation->update();
+            }
+        }
+
         $this->layout = 'login';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -188,6 +205,8 @@ class SiteController extends Controller
             $loginRedirect->delete();
 
             if (Yii::$app->getUser()->login($user)) {
+                (new RegistrationHelper())->acceptInvitations($user);
+
                 return $this->redirect(['bills/index']);
             }
         }

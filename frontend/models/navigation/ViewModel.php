@@ -16,40 +16,7 @@ class ViewModel
     private $groups = [];
     private $features = [];
     private $email = '';
-
-    /**
-     * @param string $username
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-    }
-
-    /**
-     * @param string $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-    /**
-     * @param string $avatar
-     */
-    public function setAvatar($avatar)
-    {
-        $this->avatar = $avatar;
-    }
-
-    /**
-     * @param $groupID
-     * @param $groupName
-     * @internal param array $selectedGroup
-     */
-    public function setSelectedGroup($groupID, $groupName)
-    {
-        $this->selectedGroup = ['id' => $groupID, 'name' => $groupName];
-    }
+    private $users = [];
 
     /**
      * @param $groupID
@@ -79,6 +46,14 @@ class ViewModel
     }
 
     /**
+     * @param string $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    /**
      * @return string
      */
     public function getAvatar()
@@ -87,11 +62,29 @@ class ViewModel
     }
 
     /**
+     * @param string $avatar
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+    }
+
+    /**
      * @return array
      */
     public function getSelectedGroup()
     {
         return $this->selectedGroup;
+    }
+
+    /**
+     * @param $groupID
+     * @param $groupName
+     * @internal param array $selectedGroup
+     */
+    public function setSelectedGroup($groupID, $groupName)
+    {
+        $this->selectedGroup = ['id' => $groupID, 'name' => $groupName];
     }
 
     /**
@@ -116,6 +109,30 @@ class ViewModel
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return array
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * @param array $users
+     */
+    public function setUsers($users)
+    {
+        $this->users = $users;
     }
 
 }

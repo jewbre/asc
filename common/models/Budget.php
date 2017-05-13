@@ -41,7 +41,9 @@ class Budget extends BaseBudget
                     ->where('groupID = :group', ['group' => $model->groupID])
                     ->groupBy(['groupID'])
                     ->one();
-                return ((double) $model->amount) - ((double)$totalBills->amount);
+
+                $billAmount = $totalBills ? ((double)$totalBills->amount) : 0;
+                return ((double) $model->amount) - $billAmount;
             },
             'currency' => function (Budget $model) {
                 return [

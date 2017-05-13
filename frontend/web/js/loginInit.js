@@ -4,6 +4,7 @@
         $('#facebook-login').on('click', function () {
             FB.login(function (response) {
                 if (response.status === 'connected') {
+                    console.log(response.authResponse.accessToken);
                     LoginApiService.getInstance()
                         .facebookLogin(response.authResponse.accessToken)
                         .then(function (key) {
@@ -22,6 +23,7 @@
 
 function onGoogleSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
+    console.log(id_token);
     LoginApiService.getInstance()
         .googleLogin(id_token)
         .then(function (key) {

@@ -10,6 +10,7 @@ namespace common\models\helpers;
 
 use common\models\Budget;
 use common\models\Group;
+use common\models\GroupInvitation;
 use common\models\GroupMember;
 use common\models\User;
 use yii\base\Model;
@@ -115,6 +116,23 @@ class RegistrationHelper extends Model
         }
 
         return User::findOne($args);
+    }
+
+    public function acceptInvitations(User $user)
+    {
+        $invitations = GroupInvitation::findAll(['email' => $user->email, 'accepted' => 1]);
+
+        foreach ($invitations as $invitation) {
+            /** @var GroupInvitation $invitation */
+            $member = new GroupMember();
+            $member->setAttributes([
+                'groupID' => $invitation->groupID,
+                'userID' => $user->id
+            ]);
+            $member->save();
+
+            $invitation->delete();
+        }
     }
 
     /**

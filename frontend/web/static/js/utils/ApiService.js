@@ -11,20 +11,6 @@ var ApiService = (function () {
         }
         return ApiService.instance;
     };
-    ApiService.prototype.facebookLogin = function (accessToken) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.post(ApiService.FB_LOGIN, {
-                accessToken: accessToken
-            })
-                .then(function () {
-                resolve();
-            })
-                .catch(function (error) {
-                reject(error);
-            });
-        });
-    };
     ApiService.prototype.searchUsers = function (query) {
         var _this = this;
         var fullPath = ApiService.USER_SEARCH + "?query=" + query;
@@ -85,6 +71,37 @@ var ApiService = (function () {
                     return (new DebtBuilder()).buildFromApiResponse(debtApiResponse);
                 });
                 resolve(debts);
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
+    ApiService.prototype.createNewGroup = function (name, members) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.post(ApiService.CREATE_NEW_GROUP, {
+                name: name,
+                members: members
+            })
+                .then(function (groupApiResponse) {
+                var group = (new GroupBuilder()).buildFromApiResponse(groupApiResponse);
+                resolve(group);
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
+    ApiService.prototype.selectGroup = function (id) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.post(ApiService.SELECT_GROUP, {
+                id: id
+            })
+                .then(function (groupApiResponse) {
+                var group = (new GroupBuilder()).buildFromApiResponse(groupApiResponse);
+                resolve(group);
             })
                 .catch(function (error) {
                 reject(error);
@@ -360,9 +377,10 @@ ApiService.BILL_CATEGORIES_LIST = '/bill-category';
 ApiService.CREATE_NEW_BILL = '/bill/create';
 ApiService.UPDATE_BILL = '/bill/update';
 ApiService.GROUP_MEMBER_LIST = '/group/members';
+ApiService.CREATE_NEW_GROUP = '/group/create';
+ApiService.SELECT_GROUP = '/group/select';
 ApiService.ME = '/user/me';
 ApiService.USER_SEARCH = '/user/search';
 ApiService.DEBTS = '/debt';
 ApiService.CLEAR_DEBTS = '/debt/clear';
-ApiService.FB_LOGIN = '/user/facebook-login';
 ApiService.instance = null;

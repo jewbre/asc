@@ -21,6 +21,10 @@ class Renderer {
         `;
     }
 
+    public getRenderedMemberForGroup(email : string) : string {
+        return `<li class="collection-item dismissable"><div>${email}<a href="#!" class="secondary-content"><i class="material-icons">delete</i></a></div></li>`
+    }
+
     public getRenderedShoppingItem(item: Item): string {
         return `<li class="collection-item avatar valign-wrapper ${item.isBought ? 'checked' : ''}" id="shopping-item-${item.id}">
             <i class="material-icons circle deep-purple item-add">add_shopping_cart</i>
