@@ -2,8 +2,7 @@
 
 namespace common\models;
 
-use Yii;
-use \common\models\base\Bill as BaseBill;
+use common\models\base\Bill as BaseBill;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -12,7 +11,7 @@ use yii\helpers\ArrayHelper;
 class Bill extends BaseBill
 {
 
-public function behaviors()
+    public function behaviors()
     {
         return ArrayHelper::merge(
             parent::behaviors(),
@@ -25,10 +24,10 @@ public function behaviors()
     public function rules()
     {
         return ArrayHelper::merge(
-             parent::rules(),
-             [
-                  # custom validation rules
-             ]
+            parent::rules(),
+            [
+                # custom validation rules
+            ]
         );
     }
 
@@ -36,19 +35,27 @@ public function behaviors()
     {
         return [
             'id',
-            'description' => function(Bill $model) {
+            'description' => function (Bill $model) {
                 return $model->description ? $model->description : 'No description';
             },
-            'date' => function(Bill $model) {
+            'date' => function (Bill $model) {
                 $date = new \DateTime();
                 $date->setTimestamp($model->created_at);
 
                 return $date->format('c');
             },
-            'amount' => function(Bill $model) {
-                return (double) number_format($model->amount, '2', '.', '');
+            'amount' => function (Bill $model) {
+                return [
+                    'amount' => (double)number_format($model->amount, '2', '.', ''),
+                    'currency' => [
+                        'id' => '1',
+                        'name' => 'Hrvatska kuna',
+                        'code' => 'HRK',
+                        'shortcode' => 'kn'
+                    ]
+                ];
             },
-            'payer' => function(Bill $model) {
+            'payer' => function (Bill $model) {
                 $payer = $model->payer;
                 return [
                     'id' => $payer->id,
@@ -56,22 +63,14 @@ public function behaviors()
                     'avatar' => $payer->getAvatar(),
                 ];
             },
-            'participants' => function(Bill $model) {
+            'participants' => function (Bill $model) {
                 return $model->billParticipants;
             },
-            'category' => function(Bill $model) {
+            'category' => function (Bill $model) {
                 return $model->category;
             },
-            'group' => function(Bill $model) {
+            'group' => function (Bill $model) {
                 return $model->group;
-            },
-            'currency' => function(Bill $model) {
-                return [
-                    'id' => '1',
-                    'name' => 'Hrvatska kuna',
-                    'code' => 'HRK',
-                    'shortcode' => 'kn'
-                ];
             }
         ];
     }
