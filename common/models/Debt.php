@@ -25,7 +25,7 @@ class Debt extends BaseDebt
     {
         return ArrayHelper::merge(
             parent::rules(),
-            [“
+            [
                 # custom validation rules
             ]
         );
