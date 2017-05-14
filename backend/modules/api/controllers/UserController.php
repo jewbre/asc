@@ -188,9 +188,8 @@ class UserController extends BaseController
             $payload = $client->verifyIdToken($accessToken);
         } catch (\Exception $e) {
             $payload = Json::decode(
-                file_get_contents('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' . $token)
+                file_get_contents('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' . $accessToken)
             );
-            var_dump(file_get_contents('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' . $token));
         }
         if ($payload) {
             // If request specified a G Suite domain:
