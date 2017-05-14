@@ -1,13 +1,13 @@
 <!-- Modal Structure -->
 <div id="addNewShoppingListModal" class="modal">
     <div class="modal-content">
-        <h4>Create new shopping list</h4>
+        <h4>Create new shopping item</h4>
         <div class="row">
             <form class="col s12" id="addNewShoppingListItemForm">
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="shopping_item_name" type="text" class="validate">
-                        <label for="shopping_item_name">Shopping List Name</label>
+                        <label for="shopping_item_name">Shopping item Name</label>
                     </div>
                 </div>
                 <div class="row valign-wrapper" id="categoryNameInput" style="display: none">
