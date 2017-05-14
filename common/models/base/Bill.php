@@ -64,7 +64,7 @@ abstract class Bill extends \yii\db\ActiveRecord
             [['description'], 'string', 'max' => 255],
             [['created_at'], 'integer'],
             [['categoryID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\BillCategory::className(), 'targetAttribute' => ['categoryID' => 'id']],
-            [['groupID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\User::className(), 'targetAttribute' => ['groupID' => 'id']],
+            [['groupID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\Group::className(), 'targetAttribute' => ['groupID' => 'id']],
             [['payerID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\User::className(), 'targetAttribute' => ['payerID' => 'id']]
         ];
     }
