@@ -37,6 +37,11 @@ class BillController extends BaseController
                     'checkAccess' => [$this, 'checkAccess'],
                     'scenario' => $this->updateScenario,
                 ],
+                'delete' => [
+                    'class' => 'backend\modules\api\actions\bill\DeleteAction',
+                    'modelClass' => $this->modelClass,
+                    'checkAccess' => [$this, 'checkAccess'],
+                ],
             ]
         );
         unset($actions['index']);

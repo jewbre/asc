@@ -101,6 +101,17 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter, DebtPresente
             })
     }
 
+    public deleteBill(id : number) {
+        ApiService.getInstance().deleteBill(id)
+            .then(() => {
+                this.billView.removeBill(id);
+                this.billView.hideAddNewBillModal();
+
+                this.updateDebts();
+                this.updateBudget();
+            })
+    }
+
     public getNextBillsPage(): void {
         ApiService.getInstance()
             .getBills(this.page)

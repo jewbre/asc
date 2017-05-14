@@ -12,6 +12,7 @@ class ApiService {
     static readonly BUDGET_ADD = '/budget/add/';
 
     static readonly GET_BILLS = '/bill/';
+    static readonly DELETE_BILL = '/bill/delete/';
     static readonly BILL_CATEGORIES_LIST = '/bill-category/';
     static readonly CREATE_NEW_BILL = '/bill/create/';
     static readonly UPDATE_BILL = '/bill/update/';
@@ -173,6 +174,19 @@ class ApiService {
                 .then((billApiResponse: BillApiResponse) => {
                     const bill: Bill = (new BillBuilder()).buildFromApiResponse(billApiResponse);
                     resolve(bill);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
+    public deleteBill(id : number): Promise<void> {
+        return new Promise<void>((resolve, reject) => {
+            const finalPath = `${ApiService.DELETE_BILL}?id=${id}`;
+            this.deleteCall<void>(finalPath)
+                .then(() => {
+                    resolve();
                 })
                 .catch(error => {
                     reject(error)

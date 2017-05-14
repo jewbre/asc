@@ -137,6 +137,19 @@ var ApiService = (function () {
             });
         });
     };
+    ApiService.prototype.deleteBill = function (id) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var finalPath = ApiService.DELETE_BILL + "?id=" + id;
+            _this.deleteCall(finalPath)
+                .then(function () {
+                resolve();
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
     ApiService.prototype.updateUser = function (user) {
         var _this = this;
         return new Promise(function (resolve, reject) {
@@ -422,6 +435,7 @@ ApiService.SHOPPING_CATEGORIES_LIST = '/shopping-category/';
 ApiService.BUDGET_MINE = '/budget/mine/';
 ApiService.BUDGET_ADD = '/budget/add/';
 ApiService.GET_BILLS = '/bill/';
+ApiService.DELETE_BILL = '/bill/delete/';
 ApiService.BILL_CATEGORIES_LIST = '/bill-category/';
 ApiService.CREATE_NEW_BILL = '/bill/create/';
 ApiService.UPDATE_BILL = '/bill/update/';

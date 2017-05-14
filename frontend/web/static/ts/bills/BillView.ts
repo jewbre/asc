@@ -64,6 +64,10 @@ class BillView {
             this.createNewBill();
         });
 
+        $('#deleteBillBtn').on('click', () => {
+            this.onDeleteBill();
+        });
+
         $('#updateBillBtn').on('click', () => {
             this.updateBill();
         });
@@ -251,6 +255,16 @@ class BillView {
         createNewExpenseModal.modal('open');
 
         Materialize.updateTextFields();
+    }
+
+    public onDeleteBill() : void {
+        this.presenter.deleteBill(
+            this.editableBill.id
+        );
+    }
+
+    public removeBill(id : number) {
+        this.setBills(this.bills.filter((bill : Bill) => bill.id != id));
     }
 
     private createNewBill() : void {

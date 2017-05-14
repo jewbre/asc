@@ -8,4 +8,6 @@ interface BillPresenter {
                   date: string, payer: number, participants: number[]): void;
     updateBill(id : number, category: number | string, amount: number, description: string,
                   date: string, payer: number, participants: number[]): void;
+
+    deleteBill(id : number): void;
 }

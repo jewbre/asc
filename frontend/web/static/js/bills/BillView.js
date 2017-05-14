@@ -48,6 +48,9 @@ var BillView = (function () {
         $('#createBillBtn').on('click', function () {
             _this.createNewBill();
         });
+        $('#deleteBillBtn').on('click', function () {
+            _this.onDeleteBill();
+        });
         $('#updateBillBtn').on('click', function () {
             _this.updateBill();
         });
@@ -199,6 +202,12 @@ var BillView = (function () {
         createNewExpenseModal.removeClass('adding');
         createNewExpenseModal.modal('open');
         Materialize.updateTextFields();
+    };
+    BillView.prototype.onDeleteBill = function () {
+        this.presenter.deleteBill(this.editableBill.id);
+    };
+    BillView.prototype.removeBill = function (id) {
+        this.setBills(this.bills.filter(function (bill) { return bill.id != id; }));
     };
     BillView.prototype.createNewBill = function () {
         var d = new Date($('#bill_date').val());

@@ -78,6 +78,6 @@
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
         <a href="#!" class="waves-effect waves-green btn-flat" id="updateBillBtn">Update</a>
         <a href="#!" class="waves-effect waves-green btn-flat" id="createBillBtn">Create</a>
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="deleteBillBtn">Delete</a>
+        <a href="#!" class="modal-action waves-effect waves-green btn-flat" id="deleteBillBtn">Delete</a>
     </div>
 </div>

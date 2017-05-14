@@ -90,6 +90,16 @@ var BillsPresenterImpl = (function () {
             _this.updateBudget();
         });
     };
+    BillsPresenterImpl.prototype.deleteBill = function (id) {
+        var _this = this;
+        ApiService.getInstance().deleteBill(id)
+            .then(function () {
+            _this.billView.removeBill(id);
+            _this.billView.hideAddNewBillModal();
+            _this.updateDebts();
+            _this.updateBudget();
+        });
+    };
     BillsPresenterImpl.prototype.getNextBillsPage = function () {
         var _this = this;
         ApiService.getInstance()
