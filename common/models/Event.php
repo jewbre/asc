@@ -2,8 +2,7 @@
 
 namespace common\models;
 
-use Yii;
-use \common\models\base\Event as BaseEvent;
+use common\models\base\Event as BaseEvent;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -12,7 +11,7 @@ use yii\helpers\ArrayHelper;
 class Event extends BaseEvent
 {
 
-public function behaviors()
+    public function behaviors()
     {
         return ArrayHelper::merge(
             parent::behaviors(),
@@ -25,39 +24,42 @@ public function behaviors()
     public function rules()
     {
         return ArrayHelper::merge(
-             parent::rules(),
-             [
-                  # custom validation rules
-             ]
+            parent::rules(),
+            [
+                # custom validation rules
+            ]
         );
-    }
-
-    public function isRepeatable()
-    {
-        return (bool) $this->isRepeatable;
     }
 
     public function fields()
     {
-        return [
+        $fields = [
             'id',
             'name',
             'description',
-            'datetime' => function(Event $event) {
-                if($event->created_at) {
-                    $d = new \DateTime();
-                    $d->setTimestamp($event->created_at);
-                    return $d->format('c');
-                }
-                return null;
-            },
-            'repeatable' => function(Event $model) {
+            'repeatable' => function (Event $model) {
                 return $this->isRepeatable() ? $model->repeatableEvents[0]->type : 'none';
             },
-            'participants' => function(Event $event) {
+            'participants' => function (Event $event) {
                 return $event->eventParticipants;
             }
         ];
+
+        $fields['datetime'] = function (Event $event) {
+            if ($event->created_at) {
+                $d = new \DateTime();
+                $d->setTimestamp($event->created_at);
+                return $d->format('c');
+            }
+            return null;
+        };
+
+        return $fields;
+    }
+
+    public function isRepeatable()
+    {
+        return (bool)$this->isRepeatable;
     }
 
 
