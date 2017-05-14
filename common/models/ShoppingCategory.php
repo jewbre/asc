@@ -42,5 +42,21 @@ class ShoppingCategory extends BaseShoppingCategory
         ];
     }
 
+    public static function getGroupDefaultCategory($groupID)
+    {
+        $defaultCategory = ShoppingCategory::findOne(['groupID' => $groupID, 'name' => 'Uncategorized']);
+
+        if (!$defaultCategory) {
+            $defaultCategory = new ShoppingCategory();
+            $defaultCategory->setAttributes([
+                'name' => 'Uncategorized',
+                'groupID' => $group->id
+            ]);
+            $defaultCategory->save();
+        }
+
+        return $defaultCategory;
+    }
+
 
 }

@@ -12,6 +12,8 @@ use common\models\Budget;
 use common\models\Group;
 use common\models\GroupInvitation;
 use common\models\GroupMember;
+use common\models\ShoppingCategory;
+use common\models\ShoppingList;
 use common\models\User;
 use yii\base\Model;
 
@@ -88,6 +90,20 @@ class RegistrationHelper extends Model
                 'amount' => 0
             ]);
             $budget->save();
+
+            $shoppingList = new ShoppingList();
+            $shoppingList->setAttributes([
+                'name' => 'deafult title',
+                'groupID' => $group->id
+            ]);
+            $shoppingList->save();
+
+            $uncategorizedItem = new ShoppingCategory();
+            $uncategorizedItem->setAttributes([
+                'name' => 'Uncategorized',
+                'groupID' => $group->id
+            ]);
+            $uncategorizedItem->save();
 
             return $user;
         }

@@ -37,6 +37,11 @@ class UpdateAction extends BaseUpdateAction
 
         $groupID = user()->selectedGroupID;
         $category = \Yii::$app->getRequest()->post('category', null);
+
+        if($category === null) {
+            $category = ShoppingCategory::getGroupDefaultCategory($groupID)->id;
+        }
+
         if (!is_numeric($category)) {
             $name = trim($category);
 
