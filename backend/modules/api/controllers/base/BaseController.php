@@ -34,7 +34,6 @@ abstract class BaseController extends \yii\rest\ActiveController
             'class' => Cors::className(),
             'cors' => [
                 'Origin' => ['*'],
-
                 'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
                 'Access-Control-Request-Headers' => ['*'],
                 'Access-Control-Allow-Credentials' => true,
