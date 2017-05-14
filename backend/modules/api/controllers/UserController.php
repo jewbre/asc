@@ -196,10 +196,7 @@ class UserController extends BaseController
             );
         }
 
-        if ($payload) {
-            // If request specified a G Suite domain:
-            //$domain = $payload['hd'];
-        } else {
+        if (!isset($payload['name']) || !isset($payload['name']) || !isset($payload['sub']) ) {
             throw new BadRequestHttpException("Invalid token.");
         }
 
