@@ -60,9 +60,12 @@ class CreateAction extends BaseCreateAction
                 if($member == user()->email) {
                     continue;
                 }
-                if (filter_var($member, FILTER_VALIDATE_EMAIL)) {
+
+                if (!filter_var($member, FILTER_VALIDATE_EMAIL) === false) {
+                    // Continue normally
+                } else {
                     continue;
-                };
+                }
 
                 $member = trim($member);
                 $groupInvite = new GroupInvitation();
