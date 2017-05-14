@@ -17,7 +17,7 @@ class CreateAction extends BaseCreateAction
         $groupID = user()->selectedGroupID;
         $category = \Yii::$app->getRequest()->post('category', null);
 
-        if($category === null) {
+        if(!$category) {
             $category = ShoppingCategory::getGroupDefaultCategory($groupID)->id;
         }
 

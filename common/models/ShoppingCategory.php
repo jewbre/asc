@@ -50,7 +50,7 @@ class ShoppingCategory extends BaseShoppingCategory
             $defaultCategory = new ShoppingCategory();
             $defaultCategory->setAttributes([
                 'name' => 'Uncategorized',
-                'groupID' => $group->id
+                'groupID' => $groupID
             ]);
             $defaultCategory->save();
         }
