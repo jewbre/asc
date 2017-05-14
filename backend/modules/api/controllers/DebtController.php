@@ -64,8 +64,6 @@ class DebtController extends BaseController
             if ($dept) {
                 $dept->amount = 0;
                 $dept->save();
-            } else {
-                throw new NotFoundHttpException('You can only edit your own debts.');
             }
         }
 
