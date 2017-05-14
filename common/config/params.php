@@ -8,7 +8,7 @@ return [
     'facebookSecret' => 'a64f74ddef838956f256a2d5c4e35ec2',
     'googleClientID' => '879947320620-6iksif9k13gonk1qd97to82g89qu5e7v.apps.googleusercontent.com',
 
-    'postmarkToken' => '8c32ea60-2948-4a6a-bd28-e39f218b4ad8',
-    'welcomeMailID' => '1798622',
+    'postmarkToken' => '',
+    'welcomeMailID' => '1801941',
     'loginUrl' => 'http://104.236.101.231/asc/frontend/web/site/login',
 ];
