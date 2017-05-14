@@ -21,6 +21,7 @@ use Facebook\Facebook;
 use Google_Client;
 use Yii;
 use yii\filters\Cors;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 use yii\web\BadRequestHttpException;
 
@@ -186,11 +187,13 @@ class UserController extends BaseController
 
         try {
             $payload = $client->verifyIdToken($accessToken);
+            $directPayload = file_get_contents('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' . $accessToken);
+
+            $payload = ArrayHelper::merge($payload, $directPayload);
         } catch (\Exception $e) {
             $payload = Json::decode(
                 file_get_contents('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' . $accessToken)
             );
-            var_dump(file_get_contents('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' . $accessToken));
         }
         if ($payload) {
             // If request specified a G Suite domain:
