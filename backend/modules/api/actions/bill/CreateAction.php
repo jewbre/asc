@@ -49,6 +49,10 @@ class CreateAction extends BaseCreateAction
         $participants = $bodyParams['participants'];
         if(!$participants || empty($participants)) {
             $participants = [];
+        } elseif(is_string($participants) && $participants[0] == '[') {
+            $participants = explode(',',
+                substr($participants, 1, strlen($participants) - 2)
+            );
         }
 
         $date = new \DateTime($bodyParams['date']);
