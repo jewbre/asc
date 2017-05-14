@@ -8,7 +8,7 @@ class m170507_135034_bill extends Migration
     {
         $this->createTable('bill', [
             'id' => $this->primaryKey(),
-            'description' => $this->string()->notNull(),
+            'description' => $this->string(),
             'amount' => $this->decimal(16,2)->notNull(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),

@@ -59,7 +59,7 @@ abstract class Bill extends \yii\db\ActiveRecord
     {
         return [
             [['amount'], 'double'],
-            [['description', 'categoryID', 'payerID', 'groupID'], 'required'],
+            [['categoryID', 'payerID', 'groupID'], 'required'],
             [['categoryID', 'payerID', 'groupID'], 'integer'],
             [['description'], 'string', 'max' => 255],
             [['created_at'], 'integer'],
