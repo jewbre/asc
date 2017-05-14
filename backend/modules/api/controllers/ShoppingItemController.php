@@ -111,7 +111,7 @@ class ShoppingItemController extends BaseController
 
         $shoppingListItem = new \common\models\ShoppingListItem();
         $shoppingListItem->setAttributes([
-            'shoppingListID' => $shoppingListID,
+            'shoppingListID' => $shoppingList->id,
             'shoppingItemID' => $item->id
         ]);
         $shoppingListItem->save();
