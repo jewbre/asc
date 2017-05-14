@@ -225,7 +225,9 @@ class UserController extends BaseController
         }
 
         $user = $registrationHelper->registerUser($username, $email);
-        $registrationHelper->acceptInvitations($user);
+        if($user instanceof User) {
+            $registrationHelper->acceptInvitations($user);
+        }
         return $user;
     }
 
