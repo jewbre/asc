@@ -38,7 +38,11 @@ class Event extends BaseEvent
             'name',
             'description',
             'repeatable' => function (Event $model) {
-                return $this->isRepeatable() ? $model->repeatableEvents[0]->type : 'none';
+                return $this->isRepeatable() ?
+                    !empty($model->repeatableEvents) ?
+                        $model->repeatableEvents[0]->type
+                        : 'none'
+                : 'none';
             },
             'participants' => function (Event $event) {
                 return $event->eventParticipants;
