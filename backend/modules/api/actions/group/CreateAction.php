@@ -23,6 +23,12 @@ class CreateAction extends BaseCreateAction
             $members = [];
         }
 
+        if (is_string($members) && $members[0] == '[') {
+            $members = explode(',',
+                substr($members, 1, strlen($members) - 2)
+            );
+        }
+
         $user = user();
         $request = \Yii::$app->getRequest();
         $bodyParams = $request->bodyParams;
