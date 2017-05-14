@@ -53,6 +53,8 @@ class UpdateAction extends BaseUpdateAction
         $model = parent::run($id);
 
         if(empty($model->getErrors())) {
+            // TODO: update events
+
             EventParticipant::deleteAll(['eventID' => $model->id]);
             foreach ($participants as $participant) {
                 $p = new EventParticipant();

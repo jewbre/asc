@@ -21,6 +21,7 @@ use Facebook\Facebook;
 use Google_Client;
 use Yii;
 use yii\filters\Cors;
+use yii\helpers\Json;
 use yii\web\BadRequestHttpException;
 
 class UserController extends BaseController
@@ -202,7 +203,12 @@ class UserController extends BaseController
             throw new BadRequestHttpException("Invalid access token.");
         }
         $client = new Google_Client(['client_id' => $token]);
-        $payload = $client->verifyIdToken($accessToken);
+
+        try {
+            $payload = $client->verifyIdToken($accessToken);
+        } catch (\Exception $e) {
+            $payload = Json::decode('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' . $token);
+        }
         if ($payload) {
             // If request specified a G Suite domain:
             //$domain = $payload['hd'];
