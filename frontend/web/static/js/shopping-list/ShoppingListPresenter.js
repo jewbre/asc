@@ -54,6 +54,14 @@ var ShoppingListPresenter = (function () {
             _this.view.updateItem(item);
         });
     };
+    ShoppingListPresenter.prototype.deleteItem = function (id) {
+        var _this = this;
+        ApiService.getInstance()
+            .deleteShoppingItem(id)
+            .then(function () {
+            _this.view.removeItem(id);
+        });
+    };
     Object.defineProperty(ShoppingListPresenter.prototype, "view", {
         get: function () {
             return this._view;

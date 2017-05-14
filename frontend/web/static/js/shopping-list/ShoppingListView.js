@@ -20,6 +20,9 @@ var ShoppingListView = (function () {
         $('#editShoppingItemBtn').on('click', function () {
             _this.onEditShoppingItem();
         });
+        $('#deleteShoppingItemBtn').on('click', function () {
+            _this.onDeleteItem();
+        });
         $('#addNewItemTrigger').on('click', function () {
             var modal = $('#addNewShoppingListModal');
             modal.addClass('create').removeClass('edit');
@@ -207,6 +210,10 @@ var ShoppingListView = (function () {
             .appendTo(categorySelect);
         categorySelect.material_select();
     };
+    ShoppingListView.prototype.removeItem = function (id) {
+        this.items = this.items.filter(function (item) { return item.id != id; });
+        this.setItems(this.items);
+    };
     ShoppingListView.prototype.onEditItem = function (item) {
         var modal = $('#addNewShoppingListModal');
         modal.addClass('edit').removeClass('create');
@@ -219,6 +226,11 @@ var ShoppingListView = (function () {
     };
     ShoppingListView.prototype.onAddNewShoppingItem = function () {
         this.presenter.createNewShoppingItem($('#shopping_item_name').val(), $('#shopping_item_category').val(), $('#shopping_item_reminder').val());
+    };
+    ShoppingListView.prototype.onDeleteItem = function () {
+        if (this.editableItem !== null) {
+            this.presenter.deleteItem(this.editableItem.id);
+        }
     };
     ShoppingListView.prototype.onEditShoppingItem = function () {
         if (this.editableItem !== null) {

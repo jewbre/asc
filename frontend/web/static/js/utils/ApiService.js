@@ -27,6 +27,19 @@ var ApiService = (function () {
             });
         });
     };
+    ApiService.prototype.deleteShoppingItem = function (id) {
+        var _this = this;
+        var fullPath = ApiService.DELETE_SHOPPING_ITEM + "?id=" + id;
+        return new Promise(function (resolve, reject) {
+            _this.deleteCall(fullPath)
+                .then(function () {
+                resolve();
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
     ApiService.prototype.finishShopping = function (items) {
         var _this = this;
         var apiItems = items.map(function (item) {
@@ -361,9 +374,28 @@ var ApiService = (function () {
             });
         });
     };
+    ApiService.prototype.deleteCall = function (path) {
+        var _this = this;
+        var fullPath = this.basePath + path;
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                url: fullPath,
+                method: 'DELETE',
+                headers: {
+                    'Authorization': "Bearer " + _this.token
+                },
+                contentType: "application/x-www-form-urlencoded",
+            }).done(function (data) {
+                resolve(data);
+            }).fail(function (error) {
+                reject(error);
+            });
+        });
+    };
     return ApiService;
 }());
 ApiService.SHOPPING_ITEMS_LIST = '/shopping-item';
+ApiService.DELETE_SHOPPING_ITEM = '/shopping-item/delete';
 ApiService.FINISH_SHOPPING = '/shopping-item/finish-shopping';
 ApiService.CREATE_SHOPPING_ITEM = '/shopping-item/create/';
 ApiService.UPDATE_SHOPPING_ITEM = '/shopping-item/update/';

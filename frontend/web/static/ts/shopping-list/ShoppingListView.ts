@@ -29,6 +29,10 @@ class ShoppingListView {
             this.onEditShoppingItem();
         });
 
+        $('#deleteShoppingItemBtn').on('click', () => {
+            this.onDeleteItem();
+        });
+
         $('#addNewItemTrigger').on('click', () =>{
             const modal = $('#addNewShoppingListModal');
             modal.addClass('create').removeClass('edit');
@@ -256,6 +260,10 @@ class ShoppingListView {
         categorySelect.material_select();
     }
 
+    public removeItem(id : number) : void {
+        this.items = this.items.filter(( item : Item) => item.id != id);
+        this.setItems(this.items);
+    }
 
     private onEditItem(item : Item) {
         const modal = $('#addNewShoppingListModal');
@@ -278,6 +286,13 @@ class ShoppingListView {
         );
     }
 
+    private onDeleteItem() : void {
+        if(this.editableItem !== null) {
+            this.presenter.deleteItem(
+                this.editableItem.id,
+            );
+        }
+    }
 
     private onEditShoppingItem() : void {
         if(this.editableItem !== null) {

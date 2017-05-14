@@ -58,6 +58,14 @@ class ShoppingListPresenter {
             })
     }
 
+    public deleteItem(id : number) : void {
+        ApiService.getInstance()
+            .deleteShoppingItem(id)
+            .then(() => {
+                this.view.removeItem(id);
+            })
+    }
+
     set view(value: ShoppingListView) {
         this._view = value;
     }

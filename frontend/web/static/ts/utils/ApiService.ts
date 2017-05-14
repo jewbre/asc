@@ -1,5 +1,6 @@
 class ApiService {
     static readonly SHOPPING_ITEMS_LIST = '/shopping-item';
+    static readonly DELETE_SHOPPING_ITEM = '/shopping-item/delete';
     static readonly FINISH_SHOPPING = '/shopping-item/finish-shopping';
     static readonly CREATE_SHOPPING_ITEM = '/shopping-item/create/';
     static readonly UPDATE_SHOPPING_ITEM = '/shopping-item/update/';
@@ -53,6 +54,20 @@ class ApiService {
                             (new UserBuilder()).buildFromApiResponse(userApiResponse)
                     );
                     resolve(users);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
+
+    public deleteShoppingItem(id: number): Promise<void> {
+        const fullPath = `${ApiService.DELETE_SHOPPING_ITEM}?id=${id}`;
+        return new Promise<void>((resolve, reject) => {
+            this.deleteCall<void>(fullPath)
+                .then(() => {
+                    resolve();
                 })
                 .catch(error => {
                     reject(error)
@@ -402,6 +417,24 @@ class ApiService {
                     'Authorization': `Bearer ${this.token}`
                 },
                 data: data,
+                contentType: "application/x-www-form-urlencoded",
+            }).done((data: T) => {
+                resolve(data);
+            }).fail((error) => {
+                reject(error);
+            })
+        });
+    }
+
+    public deleteCall<T>(path: string): Promise<T> {
+        const fullPath = this.basePath + path;
+        return new Promise<T>((resolve, reject) => {
+            $.ajax({
+                url: fullPath,
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${this.token}`
+                },
                 contentType: "application/x-www-form-urlencoded",
             }).done((data: T) => {
                 resolve(data);
