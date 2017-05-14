@@ -14,6 +14,7 @@ use common\models\Debt;
 use common\models\Event;
 use common\models\EventParticipant;
 use common\models\Group;
+use common\models\RepeatableEvent;
 use common\models\User;
 use yii\rest\UpdateAction as BaseUpdateAction;
 use yii\web\NotFoundHttpException;
@@ -35,6 +36,14 @@ class UpdateAction extends BaseUpdateAction
 
         $date = new \DateTime($bodyParams['date']);
 
+        $repeatableType = $bodyParams['isRepeatable'];
+        $isRepeatable = in_array($repeatableType,[
+            RepeatableEvent::DAILY,
+            RepeatableEvent::WEEKLY,
+            RepeatableEvent::MONTHLY,
+        ]) ? 1 : 0;
+
+        $bodyParams['isRepeatable'] = $isRepeatable;
         $bodyParams['created_at'] = $date->getTimestamp();
         $bodyParams['groupID'] = $groupID;
         $request->bodyParams = $bodyParams;

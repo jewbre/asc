@@ -11,7 +11,9 @@ use common\models\Bill;
 use common\models\BillCategory;
 use common\models\BillParticipants;
 use common\models\Debt;
+use common\models\Event;
 use common\models\EventParticipant;
+use common\models\RepeatableEvent;
 use common\models\User;
 use yii\rest\CreateAction as BaseCreateAction;
 
@@ -28,17 +30,35 @@ class CreateAction extends BaseCreateAction
         if(!$participants || empty($participants)) {
             $participants = [];
         }
+        $participants[] = user()->id;
 
         $date = new \DateTime($bodyParams['date']);
 
+        $repeatableType = $bodyParams['isRepeatable'];
+        $isRepeatable = in_array($repeatableType,[
+            RepeatableEvent::DAILY,
+            RepeatableEvent::WEEKLY,
+            RepeatableEvent::MONTHLY,
+        ]) ? 1 : 0;
+        $bodyParams['isRepeatable'] = $isRepeatable;
         $bodyParams['created_at'] = $date->getTimestamp();
         $bodyParams['groupID'] = $groupID;
         $request->bodyParams = $bodyParams;
 
-        /** @var Bill $model */
+        /** @var Event $model */
         $model = parent::run();
 
         if(empty($model->getErrors())) {
+            if($isRepeatable) {
+                $repEvent = new RepeatableEvent();
+                $repEvent->setAttributes([
+                    'type' => $repeatableType,
+                    'eventID' => $model->id,
+                    'originalEventID' => $model->id
+                ]);
+                $repEvent->save();
+            }
+
             foreach ($participants as $participant) {
                 $p = new EventParticipant();
                 $p->setAttributes([

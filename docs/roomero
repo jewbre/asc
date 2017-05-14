@@ -37,6 +37,18 @@
 			"owner": "639636"
 		},
 		{
+			"id": "b36ba176-87a1-de38-f389-34ef04a614a6",
+			"name": "events",
+			"description": "",
+			"order": [
+				"a782d3d4-0d49-894d-8e1d-918198c72bd2",
+				"25b2ff5e-e797-35f8-7ad0-f0895b57e6e4",
+				"7fe6c9a2-04c5-29cb-c88a-79052137d6e1",
+				"7a1acded-cf60-8c9f-621d-16b9deffe32e"
+			],
+			"owner": "639636"
+		},
+		{
 			"id": "89db0177-4d26-179e-d993-7c854e85d080",
 			"name": "group",
 			"description": "",
@@ -69,7 +81,8 @@
 			"order": [
 				"6403da1b-d6eb-df1a-9cc2-2cb5165bc4cb",
 				"05667a6a-d493-8822-ce2f-4a70a583209c",
-				"07e6c7cf-a162-001b-a543-ff462664aa27"
+				"07e6c7cf-a162-001b-a543-ff462664aa27",
+				"74f04363-1f51-6022-0975-8a9fdbcfa121"
 			],
 			"owner": "639636"
 		}
@@ -481,6 +494,178 @@
 					}
 				}
 			]
+		},
+		{
+			"id": "25b2ff5e-e797-35f8-7ad0-f0895b57e6e4",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/event/repeatable?from=2017-05-01T00%3A00%3A00%2B00%3A00&to=2017-06-01T00%3A00%3A00%2B00%3A00",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "name",
+					"value": "test ime",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "test description",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "date",
+					"value": "2017-05-02T22:00:00+00:00",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "participants[]",
+					"value": "2",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "isRepeatable",
+					"value": "daily",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "event/repeatable",
+			"description": "repeatable events",
+			"descriptionFormat": "html",
+			"time": 1494765709281,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 467,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sun, 14 May 2017 12:44:34 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "[{\"id\":2,\"name\":\"test ime\",\"description\":\"test description novi\",\"datetime\":\"2017-05-14T12:30:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"}]},{\"id\":37,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-21T12:30:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":40,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-01T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":41,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-02T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":42,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-03T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":43,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-04T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":44,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-05T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":45,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-06T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":46,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-07T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":47,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-08T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":48,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-09T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":49,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-10T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":50,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-11T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":51,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-12T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":52,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-13T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":53,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-14T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":54,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-15T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":55,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-16T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":56,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-17T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":57,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-18T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":58,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-19T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":59,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-20T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":60,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-21T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":61,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-22T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":62,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-23T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":63,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-24T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":64,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-25T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":65,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-26T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":66,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-27T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":67,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-28T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":68,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-29T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":69,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-30T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]},{\"id\":70,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-31T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]}]",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "f43e0d57-f002-3a25-a1fc-c26edb455b95",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/event/repeatable?from=2017-05-01T00%3A00%3A00%2B00%3A00&to=2017-06-01T00%3A00%3A00%2B00%3A00",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "name",
+								"value": "test ime",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "description",
+								"value": "test description",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "date",
+								"value": "2017-05-02T22:00:00+00:00",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "participants[]",
+								"value": "2",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "isRepeatable",
+								"value": "daily",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "GET",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "b36ba176-87a1-de38-f389-34ef04a614a6"
 		},
 		{
 			"id": "2671edf2-8908-35db-93fe-5afb3a4003d0",
@@ -1507,6 +1692,378 @@
 			"folder": "ee1a18a3-9c8f-26ff-aec1-f2377ad7182c"
 		},
 		{
+			"id": "74f04363-1f51-6022-0975-8a9fdbcfa121",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/user/update",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "username",
+					"value": "jewbre",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "user/update",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1494674806436,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "ee1a18a3-9c8f-26ff-aec1-f2377ad7182c"
+		},
+		{
+			"id": "7a1acded-cf60-8c9f-621d-16b9deffe32e",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/event/update?id=2",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "name",
+					"value": "test ime",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "test description novi",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "date",
+					"value": "2017-05-03T22:00:00+00:00",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "participants[]",
+					"value": "2",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "isRepeatable",
+					"value": "daily",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "event/update",
+			"description": "update event",
+			"descriptionFormat": "html",
+			"time": 1494765864338,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 103,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "296",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sun, 14 May 2017 12:44:12 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":2,\"name\":\"test ime\",\"description\":\"test description novi\",\"datetime\":\"2017-05-14T12:30:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"}]}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "113b500d-85f1-fd27-8728-6ffa98bea00a",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/event/update?id=2",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "name",
+								"value": "test ime",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "description",
+								"value": "test description novi",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "date",
+								"value": "2017-05-03T22:00:00+00:00",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "participants[]",
+								"value": "2",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "isRepeatable",
+								"value": "daily",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "PUT",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "b36ba176-87a1-de38-f389-34ef04a614a6"
+		},
+		{
+			"id": "7fe6c9a2-04c5-29cb-c88a-79052137d6e1",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/event?from=2017-05-01T00%3A00%3A00%2B00%3A00&to=2017-06-01T00%3A00%3A00%2B00%3A00",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"data": [
+				{
+					"key": "name",
+					"value": "test ime",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "test description",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "date",
+					"value": "2017-05-02T22:00:00+00:00",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "participants[]",
+					"value": "2",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "isRepeatable",
+					"value": "daily",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "event",
+			"description": "unscheduled events",
+			"descriptionFormat": "html",
+			"time": 1494765768700,
+			"version": 2,
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"time": 86,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "405",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sun, 14 May 2017 12:44:47 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "[{\"id\":38,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"2017-05-28T12:30:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]}]",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "e4745ab4-4173-13e7-d533-bdcb7fa33a51",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/event?from=2017-05-01T00%3A00%3A00%2B00%3A00&to=2017-06-01T00%3A00%3A00%2B00%3A00",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "name",
+								"value": "test ime",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "description",
+								"value": "test description",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "date",
+								"value": "2017-05-02T22:00:00+00:00",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "participants[]",
+								"value": "2",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "isRepeatable",
+								"value": "daily",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "GET",
+						"dataMode": "urlencoded"
+					}
+				}
+			],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "b36ba176-87a1-de38-f389-34ef04a614a6"
+		},
+		{
 			"id": "919c8280-8643-5e7f-01d4-94d9f8c4e47e",
 			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
 			"url": "http://localhost/asc/backend/web/api/budget/mine",
@@ -2249,6 +2806,182 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"folder": "07adda48-f06e-08f7-7bc5-0416b2dccdfb"
+		},
+		{
+			"id": "a782d3d4-0d49-894d-8e1d-918198c72bd2",
+			"headers": "Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost/asc/backend/web/api/event/create",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "test ime",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "description",
+					"value": "test description",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "date",
+					"value": "2017-05-03T22:00:00+00:00",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "participants[]",
+					"value": "2",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "isRepeatable",
+					"value": "daily",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1494765822966,
+			"name": "event/create",
+			"description": "",
+			"collectionId": "ef5d19e4-fb53-7877-7b7c-b794055f95b7",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 201,
+						"name": "Created",
+						"detail": "The request has been fulfilled and resulted in a new resource being created."
+					},
+					"time": 112,
+					"headers": [
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "Keep-Alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "403",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sun, 14 May 2017 12:43:25 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Keep-Alive",
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100",
+							"description": "Custom header"
+						},
+						{
+							"name": "Location",
+							"key": "Location",
+							"value": "http://localhost/asc/backend/web/api/event/view?id=39",
+							"description": "Used in redirection, or when a new resource has been created."
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "Apache/2.4.25 (Unix) OpenSSL/1.0.2k PHP/7.1.2",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.2",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookies": [],
+					"mime": "",
+					"text": "{\"id\":39,\"name\":\"test ime\",\"description\":\"test description\",\"datetime\":\"1970-01-01T00:00:00+00:00\",\"participants\":[{\"id\":2,\"username\":\"vilim.stubican.gmail\",\"avatar\":\"https://lh6.googleusercontent.com/-qeMXtiAEHUQ/AAAAAAAAAAI/AAAAAAAAAAA/AHalGhqHQsScvcekIK4ReyPXFBCkTzT7gw/s96-c/photo.jpg\"},{\"id\":1,\"username\":\"jewbre\",\"avatar\":\"http://graph.facebook.com/10211914331389866/picture?width=96&height=96\"}]}",
+					"language": "json",
+					"rawDataType": "text",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"state": {
+						"size": "normal"
+					},
+					"id": "eda05eea-283e-2254-79df-e5ab22d5b0b6",
+					"name": "success",
+					"request": {
+						"url": "http://localhost/asc/backend/web/api/event/create",
+						"headers": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e",
+								"enabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"enabled": true,
+								"description": "The mime type of this content"
+							}
+						],
+						"data": [
+							{
+								"key": "name",
+								"value": "test ime",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "description",
+								"value": "test description",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "date",
+								"value": "2017-05-03T22:00:00+00:00",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "participants[]",
+								"value": "2",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "isRepeatable",
+								"value": "daily",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"method": "POST",
+						"dataMode": "urlencoded"
+					}
+				}
+			]
 		},
 		{
 			"id": "c6423ca9-85a9-2139-a21f-bd94d2d3eb07",

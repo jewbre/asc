@@ -105,4 +105,39 @@ Content-Type: application/x-www-form-urlencoded
  * {}
  *
  *
+ *//**
+ * @api {PUT} http://localhost/asc/backend/web/api/user/update user/update
+ * @apiName PUT/user/update
+ * @apiGroup user
+ * @apiDescription ...
+ *
+ *
+ * @apiHeader Authorization: Bearer  VeXnOTNog70h2yjla8coXTIuKq-8eK5e
+Content-Type: application/x-www-form-urlencoded
+
+ * 
+ * @apiParam {text} username "jewbre"
+ *
+ * @apiSuccess {Bool} success true
+ * @apiSuccess {Number} code Response code
+ * @apiSuccess {Array} error Empty array
+ * @apiSuccess {Object} data object
+ *
+ * @apiError (xxx) {Bool} success false
+ * @apiError (xxx) {Number} code Response code
+ * @apiError (xxx) {Array} error key value array of errors
+ * @apiError (xxx) {Object} data empty object
+ *
+ * @apiError (404) {NotFound} 404 Not found.
+ * @apiError (405) {MethodNotAllowed} 405 When accessing method that's not allowed
+ *
+ * @apiSuccessExample {json} Success Response Example
+ * {}
+ *
+ *
+ * @apiErrorExample {json} Error Response Example:
+ *
+ * {}
+ *
+ *
  */

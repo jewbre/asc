@@ -42,11 +42,7 @@ abstract class Event extends \yii\db\ActiveRecord
      */
     public function behaviors()
     {
-        return [
-            [
-                'class' => TimestampBehavior::className(),
-            ],
-        ];
+        return [];
     }
 
     /**

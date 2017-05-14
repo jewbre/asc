@@ -46,16 +46,17 @@ public function behaviors()
             /** @var Event $event */
             $event = $repeatableEvent->originalEvent;
 
-            $date = new \DateTime($event->created_at);
+            $date = new \DateTime();
+            $date->setTimestamp($event->created_at);
 
             switch ($repeatableEvent->type) {
                 case RepeatableEvent::DAILY :
                     $period = 'P1D';
                     break;
-                case RepeatableEvent::WEEKLY :
+                case RepeatableEvent::MONTHLY :
                     $period = 'P1M';
                     break;
-                case RepeatableEvent::MONTHLY :
+                case RepeatableEvent::WEEKLY :
                 default:
                     $period = 'P7D';
                     break;
@@ -77,6 +78,13 @@ public function behaviors()
                 $newRepEvent->setAttributes($event->getAttributes());
                 $newRepEvent->setAttribute('created_at', $timestamp);
                 $newRepEvent->save();
+
+                foreach ($event->eventParticipants as $participant) {
+                    $p = new EventParticipant();
+                    $p->setAttributes($participant->getAttributes());
+                    $p->setAttribute('eventID', $newRepEvent->id);
+                    $p->save();
+                }
             }
         }
     }

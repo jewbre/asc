@@ -12,7 +12,6 @@ namespace backend\modules\api\controllers;
  * This is the class for REST controller "GroupController".
  */
 use backend\modules\api\controllers\base\BaseController;
-use common\models\Bill;
 use common\models\Event;
 use common\models\RepeatableEvent;
 use Couchbase\Exception;
@@ -51,7 +50,7 @@ class EventController extends BaseController
         $from = \Yii::$app->getRequest()->get('from', -1);
         $to = \Yii::$app->getRequest()->get('to', -1);
 
-        if($from == -1 || $to == -1) {
+        if ($from == -1 || $to == -1) {
             throw new BadRequestHttpException('Please provide from and to dates.');
         }
         try {
@@ -61,11 +60,13 @@ class EventController extends BaseController
             throw new BadRequestHttpException('Invalid date format.');
         }
 
-        $events = Event::findAll([
-            ['>=', 'created_at', $from->getTimestamp()],
-            ['<', 'created_at', $to->getTimestamp()],
-            'isRepeatable' => 0
-        ]);
+        $events = Event::find()->where(
+            'created_at >= :from AND created_at < :to AND isRepeatable = :isRepeatable',
+            [
+                'from' => $from->getTimestamp(),
+                'to' => $to->getTimestamp(),
+                'isRepeatable' => 0
+            ])->all();
 
         return $events;
     }
@@ -75,7 +76,7 @@ class EventController extends BaseController
         $from = \Yii::$app->getRequest()->get('from', -1);
         $to = \Yii::$app->getRequest()->get('to', -1);
 
-        if($from == -1 || $to == -1) {
+        if ($from == -1 || $to == -1) {
             throw new BadRequestHttpException('Please provide from and to dates.');
         }
         try {
@@ -87,11 +88,13 @@ class EventController extends BaseController
 
         RepeatableEvent::generateForPeriod($from->getTimestamp(), $to->getTimestamp());
 
-        $events = Event::findAll([
-            ['>=', 'created_at', $from->getTimestamp()],
-            ['<', 'created_at', $to->getTimestamp()],
-            'isRepeatable' => 1
-        ]);
+        $events = Event::find()->where(
+            'created_at >= :from AND created_at < :to AND isRepeatable = :isRepeatable',
+            [
+                'from' => $from->getTimestamp(),
+                'to' => $to->getTimestamp(),
+                'isRepeatable' => 1
+            ])->all();
 
         return $events;
     }

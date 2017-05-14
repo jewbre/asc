@@ -34,7 +34,7 @@ public function behaviors()
 
     public function isRepeatable()
     {
-        $repeatableEvent = RepeatableEvent::findOne('')
+        return (bool) $this->isRepeatable;
     }
 
     public function fields()

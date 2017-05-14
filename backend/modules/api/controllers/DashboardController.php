@@ -12,7 +12,6 @@ namespace backend\modules\api\controllers;
  * This is the class for REST controller "GroupController".
  */
 use backend\modules\api\controllers\base\BaseController;
-use common\models\BillCategory;
 
 class DashboardController extends BaseController
 {
