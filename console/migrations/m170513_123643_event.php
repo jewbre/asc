@@ -10,7 +10,7 @@ class m170513_123643_event extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string(255)->notNull(),
             'description' => $this->text(),
-            'created_at' => $this->integer(11)->notNull(),
+            'created_at' => $this->integer(11),
             'updated_at' => $this->integer(11)->notNull(),
             'groupID' => $this->integer(11)->notNull(),
             'isRepeatable' => $this->smallInteger(1)->defaultValue(0)

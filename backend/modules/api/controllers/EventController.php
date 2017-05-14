@@ -45,33 +45,13 @@ class EventController extends BaseController
         return $actions;
     }
 
-    public function actionIndex()
+    public function actionUnscheduled()
     {
-        $from = \Yii::$app->getRequest()->get('from', -1);
-        $to = \Yii::$app->getRequest()->get('to', -1);
-
-        if ($from == -1 || $to == -1) {
-            throw new BadRequestHttpException('Please provide from and to dates.');
-        }
-        try {
-            $from = new \DateTime($from);
-            $to = new \DateTime($to);
-        } catch (Exception $e) {
-            throw new BadRequestHttpException('Invalid date format.');
-        }
-
-        $events = Event::find()->where(
-            'created_at >= :from AND created_at < :to AND isRepeatable = :isRepeatable',
-            [
-                'from' => $from->getTimestamp(),
-                'to' => $to->getTimestamp(),
-                'isRepeatable' => 0
-            ])->all();
-
+        $events = Event::find()->where( 'created_at IS NULL')->all();
         return $events;
     }
 
-    public function actionRepeatable()
+    public function actionScheduled()
     {
         $from = \Yii::$app->getRequest()->get('from', -1);
         $to = \Yii::$app->getRequest()->get('to', -1);
@@ -89,7 +69,7 @@ class EventController extends BaseController
         RepeatableEvent::generateForPeriod($from->getTimestamp(), $to->getTimestamp());
 
         $events = Event::find()->where(
-            'created_at >= :from AND created_at < :to AND isRepeatable = :isRepeatable',
+            'created_at IS NOT NULL AND created_at >= :from AND created_at < :to AND isRepeatable = :isRepeatable',
             [
                 'from' => $from->getTimestamp(),
                 'to' => $to->getTimestamp(),

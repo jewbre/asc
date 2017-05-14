@@ -55,6 +55,7 @@ abstract class Event extends \yii\db\ActiveRecord
             [['description'], 'string'],
             [['groupID'], 'integer'],
             [['isRepeatable'], 'safe'],
+            [['created_at'], 'safe'],
             [['name'], 'string', 'max' => 255],
             [['groupID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\Group::className(), 'targetAttribute' => ['groupID' => 'id']]
         ];

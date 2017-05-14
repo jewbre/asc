@@ -28,7 +28,12 @@ class CreateAction extends BaseCreateAction
 
         $participants = user()->selectedGroup->groupMembers;
 
-        $date = new \DateTime($bodyParams['date']);
+        if(!isset($bodyParams['date'])) {
+            $bodyParams['created_at'] = null;
+        } else {
+            $date = new \DateTime($bodyParams['date']);
+            $bodyParams['created_at'] = $date->getTimestamp();
+        }
 
         $repeatableType = $bodyParams['isRepeatable'];
         $isRepeatable = in_array($repeatableType,[
@@ -37,7 +42,6 @@ class CreateAction extends BaseCreateAction
             RepeatableEvent::MONTHLY,
         ]) ? 1 : 0;
         $bodyParams['isRepeatable'] = $isRepeatable;
-        $bodyParams['created_at'] = $date->getTimestamp();
         $bodyParams['groupID'] = $groupID;
         $request->bodyParams = $bodyParams;
 
