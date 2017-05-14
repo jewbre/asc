@@ -34,7 +34,7 @@ public function behaviors()
 
     public function fields()
     {
-        return [
+        $fields = [
             'id',
             'name',
             'category' => function(ShoppingItem $model) {
@@ -49,15 +49,20 @@ public function behaviors()
                 return !empty($model->shoppingListItems) ? (bool) $model->shoppingListItems[0]->isChecked : false;
             },
             'details',
-            'lastBought' => function(ShoppingItem $model) {
+        ];
+
+        if($this->lastBought) {
+            $fields['lastBought'] = function(ShoppingItem $model) {
                 if(!$model->lastBought) {
                     return null;
                 }
                 $d = new \DateTime();
                 $d->setTimestamp($model->lastBought);
                 return $d->format('c');
-            }
-        ];
+            };
+        }
+
+        return $fields;
     }
 
 

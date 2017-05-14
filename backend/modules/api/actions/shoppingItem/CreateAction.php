@@ -41,6 +41,7 @@ class CreateAction extends BaseCreateAction
         $request = \Yii::$app->getRequest();
         $bodyParams = $request->bodyParams;
         unset($bodyParams['category']);
+        $bodyParams['lastBought'] = 0;
         $bodyParams['shoppingCategoryID'] = $shoppingCategory->id;
         $bodyParams['groupID'] = $groupID;
         $request->bodyParams = $bodyParams;
