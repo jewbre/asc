@@ -14,6 +14,7 @@ use yii\filters\auth\CompositeAuth;
 use yii\filters\auth\HttpBasicAuth;
 use yii\filters\auth\HttpBearerAuth;
 use yii\filters\auth\QueryParamAuth;
+use yii\filters\Cors;
 use yii\helpers\ArrayHelper;
 
 abstract class BaseController extends \yii\rest\ActiveController
@@ -29,17 +30,15 @@ abstract class BaseController extends \yii\rest\ActiveController
     {
         $behaviors = parent::behaviors();
 
-        $behaviors['corsFilter'] = ArrayHelper::merge($behaviors['corsFilter'], [
-            'class' => \yii\filters\Cors::className(),
+        $behaviors['corsFilter'] = [
+            'class' => Cors::className(),
             'cors' => [
-                // restrict access to domains:
-                'Origin' => static::allowedDomains(),
-                'Access-Control-Request-Method' => ['POST', 'PUT', 'DELETE', 'GET', 'OPTIONS'],
+                'Origin' => ['*'],
+                'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+                'Access-Control-Request-Headers' => ['*'],
                 'Access-Control-Allow-Credentials' => true,
-                'Access-Control-Max-Age' => 3600,                 // Cache (seconds)
-
             ],
-        ]);
+        ];
 
         $behaviors['authenticator'] = [
             'class' => CompositeAuth::className(),
