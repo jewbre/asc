@@ -48,8 +48,8 @@ public function behaviors()
                 $d->setTimestamp($event->created_at);
                 return $d->format('c');
             },
-            'repeatable' => function(Event $mode) {
-                return $this->isRepeatable();
+            'repeatable' => function(Event $model) {
+                return $this->isRepeatable() ? $model->repeatableEvents[0]->type : 'none';
             },
             'participants' => function(Event $event) {
                 return $event->eventParticipants;
