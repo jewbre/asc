@@ -1,7 +1,10 @@
 interface BillApiResponse {
     id : number,
     description : string,
-    amount : number,
+    amount : {
+        amount :number,
+        currency : Currency
+    },
     date : string,
     category : BillCategoryApiResponse,
     payer : UserApiResponse,

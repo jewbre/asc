@@ -65,7 +65,7 @@ class BillBuilder {
                     (userApiResponse : UserApiResponse) =>
                         (new UserBuilder()).buildFromApiResponse(userApiResponse))
             )
-            .setAmount(apiResponse.amount)
+            .setAmount(apiResponse.amount.amount)
             .setGroup((new GroupBuilder()).buildFromApiResponse(apiResponse.group))
             .build();
 

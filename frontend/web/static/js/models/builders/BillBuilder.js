@@ -50,7 +50,7 @@ var BillBuilder = (function () {
             .setParticipants(apiResponse.participants.map(function (userApiResponse) {
             return (new UserBuilder()).buildFromApiResponse(userApiResponse);
         }))
-            .setAmount(apiResponse.amount)
+            .setAmount(apiResponse.amount.amount)
             .setGroup((new GroupBuilder()).buildFromApiResponse(apiResponse.group))
             .build();
         this.bill = tmpBill;
