@@ -1,30 +1,30 @@
 class ApiService {
-    static readonly SHOPPING_ITEMS_LIST = '/shopping-item';
-    static readonly DELETE_SHOPPING_ITEM = '/shopping-item/delete';
-    static readonly FINISH_SHOPPING = '/shopping-item/finish-shopping';
-    static readonly CREATE_SHOPPING_ITEM = '/shopping-item/create/';
-    static readonly UPDATE_SHOPPING_ITEM = '/shopping-item/update/';
-    static readonly CHECK_SHOPPING_ITEM = '/shopping-item/check/';
-    static readonly UNCHECK_SHOPPING_ITEM = '/shopping-item/uncheck/';
-    static readonly SHOPPING_CATEGORIES_LIST = '/shopping-category';
+    static readonly SHOPPING_ITEMS_LIST = '/shopping-item/';
+    static readonly DELETE_SHOPPING_ITEM = '/shopping-item/delete/';
+    static readonly FINISH_SHOPPING = '/shopping-item/finish-shopping/';
+    static readonly CREATE_SHOPPING_ITEM = '/shopping-item/create//';
+    static readonly UPDATE_SHOPPING_ITEM = '/shopping-item/update//';
+    static readonly CHECK_SHOPPING_ITEM = '/shopping-item/check//';
+    static readonly UNCHECK_SHOPPING_ITEM = '/shopping-item/uncheck//';
+    static readonly SHOPPING_CATEGORIES_LIST = '/shopping-category/';
 
-    static readonly BUDGET_MINE = '/budget/mine';
-    static readonly BUDGET_ADD = '/budget/add';
+    static readonly BUDGET_MINE = '/budget/mine/';
+    static readonly BUDGET_ADD = '/budget/add/';
 
-    static readonly GET_BILLS = '/bill';
-    static readonly BILL_CATEGORIES_LIST = '/bill-category';
-    static readonly CREATE_NEW_BILL = '/bill/create';
-    static readonly UPDATE_BILL = '/bill/update';
+    static readonly GET_BILLS = '/bill/';
+    static readonly BILL_CATEGORIES_LIST = '/bill-category/';
+    static readonly CREATE_NEW_BILL = '/bill/create/';
+    static readonly UPDATE_BILL = '/bill/update/';
 
-    static readonly GROUP_MEMBER_LIST = '/group/members';
-    static readonly CREATE_NEW_GROUP = '/group/create';
-    static readonly SELECT_GROUP = '/group/select';
+    static readonly GROUP_MEMBER_LIST = '/group/members/';
+    static readonly CREATE_NEW_GROUP = '/group/create/';
+    static readonly SELECT_GROUP = '/group/select/';
 
-    static readonly ME = '/user/me';
-    static readonly USER_SEARCH = '/user/search';
+    static readonly ME = '/user/me/';
+    static readonly USER_SEARCH = '/user/search/';
 
-    static readonly DEBTS = '/debt';
-    static readonly CLEAR_DEBTS = '/debt/clear';
+    static readonly DEBTS = '/debt/';
+    static readonly CLEAR_DEBTS = '/debt/clear/';
 
     private static instance: ApiService = null;
 
