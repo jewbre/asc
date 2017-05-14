@@ -26,7 +26,7 @@ class ShoppingItemController extends BaseController
 
     public function actions()
     {
-        return array_merge(
+        $actions = array_merge(
             parent::actions(),
             [
                 'create' => [
@@ -43,6 +43,14 @@ class ShoppingItemController extends BaseController
                 ],
             ]
         );
+
+        unset($actions['index']);
+        return $actions;
+    }
+
+    public function actionIndex()
+    {
+        return ShoppingItem::findAll(['groupID' => user()->selectedGroupID]);
     }
 
     public function actionFinishShopping()
