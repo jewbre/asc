@@ -120,6 +120,7 @@ class SiteController extends Controller
 
         $this->layout = 'login';
         if (!Yii::$app->user->isGuest) {
+            (new RegistrationHelper())->acceptInvitations(user());
             return $this->goHome();
         }
 
