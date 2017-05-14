@@ -49,7 +49,14 @@ public function behaviors()
                 return !empty($model->shoppingListItems) ? (bool) $model->shoppingListItems[0]->isChecked : false;
             },
             'details',
-            'lastBought'
+            'lastBought' => function(ShoppingItem $model) {
+                if(!$model->lastBought) {
+                    return null;
+                }
+                $d = new \DateTime();
+                $d->setTimestamp($model->lastBought);
+                return $d->format('c');
+            }
         ];
     }
 
