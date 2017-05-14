@@ -11,6 +11,7 @@ use common\models\Budget;
 use common\models\Group;
 use common\models\GroupInvitation;
 use common\models\GroupMember;
+use Postmark\PostmarkClient;
 use yii\rest\CreateAction as BaseCreateAction;
 
 class CreateAction extends BaseCreateAction
@@ -18,7 +19,7 @@ class CreateAction extends BaseCreateAction
     public function run()
     {
         $members = \Yii::$app->getRequest()->post('members', []);
-        if(!$members) {
+        if (!$members) {
             $members = [];
         }
 
@@ -28,11 +29,11 @@ class CreateAction extends BaseCreateAction
 
         $bodyParams['isPersonal'] = 0;
         $request->bodyParams = $bodyParams;
-        
+
         /** @var Group $group */
         $group = parent::run();
 
-        if(!$group->hasErrors()) {
+        if (!$group->hasErrors()) {
             $budget = new Budget();
             $budget->setAttributes([
                 'groupID' => $group->id,
@@ -51,7 +52,9 @@ class CreateAction extends BaseCreateAction
             $user->selectedGroupID = $group->id;
             $user->update();
 
+            $client = new PostmarkClient(param('postmarkToken'));
             foreach ($members as $member) {
+                $member = trim($member);
                 $groupInvite = new GroupInvitation();
                 $groupInvite->setAttributes([
                     'groupID' => $group->id,
@@ -59,7 +62,26 @@ class CreateAction extends BaseCreateAction
                 ]);
                 $groupInvite->save();
 
-                // TODO: send email etc
+                // Create Client
+                $inviteData = [
+                    'group' => $group->id,
+                    'email' => $member
+                ];
+
+                $sendResult = $client->sendEmailWithTemplate(
+                    "vilim.stubican@degordian.com",
+                    $member,
+                    param('welcomeMailID'),
+                    [
+                        "invite_sender_name" => $user->email,
+                        "invite_sender_organization_name" => $group->name,
+                        "action_url" => param('loginUrl') . '?' . http_build_query($inviteData),
+                        "name" => "name_Value",
+                        "support_email" => "support_email_Value",
+                        "live_chat_url" => "live_chat_url_Value",
+                        "help_url" => "help_url_Value"
+                    ]
+                );
             }
 
         }

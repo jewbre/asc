@@ -16,6 +16,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $groupID
  * @property integer $created_at
  * @property integer $updated_at
+ * @property integer $isRepeatable
  *
  * @property \common\models\Group $group
  * @property \common\models\EventParticipant[] $eventParticipants
@@ -57,6 +58,7 @@ abstract class Event extends \yii\db\ActiveRecord
             [['name', 'groupID'], 'required'],
             [['description'], 'string'],
             [['groupID'], 'integer'],
+            [['isRepeatable'], 'safe'],
             [['name'], 'string', 'max' => 255],
             [['groupID'], 'exist', 'skipOnError' => true, 'targetClass' => \common\models\Group::className(), 'targetAttribute' => ['groupID' => 'id']]
         ];

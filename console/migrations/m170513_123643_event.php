@@ -13,6 +13,7 @@ class m170513_123643_event extends Migration
             'created_at' => $this->integer(11)->notNull(),
             'updated_at' => $this->integer(11)->notNull(),
             'groupID' => $this->integer(11)->notNull(),
+            'isRepeatable' => $this->smallInteger(1)->defaultValue(0)
         ]);
 
         $this->addForeignKey('fk_event_to_groupID', 'event', 'groupID', 'group', 'id', 'CASCADE');

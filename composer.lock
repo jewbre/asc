@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "aa7438a88b96fd815368672c1f02ce7e",
-    "content-hash": "e6219e58fc90e8ab296f8b6e0695aed4",
+    "hash": "6d02623b5ba19df647a4e906b6de6554",
+    "content-hash": "0eaa4c7ba5781ad8f552698b4ffe8341",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -2635,6 +2635,40 @@
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
             "time": "2017-02-18 17:28:00"
+        },
+        {
+            "name": "wildbit/postmark-php",
+            "version": "2.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wildbit/postmark-php.git",
+                "reference": "ef270c6ec44831cde91bab4e53471af04f972974"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wildbit/postmark-php/zipball/ef270c6ec44831cde91bab4e53471af04f972974",
+                "reference": "ef270c6ec44831cde91bab4e53471af04f972974",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Postmark\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The officially supported client for Postmark (http://postmarkapp.com)",
+            "time": "2017-02-16 17:54:44"
         },
         {
             "name": "yiisoft/yii2",

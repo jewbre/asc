@@ -153,10 +153,12 @@ class UserController extends BaseController
 
         if ($user) {
             $user->updateAvatar($avatar);
+            $registrationHelper->acceptInvitations($user);
             return $user;
         }
 
         $user = $registrationHelper->registerUser($username, $email);
+        $registrationHelper->acceptInvitations($user);
         return $user;
     }
 
@@ -218,10 +220,12 @@ class UserController extends BaseController
 
         if ($user) {
             $user->updateAvatar($payload['picture']);
+            $registrationHelper->acceptInvitations($user);
             return $user;
         }
 
         $user = $registrationHelper->registerUser($username, $email);
+        $registrationHelper->acceptInvitations($user);
         return $user;
     }
 
