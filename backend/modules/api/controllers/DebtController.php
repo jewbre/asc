@@ -41,6 +41,10 @@ class DebtController extends BaseController
     {
         $participants = \Yii::$app->getRequest()->post('participants', []);
 
+        if(!$participants) {
+            $participants = [];
+        }
+
         $me = user();
         $groupID = $me->selectedGroupID;
         foreach ($participants as $p) {
