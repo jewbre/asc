@@ -76,12 +76,7 @@ class UpdateAction extends BaseUpdateAction
             );
         }
 
-        if(!isset($bodyParams['date'])) {
-            $bodyParams['created_at'] = null;
-        } else {
-            $date = new \DateTime($bodyParams['date']);
-            $bodyParams['created_at'] = $date->getTimestamp();
-        }
+        $date = new \DateTime($bodyParams['date']);
 
         $payer = User::findOne(['id' => $bodyParams['payer']]);
         if(!$payer) {
@@ -91,6 +86,7 @@ class UpdateAction extends BaseUpdateAction
         unset($bodyParams['category']);
         $bodyParams['payerID'] = $payer->id;
         $bodyParams['categoryID'] = $billCategory->id;
+        $bodyParams['created_at'] = $date->getTimestamp();
         $bodyParams['groupID'] = $groupID;
         $request->bodyParams = $bodyParams;
 

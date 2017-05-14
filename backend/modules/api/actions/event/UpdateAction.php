@@ -31,7 +31,12 @@ class UpdateAction extends BaseUpdateAction
 
         $participants = user()->selectedGroup->groupMembers;
 
-        $date = new \DateTime($bodyParams['date']);
+        if(!isset($bodyParams['date'])) {
+            $bodyParams['created_at'] = null;
+        } else {
+            $date = new \DateTime($bodyParams['date']);
+            $bodyParams['created_at'] = $date->getTimestamp();
+        }
 
         $repeatableType = $bodyParams['isRepeatable'];
         $isRepeatable = in_array($repeatableType,[
@@ -41,7 +46,6 @@ class UpdateAction extends BaseUpdateAction
         ]) ? 1 : 0;
 
         $bodyParams['isRepeatable'] = $isRepeatable;
-        $bodyParams['created_at'] = $date->getTimestamp();
         $bodyParams['groupID'] = $groupID;
         $request->bodyParams = $bodyParams;
 
