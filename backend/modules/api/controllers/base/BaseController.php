@@ -30,16 +30,6 @@ abstract class BaseController extends \yii\rest\ActiveController
     {
         $behaviors = parent::behaviors();
 
-        $behaviors['corsFilter'] = [
-            'class' => Cors::className(),
-            'cors' => [
-                'Origin' => ['*'],
-                'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-                'Access-Control-Request-Headers' => ['origin, x-csrftoken, content-type, accept'],
-                'Access-Control-Allow-Credentials' => true,
-            ],
-        ];
-
         $behaviors['authenticator'] = [
             'class' => CompositeAuth::className(),
             'authMethods' => [
