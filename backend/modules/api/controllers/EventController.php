@@ -69,11 +69,10 @@ class EventController extends BaseController
         RepeatableEvent::generateForPeriod($from->getTimestamp(), $to->getTimestamp());
 
         $events = Event::find()->where(
-            'created_at IS NOT NULL AND created_at >= :from AND created_at < :to AND isRepeatable = :isRepeatable',
+            'created_at IS NOT NULL AND created_at >= :from AND created_at < :to',
             [
                 'from' => $from->getTimestamp(),
                 'to' => $to->getTimestamp(),
-                'isRepeatable' => 1
             ])->all();
 
         return $events;
