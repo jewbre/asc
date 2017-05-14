@@ -8,6 +8,7 @@
 namespace common\models\helpers;
 
 
+use common\models\BillCategory;
 use common\models\Budget;
 use common\models\Group;
 use common\models\GroupInvitation;
@@ -99,6 +100,13 @@ class RegistrationHelper extends Model
             $shoppingList->save();
 
             $uncategorizedItem = new ShoppingCategory();
+            $uncategorizedItem->setAttributes([
+                'name' => 'Uncategorized',
+                'groupID' => $group->id
+            ]);
+            $uncategorizedItem->save();
+
+            $uncategorizedItem = new BillCategory();
             $uncategorizedItem->setAttributes([
                 'name' => 'Uncategorized',
                 'groupID' => $group->id

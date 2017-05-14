@@ -57,6 +57,12 @@ class ShoppingItemController extends BaseController
     {
         $items = \Yii::$app->getRequest()->post('items', []);
 
+        if (is_string($items) && $items[0] == '[') {
+            $items = explode(',',
+                substr($items, 1, strlen($items) - 2)
+            );
+        }
+
         if (!empty($items)) {
 
             $items = array_filter($items, function ($item) {
@@ -100,7 +106,7 @@ class ShoppingItemController extends BaseController
         }
 
         $shoppingList = user()->getShoppingList();
-        if(!$shoppingList) {
+        if (!$shoppingList) {
             $shoppingList = new ShoppingList();
             $shoppingList->setAttributes([
                 'name' => 'default ime',
@@ -144,7 +150,7 @@ class ShoppingItemController extends BaseController
         }
 
         $shoppingList = user()->getShoppingList();
-        if(!$shoppingList) {
+        if (!$shoppingList) {
             $shoppingList = new ShoppingList();
             $shoppingList->setAttributes([
                 'name' => 'default ime',

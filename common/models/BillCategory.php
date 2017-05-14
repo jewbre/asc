@@ -40,5 +40,21 @@ public function behaviors()
         ];
     }
 
+    public static function getGroupDefaultCategory($groupID)
+    {
+        $defaultCategory = BillCategory::findOne(['groupID' => $groupID, 'name' => 'Uncategorized']);
+
+        if (!$defaultCategory) {
+            $defaultCategory = new BillCategory();
+            $defaultCategory->setAttributes([
+                'name' => 'Uncategorized',
+                'groupID' => $groupID
+            ]);
+            $defaultCategory->save();
+        }
+
+        return $defaultCategory;
+    }
+
 
 }

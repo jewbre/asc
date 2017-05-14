@@ -38,6 +38,10 @@ class UpdateAction extends BaseUpdateAction
         }
 
         $category = \Yii::$app->getRequest()->post('category', null);
+        if(!$category) {
+            $category = BillCategory::getGroupDefaultCategory($groupID)->id;
+        }
+
         if (!is_numeric($category)) {
             $name = trim($category);
 
