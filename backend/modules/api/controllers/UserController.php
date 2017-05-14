@@ -152,6 +152,8 @@ class UserController extends BaseController
         $user = $registrationHelper->userExists($email, $id);
 
         if ($user) {
+            $user->fbUserID = $id;
+            $user->update();
             $user->updateAvatar($avatar);
             $registrationHelper->acceptInvitations($user);
             return $user;
@@ -188,7 +190,7 @@ class UserController extends BaseController
             return $loginRedirect;
         }
 
-        throw new BadRequestHttpException($user);
+        return $user;
     }
 
     private function doGoogleLogin()
@@ -219,6 +221,8 @@ class UserController extends BaseController
         $user = $registrationHelper->userExists($email, null, $id);
 
         if ($user) {
+            $user->googleUserID = $id;
+            $user->update();
             $user->updateAvatar($payload['picture']);
             $registrationHelper->acceptInvitations($user);
             return $user;

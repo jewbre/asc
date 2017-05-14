@@ -133,14 +133,6 @@ class RegistrationHelper extends Model
             'email' => $email
         ];
 
-        if ($fbID != null) {
-            $args['fbUserID'] = $fbID;
-        }
-
-        if ($googleID != null) {
-            $args['googleUserID'] = $googleID;
-        }
-
         return User::findOne($args);
     }
 
