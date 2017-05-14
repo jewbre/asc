@@ -29,10 +29,7 @@ class UpdateAction extends BaseUpdateAction
         $request = \Yii::$app->getRequest();
         $bodyParams = $request->bodyParams;
 
-        $participants = $bodyParams['participants'];
-        if(!$participants || empty($participants)) {
-            $participants = [];
-        }
+        $participants = user()->selectedGroup->groupMembers;
 
         $date = new \DateTime($bodyParams['date']);
 
@@ -57,7 +54,7 @@ class UpdateAction extends BaseUpdateAction
                 $p = new EventParticipant();
                 $p->setAttributes([
                     'eventID' => $model->id,
-                    'userID' => $participant
+                    'userID' => $participant->id
                 ]);
                 $p->save();
             }

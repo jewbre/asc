@@ -26,11 +26,7 @@ class CreateAction extends BaseCreateAction
         $request = \Yii::$app->getRequest();
         $bodyParams = $request->bodyParams;
 
-        $participants = $bodyParams['participants'];
-        if(!$participants || empty($participants)) {
-            $participants = [];
-        }
-        $participants[] = user()->id;
+        $participants = user()->selectedGroup->groupMembers;
 
         $date = new \DateTime($bodyParams['date']);
 
@@ -63,7 +59,7 @@ class CreateAction extends BaseCreateAction
                 $p = new EventParticipant();
                 $p->setAttributes([
                     'eventID' => $model->id,
-                    'userID' => $participant
+                    'userID' => $participant->userID
                 ]);
                 $p->save();
             }
