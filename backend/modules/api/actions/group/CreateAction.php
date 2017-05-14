@@ -11,6 +11,7 @@ use common\models\Budget;
 use common\models\Group;
 use common\models\GroupInvitation;
 use common\models\GroupMember;
+use common\models\helpers\RegistrationHelper;
 use Postmark\PostmarkClient;
 use yii\rest\CreateAction as BaseCreateAction;
 
@@ -40,13 +41,6 @@ class CreateAction extends BaseCreateAction
         $group = parent::run();
 
         if (!$group->hasErrors()) {
-            $budget = new Budget();
-            $budget->setAttributes([
-                'groupID' => $group->id,
-                'amount' => 0
-            ]);
-            $budget->save();
-
             // Add creator to the group
             $groupMember = new GroupMember();
             $groupMember->setAttributes([
@@ -54,6 +48,9 @@ class CreateAction extends BaseCreateAction
                 'userID' => $user->id
             ]);
             $groupMember->save();
+
+            $registerHelper = new RegistrationHelper();
+            $registerHelper->generateDefaultsForGroup($group->id);
 
             $user->selectedGroupID = $group->id;
             $user->update();

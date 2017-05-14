@@ -85,33 +85,7 @@ class RegistrationHelper extends Model
             ]);
             $groupMember->save();
 
-            $budget = new Budget();
-            $budget->setAttributes([
-                'groupID' => $group->id,
-                'amount' => 0
-            ]);
-            $budget->save();
-
-            $shoppingList = new ShoppingList();
-            $shoppingList->setAttributes([
-                'name' => 'deafult title',
-                'groupID' => $group->id
-            ]);
-            $shoppingList->save();
-
-            $uncategorizedItem = new ShoppingCategory();
-            $uncategorizedItem->setAttributes([
-                'name' => 'Uncategorized',
-                'groupID' => $group->id
-            ]);
-            $uncategorizedItem->save();
-
-            $uncategorizedItem = new BillCategory();
-            $uncategorizedItem->setAttributes([
-                'name' => 'Uncategorized',
-                'groupID' => $group->id
-            ]);
-            $uncategorizedItem->save();
+            $this->generateDefaultsForGroup($group->id);
 
             return $user;
         }
@@ -119,6 +93,37 @@ class RegistrationHelper extends Model
         $group->delete();
 
         return $user->getErrors();
+    }
+
+    public function generateDefaultsForGroup($groupID)
+    {
+        $budget = new Budget();
+        $budget->setAttributes([
+            'groupID' => $groupID,
+            'amount' => 0
+        ]);
+        $budget->save();
+
+        $shoppingList = new ShoppingList();
+        $shoppingList->setAttributes([
+            'name' => 'deafult title',
+            'groupID' => $groupID
+        ]);
+        $shoppingList->save();
+
+        $uncategorizedItem = new ShoppingCategory();
+        $uncategorizedItem->setAttributes([
+            'name' => 'Uncategorized',
+            'groupID' => $groupID
+        ]);
+        $uncategorizedItem->save();
+
+        $uncategorizedItem = new BillCategory();
+        $uncategorizedItem->setAttributes([
+            'name' => 'Uncategorized',
+            'groupID' => $groupID
+        ]);
+        $uncategorizedItem->save();
     }
 
     /**
