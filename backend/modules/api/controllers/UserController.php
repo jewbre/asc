@@ -174,7 +174,7 @@ class UserController extends BaseController
         throw new BadRequestHttpException($user);
     }
 
-    private function doGoogleLogin($token)
+    private function doGoogleLogin($clientID)
     {
         User::$withAccessToken = true;
         $accessToken = \Yii::$app->getRequest()->post('accessToken', '');
@@ -182,7 +182,7 @@ class UserController extends BaseController
         if (!$accessToken) {
             throw new BadRequestHttpException("Invalid access token.");
         }
-        $client = new Google_Client(['client_id' => $token]);
+        $client = new Google_Client(['client_id' => $clientID]);
 
         try {
             $payload = $client->verifyIdToken($accessToken);
