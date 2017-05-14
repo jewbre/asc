@@ -14,6 +14,7 @@ use yii\filters\auth\CompositeAuth;
 use yii\filters\auth\HttpBasicAuth;
 use yii\filters\auth\HttpBearerAuth;
 use yii\filters\auth\QueryParamAuth;
+use yii\helpers\ArrayHelper;
 
 abstract class BaseController extends \yii\rest\ActiveController
 {
@@ -27,6 +28,19 @@ abstract class BaseController extends \yii\rest\ActiveController
     public function behaviors()
     {
         $behaviors = parent::behaviors();
+
+        $behaviors['corsFilter'] = ArrayHelper::merge($behaviors['corsFilter'], [
+            'class' => \yii\filters\Cors::className(),
+            'cors' => [
+                // restrict access to domains:
+                'Origin' => static::allowedDomains(),
+                'Access-Control-Request-Method' => ['POST', 'PUT', 'DELETE', 'GET'],
+                'Access-Control-Allow-Credentials' => true,
+                'Access-Control-Max-Age' => 3600,                 // Cache (seconds)
+
+            ],
+        ]);
+
         $behaviors['authenticator'] = [
             'class' => CompositeAuth::className(),
             'authMethods' => [
@@ -38,6 +52,14 @@ abstract class BaseController extends \yii\rest\ActiveController
         return $behaviors;
     }
 
+    protected function allowedDomains()
+    {
+        return [
+            'http://localhost',
+            'http://roomero.co',
+        ];
+    }
+
     /**
      * @param $groupID
      * @return bool
@@ -46,8 +68,8 @@ abstract class BaseController extends \yii\rest\ActiveController
     {
         /** @var User $user */
         $user = \Yii::$app->getUser()->getIdentity();
-        return $user && array_reduce($user->groups, function($acc, Group $group) use ($groupID) {
-                    return $acc || $groupID == $group->id;
+        return $user && array_reduce($user->groups, function ($acc, Group $group) use ($groupID) {
+                return $acc || $groupID == $group->id;
             }, false);
     }
 }
