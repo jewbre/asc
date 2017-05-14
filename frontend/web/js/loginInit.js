@@ -27,7 +27,6 @@
 
 function onGoogleSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
-    console.log(id_token);
     LoginApiService.getInstance()
         .googleLogin(id_token)
         .then(function (key) {

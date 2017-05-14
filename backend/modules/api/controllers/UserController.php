@@ -166,7 +166,7 @@ class UserController extends BaseController
 
     public function actionGoogleLogin()
     {
-        $user = $this->doGoogleLogin();
+        $user = $this->doGoogleLogin(param('androidGoogleClientID'));
 
         if ($user instanceof User) {
             return $user;
@@ -178,7 +178,7 @@ class UserController extends BaseController
 
     public function actionLoginGoogle()
     {
-        $user = $this->doGoogleLogin();
+        $user = $this->doGoogleLogin(param('googleClientID'));
 
         if ($user instanceof User) {
             $loginRedirect = new LoginRedirect();
@@ -193,7 +193,7 @@ class UserController extends BaseController
         return $user;
     }
 
-    private function doGoogleLogin()
+    private function doGoogleLogin($token)
     {
         User::$withAccessToken = true;
         $accessToken = \Yii::$app->getRequest()->post('accessToken', '');
@@ -201,7 +201,7 @@ class UserController extends BaseController
         if (!$accessToken) {
             throw new BadRequestHttpException("Invalid access token.");
         }
-        $client = new Google_Client(['client_id' => param('googleClientID')]);
+        $client = new Google_Client(['client_id' => $token]);
         $payload = $client->verifyIdToken($accessToken);
         if ($payload) {
             // If request specified a G Suite domain:
