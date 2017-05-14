@@ -21,6 +21,7 @@ class ApiService {
     static readonly SELECT_GROUP = '/group/select/';
 
     static readonly ME = '/user/me/';
+    static readonly UPDATE_USER = '/user/update/';
     static readonly USER_SEARCH = '/user/search/';
 
     static readonly DEBTS = '/debt/';
@@ -179,6 +180,22 @@ class ApiService {
         });
     }
 
+    public updateUser(user : User): Promise<User> {
+        return new Promise((resolve, reject) => {
+            const finalPath = `${ApiService.UPDATE_USER}?id=${user.id}`;
+            this.put<UserApiResponse>(finalPath, {
+                username : user.username
+            })
+                .then((userApiResponse: UserApiResponse) => {
+                    const user: User = (new UserBuilder()).buildFromApiResponse(userApiResponse);
+                    resolve(user);
+                })
+                .catch(error => {
+                    reject(error)
+                });
+        });
+    }
+
     public getShoppingListItems(): Promise<Item[]> {
         return new Promise((resolve, reject) => {
             this.get<ItemApiResponse[]>(ApiService.SHOPPING_ITEMS_LIST)
@@ -255,6 +272,7 @@ class ApiService {
             this.get<UserApiResponse>(ApiService.ME)
                 .then((userApiResponse: UserApiResponse) => {
                     const user: User = (new UserBuilder()).buildFromApiResponse(userApiResponse);
+                    $(document).trigger('user', {user});
                     resolve(user);
                 })
                 .catch(error => {

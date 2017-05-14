@@ -137,6 +137,22 @@ var ApiService = (function () {
             });
         });
     };
+    ApiService.prototype.updateUser = function (user) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var finalPath = ApiService.UPDATE_USER + "?id=" + user.id;
+            _this.put(finalPath, {
+                username: user.username
+            })
+                .then(function (userApiResponse) {
+                var user = (new UserBuilder()).buildFromApiResponse(userApiResponse);
+                resolve(user);
+            })
+                .catch(function (error) {
+                reject(error);
+            });
+        });
+    };
     ApiService.prototype.getShoppingListItems = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
@@ -207,6 +223,7 @@ var ApiService = (function () {
             _this.get(ApiService.ME)
                 .then(function (userApiResponse) {
                 var user = (new UserBuilder()).buildFromApiResponse(userApiResponse);
+                $(document).trigger('user', { user: user });
                 resolve(user);
             })
                 .catch(function (error) {
@@ -412,6 +429,7 @@ ApiService.GROUP_MEMBER_LIST = '/group/members/';
 ApiService.CREATE_NEW_GROUP = '/group/create/';
 ApiService.SELECT_GROUP = '/group/select/';
 ApiService.ME = '/user/me/';
+ApiService.UPDATE_USER = '/user/update/';
 ApiService.USER_SEARCH = '/user/search/';
 ApiService.DEBTS = '/debt/';
 ApiService.CLEAR_DEBTS = '/debt/clear/';

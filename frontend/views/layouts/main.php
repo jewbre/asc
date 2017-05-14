@@ -7,6 +7,7 @@ use frontend\assets\GroupAssets;
 use frontend\assets\JSUtilsAsset;
 use frontend\assets\MaterializeCSSAssets;
 use frontend\assets\NavigationAsset;
+use frontend\assets\UserSettingsAssets;
 use yii\helpers\Html;
 use yii\helpers\Json;
 
@@ -14,6 +15,8 @@ MaterializeCSSAssets::register($this);
 NavigationAsset::register($this);
 JSUtilsAsset::register($this);
 GroupAssets::register($this);
+UserSettingsAssets::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -60,6 +63,7 @@ if (isset($this->params['modals']) && !empty($this->params['modals'])) {
 }
 
 echo $this->render('//group/create-new-group', ['viewModel' => $this->params['navigationViewModel']]);
+echo $this->render('//user/user-settings', ['viewModel' => $this->params['navigationViewModel']]);
 ?>
 <header>
     <?= $this->render('//layouts/partials/navigation', ['viewModel' => $this->params['navigationViewModel']]) ?>

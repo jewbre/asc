@@ -53,6 +53,7 @@ use yii\helpers\Url;
         <div class="divider"></div>
         <span class="subheader">Settings</span>
     </li>
+    <li><a href="#userSettingsModal" class="modal-trigger">Settings</a></li>
     <li><a href="<?= Url::to(['/site/logout']);?>">Logout</a></li>
 </ul>
 <!--/DESKTOP MENU-->
