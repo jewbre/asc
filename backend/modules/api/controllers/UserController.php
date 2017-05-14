@@ -190,7 +190,7 @@ class UserController extends BaseController
             $payload = Json::decode(
                 file_get_contents('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' . $token)
             );
-            Yii::getLogger()->log(file_get_contents('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' . $token), 'error');
+            var_dump(file_get_contents('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' . $token));
         }
         if ($payload) {
             // If request specified a G Suite domain:
