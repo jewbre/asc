@@ -10,5 +10,5 @@ return [
 
     'postmarkToken' => '',
     'welcomeMailID' => '1801941',
-    'loginUrl' => 'http://104.236.101.231/asc/frontend/web/site/login',
+    'loginUrl' => 'http://roomero.co/site/login',
 ];
