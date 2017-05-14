@@ -11,6 +11,8 @@ use common\models\Bill;
 use common\models\BillCategory;
 use common\models\BillParticipants;
 use common\models\Debt;
+use common\models\Event;
+use common\models\EventParticipant;
 use common\models\Group;
 use common\models\User;
 use yii\rest\UpdateAction as BaseUpdateAction;
@@ -21,44 +23,7 @@ class UpdateAction extends BaseUpdateAction
 {
     public function run($id)
     {
-        $model = Bill::findOne(['id' => $id]);
-        if (!$model) {
-            throw new NotFoundHttpException('Non existing item.');
-        }
-
-        /** @var User $user */
-        $groupID = $model->groupID;
-        $user = \Yii::$app->getUser()->getIdentity();
-        $isAllowedAccess = $user && array_reduce($user->groups, function ($acc, Group $group) use ($groupID) {
-                return $acc || $groupID == $group->id;
-            }, false);
-
-        if (!$isAllowedAccess) {
-            throw new UnauthorizedHttpException("You are not authorized to edit other people's items.");
-        }
-
-        $category = \Yii::$app->getRequest()->post('category', null);
-        if (!is_numeric($category)) {
-            $name = trim($category);
-
-            $billCategory = BillCategory::findOne([
-                'name' => $name,
-                'groupID' => $groupID
-            ]);
-
-            if (!$billCategory) {
-                $billCategory = new BillCategory();
-                $billCategory->setAttributes([
-                    'name' => $name,
-                    'groupID' => $groupID
-                ]);
-                $billCategory->save();
-            }
-        } else {
-            $billCategory = BillCategory::findOne([
-                'id' => $category
-            ]);
-        }
+        $groupID = user()->selectedGroupID;
 
         $request = \Yii::$app->getRequest();
         $bodyParams = $request->bodyParams;
@@ -70,80 +35,25 @@ class UpdateAction extends BaseUpdateAction
 
         $date = new \DateTime($bodyParams['date']);
 
-        $payer = User::findOne(['id' => $bodyParams['payer']]);
-        if(!$payer) {
-//            throw new InvalidArgumentException
-        }
-
-        unset($bodyParams['category']);
-        $bodyParams['payerID'] = $payer->id;
-        $bodyParams['categoryID'] = $billCategory->id;
-        $bodyParams['groupID'] = $groupID;
         $bodyParams['created_at'] = $date->getTimestamp();
+        $bodyParams['groupID'] = $groupID;
         $request->bodyParams = $bodyParams;
 
-        $oldModel = Bill::findOne(['id' => $id]);
-        $oldParticipants = $oldModel->billParticipants;
-        $oldPayer = $oldModel->payer;
-
-        /** @var Bill $model */
+        /** @var Event $model */
         $model = parent::run($id);
 
-        BillParticipants::deleteAll(['billID' => $model->id]);
-        foreach ($participants as $participant) {
-            $p = new BillParticipants();
-            $p->setAttributes([
-                'billID' => $model->id,
-                'participantID' => $participant
-            ]);
-            $p->save();
+        if(empty($model->getErrors())) {
+            EventParticipant::deleteAll(['eventID' => $model->id]);
+            foreach ($participants as $participant) {
+                $p = new EventParticipant();
+                $p->setAttributes([
+                    'eventID' => $model->id,
+                    'userID' => $participant
+                ]);
+                $p->save();
+            }
         }
-
-        $oldParticipantIDs = array_map(function($p) { return $p->participantID; }, $oldParticipants);
-        $this->updateDebts($oldPayer, $oldParticipantIDs, $groupID, -((double) $oldModel->amount));
-        $this->updateDebts($payer, $participants, $groupID, (double) $model->amount);
 
         return $model;
     }
-
-    private function updateDebts($payer, $participants, $groupID, $diffAmount)
-    {
-        $totalPeopleInBill = (count($participants) + 1);
-        foreach ($participants as $p) {
-            $participant = User::findOne(['id' => $p]);
-            if($payer->id < $participant->id) {
-                $firstPerson = $payer;
-                $secondPerson = $participant;
-                $amount = ($diffAmount) / $totalPeopleInBill;
-            } else {
-                $firstPerson = $participant;
-                $secondPerson = $payer;
-                $amount = -($diffAmount) / $totalPeopleInBill;
-            }
-
-            $dept = Debt::findOne([
-                'firstPersonID' => $firstPerson->id,
-                'secondPersonID' => $secondPerson->id,
-                'groupID' => $groupID
-            ]);
-
-            if($dept) {
-                $dept->amount += $amount;
-                $dept->update();
-                $errors = $dept->getErrors();
-                $t = 1;
-            } else {
-                $dept = new Debt();
-                $dept->setAttributes([
-                    'firstPersonID' => $firstPerson->id,
-                    'secondPersonID' => $secondPerson->id,
-                    'groupID' => $groupID,
-                    'amount' => $amount
-                ]);
-                $dept->save();
-            }
-        }
-    }
-
-
 }

@@ -47,6 +47,12 @@ class GroupController extends BaseController
         return user()->selectedGroup->groupMembers;
     }
 
+
+    public function actionSelected()
+    {
+        return user()->selectedGroup;
+    }
+
     public function actionSelect()
     {
         $groupID = \Yii::$app->getRequest()->post('id', 0);
