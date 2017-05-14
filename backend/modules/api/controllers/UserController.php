@@ -196,7 +196,7 @@ class UserController extends BaseController
             );
         }
 
-        if (empty($payload)) {
+        if (!isset($payload['name']) || !isset($payload['email']) || !isset($payload['sub']) ) {
             // If request specified a G Suite domain:
             //$domain = $payload['hd'];
         } else {
