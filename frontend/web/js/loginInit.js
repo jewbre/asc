@@ -18,6 +18,10 @@
                 }
             }, {scope: 'public_profile,email'});
         });
+
+        setTimeout(function () {
+            $('.google-btn').append('<div class="googleText">Google</div>')
+        }, 1000);
     }); // end of document ready
 })(jQuery); // end of jQuery name space
 

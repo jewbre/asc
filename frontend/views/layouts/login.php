@@ -29,16 +29,6 @@ LoginAssets::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-<nav class="deep-purple">
-    <div class="nav-wrapper">
-        <a href="<?= Url::to(['/'])?>" class="brand-logo">Roomero</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">JavaScript</a></li>
-        </ul>
-    </div>
-</nav>
 <div class="login-container center-align white-text" style="background-image: url(<?= Yii::getAlias('@web/images/background.jpg')?>)">
     <div class="overlay deep-purple"></div>
     <div class="login-content-container">
@@ -48,9 +38,7 @@ LoginAssets::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-left">&copy; Made by: one crazy guy, one lazy guy and one awesome guy</p>
     </div>
 </footer>
 
