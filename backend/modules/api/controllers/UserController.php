@@ -196,7 +196,6 @@ class UserController extends BaseController
             );
         }
 
-        var_dump($payload);die();
         if ($payload) {
             // If request specified a G Suite domain:
             //$domain = $payload['hd'];
