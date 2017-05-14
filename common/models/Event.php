@@ -44,15 +44,14 @@ class Event extends BaseEvent
                 return $event->eventParticipants;
             }
         ];
+        if ($this->created_at) {
+            $fields['datetime'] = function (Event $event) {
 
-        $fields['datetime'] = function (Event $event) {
-            if ($event->created_at) {
                 $d = new \DateTime();
                 $d->setTimestamp($event->created_at);
                 return $d->format('c');
-            }
-            return null;
-        };
+            };
+        }
 
         return $fields;
     }
