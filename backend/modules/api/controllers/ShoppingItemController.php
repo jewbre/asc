@@ -57,7 +57,9 @@ class ShoppingItemController extends BaseController
     {
         $items = \Yii::$app->getRequest()->post('items', []);
 
+        $fromAndroid = false;
         if (is_string($items) && $items[0] == '[') {
+            $fromAndroid = true;
             $items = explode(',',
                 substr($items, 1, strlen($items) - 2)
             );
@@ -65,12 +67,16 @@ class ShoppingItemController extends BaseController
 
         if (!empty($items)) {
 
-            $items = array_filter($items, function ($item) {
-                return $item['isChecked'] == 'true' && $item['isBought'] == 'true';
-            });
-            $itemsIDs = array_map(function ($item) {
-                return $item['id'];
-            }, $items);
+            if($fromAndroid) {
+                $itemsIDs = $items;
+            } else {
+                $items = array_filter($items, function ($item) {
+                    return $item['isChecked'] == 'true' && $item['isBought'] == 'true';
+                });
+                $itemsIDs = array_map(function ($item) {
+                    return $item['id'];
+                }, $items);
+            }
 
             ShoppingItem::updateAll(['lastBought' => time()],
                 [
