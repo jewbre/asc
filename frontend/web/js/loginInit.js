@@ -8,7 +8,7 @@
                     LoginApiService.getInstance()
                         .facebookLogin(response.authResponse.accessToken)
                         .then(function (key) {
-                            window.location.href = '/asc/frontend/web/site/redirect-login?key=' + key.redirectKey
+                            window.location.href = '/site/redirect-login?key=' + key.redirectKey
                         })
                         .catch(function (error) {
                             console.log(error);
@@ -27,7 +27,7 @@ function onGoogleSignIn(googleUser) {
     LoginApiService.getInstance()
         .googleLogin(id_token)
         .then(function (key) {
-            window.location.href = '/asc/frontend/web/site/redirect-login?key=' + key.redirectKey
+            window.location.href = '/site/redirect-login?key=' + key.redirectKey
         })
         .catch(function (error) {
             console.log(error);
