@@ -70,13 +70,7 @@ echo $this->render('//user/user-settings', ['viewModel' => $this->params['naviga
     <?= $this->render('//layouts/partials/mobile-navigation', ['viewModel' => $this->params['navigationViewModel']]) ?>
 </header>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+<?= $this->render('//layouts/partials/footer') ?>
 
 <?php $this->endBody() ?>
 </body>
