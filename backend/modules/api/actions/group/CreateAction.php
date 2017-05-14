@@ -60,6 +60,9 @@ class CreateAction extends BaseCreateAction
 
             $client = new PostmarkClient(param('postmarkToken'));
             foreach ($members as $member) {
+                if($member == user()->email) {
+                    continue;
+                }
                 if (filter_var($member, FILTER_VALIDATE_EMAIL)) {
                     continue;
                 };
