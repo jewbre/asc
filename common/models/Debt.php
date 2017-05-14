@@ -25,7 +25,7 @@ class Debt extends BaseDebt
     {
         return ArrayHelper::merge(
             parent::rules(),
-            [
+            [“
                 # custom validation rules
             ]
         );
@@ -42,7 +42,8 @@ class Debt extends BaseDebt
                         'name' => 'Hrvatska kuna',
                         'code' => 'HRK',
                         'shortcode' => 'kn'
-                    ];
+                    ]
+                ];
             },
             'user' => function (Debt $model) {
                 return $model->firstPersonID == user()->id ? $model->secondPerson : $model->firstPerson;
