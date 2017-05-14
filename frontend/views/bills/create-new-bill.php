@@ -66,13 +66,9 @@
                 </div>
                 <div class="input-field col s12">
                     <select id="bill_participants" multiple>
-                        <option value="1" data-icon="https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344" class="left circle">Test</option>
-                        <option value="2" data-icon="https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344" class="left circle">Test2</option>
-                        <option value="3" data-icon="https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344" class="left circle">Test3</option>
-                        <option value="4" data-icon="https://www.gravatar.com/avatar/4278fd4c1c4a0e333aaa7282eab08344" class="left circle">Test4</option>
                         <!--                            PARTICIPANTS ARE LOADED VIA AJAX-->
                     </select>
-                    <label>Payer</label>
+                    <label>Participants</label>
                 </div>
 
             </form>
