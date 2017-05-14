@@ -1,5 +1,7 @@
 interface DebtApiResponse {
-    amount : number;
+    debt : {
+        amount : number,
+        currency : Currency
+    }
     user : UserApiResponse;
-    currency : Currency;
 }

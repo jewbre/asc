@@ -31,9 +31,9 @@ class DebtBuilder {
         const tmpDebt = this.build();
 
         const newDebt = this
-            .setAmount(apiResponse.amount)
+            .setAmount(apiResponse.debt.amount)
             .setUser((new UserBuilder()).buildFromApiResponse(apiResponse.user))
-            .setCurrency(apiResponse.currency)
+            .setCurrency(apiResponse.debt.currency)
             .build();
 
         this.debt = tmpDebt;
