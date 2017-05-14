@@ -54,6 +54,10 @@ class CreateAction extends BaseCreateAction
 
             $client = new PostmarkClient(param('postmarkToken'));
             foreach ($members as $member) {
+                if (filter_var($member, FILTER_VALIDATE_EMAIL)) {
+                    continue;
+                };
+
                 $member = trim($member);
                 $groupInvite = new GroupInvitation();
                 $groupInvite->setAttributes([
