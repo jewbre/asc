@@ -44,9 +44,12 @@ public function behaviors()
             'name',
             'description',
             'datetime' => function(Event $event) {
-                $d = new \DateTime();
-                $d->setTimestamp($event->created_at);
-                return $d->format('c');
+                if($event->created_at) {
+                    $d = new \DateTime();
+                    $d->setTimestamp($event->created_at);
+                    return $d->format('c');
+                }
+                return null;
             },
             'repeatable' => function(Event $model) {
                 return $this->isRepeatable() ? $model->repeatableEvents[0]->type : 'none';
