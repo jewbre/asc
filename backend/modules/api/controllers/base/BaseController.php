@@ -34,7 +34,7 @@ abstract class BaseController extends \yii\rest\ActiveController
             'cors' => [
                 // restrict access to domains:
                 'Origin' => static::allowedDomains(),
-                'Access-Control-Request-Method' => ['POST', 'PUT', 'DELETE', 'GET'],
+                'Access-Control-Request-Method' => ['POST', 'PUT', 'DELETE', 'GET', 'OPTIONS'],
                 'Access-Control-Allow-Credentials' => true,
                 'Access-Control-Max-Age' => 3600,                 // Cache (seconds)
 
