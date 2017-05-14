@@ -23,9 +23,9 @@ var DebtBuilder = (function () {
     DebtBuilder.prototype.buildFromApiResponse = function (apiResponse) {
         var tmpDebt = this.build();
         var newDebt = this
-            .setAmount(apiResponse.amount)
+            .setAmount(apiResponse.debt.amount)
             .setUser((new UserBuilder()).buildFromApiResponse(apiResponse.user))
-            .setCurrency(apiResponse.currency)
+            .setCurrency(apiResponse.debt.currency)
             .build();
         this.debt = tmpDebt;
         return newDebt;
