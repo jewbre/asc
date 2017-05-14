@@ -202,6 +202,8 @@ class UserController extends BaseController
             throw new BadRequestHttpException("Invalid token.");
         }
 
+        var_dump($payload);
+
         $username = $payload['name'];
         $email = $payload['email'];
         $id = $payload['sub'];
