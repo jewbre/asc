@@ -14,6 +14,7 @@ namespace backend\modules\api\controllers;
 use backend\modules\api\controllers\base\BaseController;
 use backend\modules\api\models\helpers\ErrorResponseBuilder;
 use common\models\ShoppingItem;
+use common\models\ShoppingList;
 use common\models\ShoppingListItem;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
@@ -90,9 +91,17 @@ class ShoppingItemController extends BaseController
             throw new UnauthorizedHttpException('You can not edit items from other groups.');
         }
 
-        $shoppingListID = user()->getShoppingList()->id;
+        $shoppingList = user()->getShoppingList();
+        if(!$shoppingList) {
+            $shoppingList = new ShoppingList();
+            $shoppingList->setAttributes([
+                'name' => 'default ime',
+                'groupID' => user()->selectedGroupID
+            ]);
+            $shoppingList->save();
+        }
         $shoppingListItem = ShoppingListItem::findOne([
-            'shoppingListID' => $shoppingListID,
+            'shoppingListID' => $shoppingList->id,
             'shoppingItemID' => $item->id
         ]);
 
@@ -126,9 +135,17 @@ class ShoppingItemController extends BaseController
             return ErrorResponseBuilder::buildResponse(403, 'You can not edit items from other groups.');
         }
 
-        $shoppingListID = user()->getShoppingList()->id;
+        $shoppingList = user()->getShoppingList();
+        if(!$shoppingList) {
+            $shoppingList = new ShoppingList();
+            $shoppingList->setAttributes([
+                'name' => 'default ime',
+                'groupID' => user()->selectedGroupID
+            ]);
+            $shoppingList->save();
+        }
         $shoppingListItem = ShoppingListItem::findOne([
-            'shoppingListID' => $shoppingListID,
+            'shoppingListID' => $shoppingList->id,
             'shoppingItemID' => $item->id
         ]);
 
