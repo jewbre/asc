@@ -35,7 +35,6 @@ class UserController extends BaseController
     }
 
 
-
     public function behaviors()
     {
         $behaviors = parent::behaviors();
@@ -54,7 +53,7 @@ class UserController extends BaseController
         ];
 
         $behaviors['authenticator'] = $auth;
-        $behaviors['authenticator']['except'] = ['facebook-login', 'login-facebook','google-login', 'login-google'];
+        $behaviors['authenticator']['except'] = ['facebook-login', 'login-facebook', 'google-login', 'login-google'];
 
         return $behaviors;
     }
@@ -87,24 +86,6 @@ class UserController extends BaseController
 
         if ($user instanceof User) {
             return $user;
-        }
-
-        throw new BadRequestHttpException($user);
-    }
-
-
-    public function actionLoginFacebook()
-    {
-        $user = $this->doFacebookLogin();
-
-        if ($user instanceof User) {
-            $loginRedirect = new LoginRedirect();
-            $loginRedirect->setAttributes([
-                'loginHash' => Yii::$app->security->generateRandomString(),
-                'userID' => $user->id
-            ]);
-            $loginRedirect->save();
-            return $loginRedirect;
         }
 
         throw new BadRequestHttpException($user);
@@ -165,21 +146,9 @@ class UserController extends BaseController
         return $user;
     }
 
-    public function actionGoogleLogin()
+    public function actionLoginFacebook()
     {
-        $user = $this->doGoogleLogin(param('androidGoogleClientID'));
-
-        if ($user instanceof User) {
-            return $user;
-        }
-
-        throw new BadRequestHttpException($user);
-    }
-
-
-    public function actionLoginGoogle()
-    {
-        $user = $this->doGoogleLogin(param('googleClientID'));
+        $user = $this->doFacebookLogin();
 
         if ($user instanceof User) {
             $loginRedirect = new LoginRedirect();
@@ -191,7 +160,18 @@ class UserController extends BaseController
             return $loginRedirect;
         }
 
-        return $user;
+        throw new BadRequestHttpException($user);
+    }
+
+    public function actionGoogleLogin()
+    {
+        $user = $this->doGoogleLogin(param('androidGoogleClientID'));
+
+        if ($user instanceof User) {
+            return $user;
+        }
+
+        throw new BadRequestHttpException($user);
     }
 
     private function doGoogleLogin($token)
@@ -207,7 +187,9 @@ class UserController extends BaseController
         try {
             $payload = $client->verifyIdToken($accessToken);
         } catch (\Exception $e) {
-            $payload = Json::decode('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' . $token);
+            $payload = Json::decode(
+                file_get_contents('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' . $token)
+            );
         }
         if ($payload) {
             // If request specified a G Suite domain:
@@ -235,9 +217,26 @@ class UserController extends BaseController
         }
 
         $user = $registrationHelper->registerUser($username, $email);
-        if($user instanceof User) {
+        if ($user instanceof User) {
             $registrationHelper->acceptInvitations($user);
         }
+        return $user;
+    }
+
+    public function actionLoginGoogle()
+    {
+        $user = $this->doGoogleLogin(param('googleClientID'));
+
+        if ($user instanceof User) {
+            $loginRedirect = new LoginRedirect();
+            $loginRedirect->setAttributes([
+                'loginHash' => Yii::$app->security->generateRandomString(),
+                'userID' => $user->id
+            ]);
+            $loginRedirect->save();
+            return $loginRedirect;
+        }
+
         return $user;
     }
 
@@ -246,7 +245,7 @@ class UserController extends BaseController
         $username = Yii::$app->getRequest()->bodyParams['username'];
 
         $user = user();
-        if($username) {
+        if ($username) {
             $user->setAttribute('username', $username);
             $user->update();
         }
