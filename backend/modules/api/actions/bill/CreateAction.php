@@ -7,6 +7,7 @@
 
 namespace backend\modules\api\actions\bill;
 
+use backend\modules\api\utils\ParticipantsParser;
 use common\models\Bill;
 use common\models\BillCategory;
 use common\models\BillParticipants;
@@ -54,9 +55,7 @@ class CreateAction extends BaseCreateAction
         if(!$participants || empty($participants)) {
             $participants = [];
         } elseif(is_string($participants) && $participants[0] == '[') {
-            $participants = explode(',',
-                substr($participants, 1, strlen($participants) - 2)
-            );
+            $participants = ParticipantsParser::fromString($participants);
         }
 
         $date = new \DateTime($bodyParams['date']);
