@@ -10,6 +10,6 @@ return [
     'androidGoogleClientID' => '879947320620-7na5c87h3j4pmqgr9gkc5ai5l7n35k4q.apps.googleusercontent.com',
 
     'postmarkToken' => '',
-    'welcomeMailID' => '1801941',
+    'welcomeMailID' => '1798622',
     'loginUrl' => 'http://roomero.co/site/login',
 ];

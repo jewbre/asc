@@ -82,7 +82,7 @@ class CreateAction extends BaseCreateAction
                 ];
 
                 $sendResult = $client->sendEmailWithTemplate(
-                    "vilim.stubican@degordian.com",
+                    "do-not-reply@roomero.co",
                     $member,
                     param('welcomeMailID'),
                     [
