@@ -153,7 +153,7 @@
 
 .tabs-content {
     height:600px!important;
-    overflow: visible;
+    overflow: scroll;
 }
 
 

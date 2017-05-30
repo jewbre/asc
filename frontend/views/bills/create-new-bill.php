@@ -1,5 +1,5 @@
 <!-- Modal Structure -->
-<div id="createNewExpense" class="modal">
+<div id="createNewExpense" class="modal adding">
     <div class="modal-content">
         <h4 class="create-title">Create new expense</h4>
         <h4 class="update-title">Update expense</h4>

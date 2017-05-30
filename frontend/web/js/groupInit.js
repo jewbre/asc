@@ -8,7 +8,7 @@
         );
 
         var userData = JSON.parse($('#user-list').text());
-        console.log(userData);
+
         $('input.autocomplete').autocomplete({
             data: userData,
             limit: 20, // The max amount of results that can be shown at once. Default: Infinity.

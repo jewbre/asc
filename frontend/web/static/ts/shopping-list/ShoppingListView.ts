@@ -100,6 +100,10 @@ class ShoppingListView {
         this.presenter.finishShopping(this.items);
     }
 
+    public showReceiptModal() {
+        $('#createNewExpense').modal('open');
+    }
+
 
     private getShoppingItems() : Item[] {
         const items : Item[] = this.items.filter((item : Item) => item.isChecked);

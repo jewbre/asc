@@ -20,5 +20,9 @@
             new ShoppingListPresenter()
         );
 
+        var billsView = new BillView(
+            new BillsPresenterImpl()
+        );
+
     }); // end of document ready
 })(jQuery); // end of jQuery name space

@@ -75,6 +75,9 @@ var ShoppingListView = (function () {
     ShoppingListView.prototype.finishShopping = function () {
         this.presenter.finishShopping(this.items);
     };
+    ShoppingListView.prototype.showReceiptModal = function () {
+        $('#createNewExpense').modal('open');
+    };
     ShoppingListView.prototype.getShoppingItems = function () {
         var items = this.items.filter(function (item) { return item.isChecked; });
         this.sortShoppingItems(items);

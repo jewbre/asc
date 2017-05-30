@@ -7,10 +7,6 @@ var BillView = (function () {
         this.presenter = presenter;
         this.presenter.setBillView(this);
         this.initListeners();
-        this.presenter.getNextBillsPage();
-        this.presenter.getBillCategories();
-        this.presenter.getGroupMembers();
-        this.presenter.getMe();
     }
     BillView.prototype.initListeners = function () {
         var _this = this;

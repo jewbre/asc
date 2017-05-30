@@ -24,7 +24,9 @@ var BillsPresenterImpl = (function () {
         ApiService.getInstance()
             .getDebts()
             .then(function (debts) {
-            _this.debtView.displayDebts(debts);
+            if (_this.debtView) {
+                _this.debtView.displayDebts(debts);
+            }
         });
     };
     BillsPresenterImpl.prototype.clearDebts = function (users) {
@@ -32,8 +34,10 @@ var BillsPresenterImpl = (function () {
         ApiService.getInstance()
             .clearDebts(users)
             .then(function (debts) {
-            _this.debtView.displayDebts(debts);
-            _this.debtView.hideClearDebtsPopup();
+            if (_this.debtView) {
+                _this.debtView.displayDebts(debts);
+                _this.debtView.hideClearDebtsPopup();
+            }
         });
     };
     BillsPresenterImpl.prototype.addToBudget = function (amount) {
@@ -41,8 +45,10 @@ var BillsPresenterImpl = (function () {
         ApiService.getInstance()
             .addToBudget(amount)
             .then(function (budget) {
-            _this.budgetView.displayBudget(budget);
-            _this.budgetView.hideAddToBudgetModal();
+            if (_this.budgetView) {
+                _this.budgetView.displayBudget(budget);
+                _this.budgetView.hideAddToBudgetModal();
+            }
         });
     };
     BillsPresenterImpl.prototype.getBillCategories = function () {
@@ -50,7 +56,9 @@ var BillsPresenterImpl = (function () {
         ApiService.getInstance()
             .getBillCategories()
             .then(function (categories) {
-            _this.billView.setCategories(categories);
+            if (_this.billView) {
+                _this.billView.setCategories(categories);
+            }
         });
     };
     BillsPresenterImpl.prototype.getMe = function () {
@@ -58,16 +66,24 @@ var BillsPresenterImpl = (function () {
         ApiService.getInstance()
             .getMe()
             .then(function (user) {
-            _this.billView.setSelectedPayer(user);
-            _this.debtView.clearFromGroup(user);
+            if (_this.billView) {
+                _this.billView.setSelectedPayer(user);
+            }
+            if (_this.debtView) {
+                _this.debtView.clearFromGroup(user);
+            }
         });
     };
     BillsPresenterImpl.prototype.getGroupMembers = function () {
         var _this = this;
         ApiService.getInstance().getGroupMembers()
             .then(function (members) {
-            _this.billView.setGroupMembers(members);
-            _this.debtView.setGroupMembers(members);
+            if (_this.billView) {
+                _this.billView.setGroupMembers(members);
+            }
+            if (_this.debtView) {
+                _this.debtView.setGroupMembers(members);
+            }
         });
     };
     BillsPresenterImpl.prototype.createNewBill = function (category, amount, description, date, payer, participants) {

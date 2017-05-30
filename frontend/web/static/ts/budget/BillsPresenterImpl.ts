@@ -2,7 +2,7 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter, DebtPresente
     private debtView: DebtView;
     private budgetView: BudgetView;
     private billView: BillView;
-    private page : number = 1;
+    private page: number = 1;
 
     public setBillView(view: BillView): void {
         this.billView = view;
@@ -28,7 +28,9 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter, DebtPresente
         ApiService.getInstance()
             .getDebts()
             .then((debts: Debt[]) => {
-                this.debtView.displayDebts(debts);
+                if(this.debtView) {
+                    this.debtView.displayDebts(debts);
+                }
             });
     }
 
@@ -36,8 +38,10 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter, DebtPresente
         ApiService.getInstance()
             .clearDebts(users)
             .then((debts: Debt[]) => {
-                this.debtView.displayDebts(debts);
-                this.debtView.hideClearDebtsPopup();
+                if(this.debtView) {
+                    this.debtView.displayDebts(debts);
+                    this.debtView.hideClearDebtsPopup();
+                }
             });
     }
 
@@ -45,8 +49,10 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter, DebtPresente
         ApiService.getInstance()
             .addToBudget(amount)
             .then((budget: Budget) => {
-                this.budgetView.displayBudget(budget);
-                this.budgetView.hideAddToBudgetModal();
+                if(this.budgetView) {
+                    this.budgetView.displayBudget(budget);
+                    this.budgetView.hideAddToBudgetModal();
+                }
             });
     }
 
@@ -54,7 +60,9 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter, DebtPresente
         ApiService.getInstance()
             .getBillCategories()
             .then((categories: BillCategory[]) => {
-                this.billView.setCategories(categories);
+                if (this.billView) {
+                    this.billView.setCategories(categories);
+                }
             })
     }
 
@@ -62,24 +70,34 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter, DebtPresente
         ApiService.getInstance()
             .getMe()
             .then((user: User) => {
-                this.billView.setSelectedPayer(user);
-                this.debtView.clearFromGroup(user);
+                if (this.billView) {
+                    this.billView.setSelectedPayer(user);
+                }
+
+                if (this.debtView) {
+                    this.debtView.clearFromGroup(user);
+                }
             })
     }
 
     getGroupMembers(): void {
         ApiService.getInstance().getGroupMembers()
             .then((members: User[]) => {
-                this.billView.setGroupMembers(members);
-                this.debtView.setGroupMembers(members);
+                if (this.billView) {
+                    this.billView.setGroupMembers(members);
+                }
+
+                if (this.debtView) {
+                    this.debtView.setGroupMembers(members);
+                }
             })
     }
 
-    public createNewBill(category : number|string, amount : number, description : string,
-    date : string, payer : number, participants : number[]) {
+    public createNewBill(category: number | string, amount: number, description: string,
+                         date: string, payer: number, participants: number[]) {
         ApiService.getInstance().createNewBill(category, amount, description,
             date, payer, participants)
-            .then((bill : Bill) => {
+            .then((bill: Bill) => {
                 this.billView.addBill(bill);
                 this.billView.hideAddNewBillModal();
 
@@ -88,11 +106,11 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter, DebtPresente
             })
     }
 
-    public updateBill(id : number, category : number|string, amount : number, description : string,
-    date : string, payer : number, participants : number[]) {
+    public updateBill(id: number, category: number | string, amount: number, description: string,
+                      date: string, payer: number, participants: number[]) {
         ApiService.getInstance().updateBill(id, category, amount, description,
             date, payer, participants)
-            .then((bill : Bill) => {
+            .then((bill: Bill) => {
                 this.billView.replaceBill(bill);
                 this.billView.hideAddNewBillModal();
 
@@ -101,7 +119,7 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter, DebtPresente
             })
     }
 
-    public deleteBill(id : number) {
+    public deleteBill(id: number) {
         ApiService.getInstance().deleteBill(id)
             .then(() => {
                 this.billView.removeBill(id);
@@ -115,10 +133,10 @@ class BillsPresenterImpl implements BudgetPresenter, BillPresenter, DebtPresente
     public getNextBillsPage(): void {
         ApiService.getInstance()
             .getBills(this.page)
-            .then(({bills, pagination}: { bills : Bill[], pagination : Pagination}) => {
+            .then(({bills, pagination}: { bills: Bill[], pagination: Pagination }) => {
                 this.page++;
 
-                if(pagination.totalPages < this.page) {
+                if (pagination.totalPages < this.page) {
                     $('#loadMoreBills').remove();
                 }
 

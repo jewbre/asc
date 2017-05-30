@@ -21,6 +21,7 @@ class ShoppingListPresenter {
             .then((items : Item[]) => {
                 this.view.setItems(items);
                 this.view.showAddingScreen();
+                this.view.showReceiptModal();
             })
     }
 

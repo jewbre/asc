@@ -2,11 +2,13 @@
 
 /* @var $this yii\web\View */
 
+use frontend\assets\BillsAssets;
 use frontend\assets\ShoppingListsAssets;
 
 $this->title = 'Shopping lists';
 
 ShoppingListsAssets::register($this);
+BillsAssets::register($this);
 ?>
 <div class="row">
     <ul id="tabs-swipe-demo" class="tabs" style="display: none">

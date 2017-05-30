@@ -18,6 +18,7 @@ var ShoppingListPresenter = (function () {
             .then(function (items) {
             _this.view.setItems(items);
             _this.view.showAddingScreen();
+            _this.view.showReceiptModal();
         });
     };
     ShoppingListPresenter.prototype.createNewShoppingItem = function (name, category, reminder) {

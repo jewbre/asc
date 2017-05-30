@@ -13,11 +13,6 @@ class BillView {
         this.presenter.setBillView(this);
 
         this.initListeners();
-
-        this.presenter.getNextBillsPage();
-        this.presenter.getBillCategories();
-        this.presenter.getGroupMembers();
-        this.presenter.getMe();
     }
 
     private initListeners() {

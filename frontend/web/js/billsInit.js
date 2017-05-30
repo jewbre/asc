@@ -31,6 +31,10 @@
             presenter
         );
 
+        presenter.getNextBillsPage();
+        presenter.getBillCategories();
+        presenter.getGroupMembers();
+        presenter.getMe();
 
     }); // end of document ready
 })(jQuery); // end of jQuery name space

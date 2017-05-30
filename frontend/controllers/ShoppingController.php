@@ -68,6 +68,7 @@ class ShoppingController extends Controller
 
         $this->view->params['modals'] = [
             '//shopping/add-new-item-modal',
+            '//bills/create-new-bill',
         ];
 
         return $this->render('lists');
