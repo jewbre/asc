@@ -16,6 +16,7 @@ use backend\modules\api\models\helpers\ErrorResponseBuilder;
 use common\models\ShoppingItem;
 use common\models\ShoppingList;
 use common\models\ShoppingListItem;
+use common\models\Subscription;
 use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\web\UnauthorizedHttpException;
@@ -67,7 +68,7 @@ class ShoppingItemController extends BaseController
 
         if (!empty($items)) {
 
-            if($fromAndroid) {
+            if ($fromAndroid) {
                 $itemsIDs = $items;
             } else {
                 $items = array_filter($items, function ($item) {
@@ -136,6 +137,11 @@ class ShoppingItemController extends BaseController
         ]);
         $shoppingListItem->save();
 
+        Subscription::notifyGroup([
+            'type' => Subscription::ITEM_CHECKED,
+            'id' => $item->id
+        ], user()->selectedGroupID);
+
         return $item;
     }
 
@@ -174,6 +180,11 @@ class ShoppingItemController extends BaseController
         }
 
         $shoppingListItem->delete();
+
+        Subscription::notifyGroup([
+            'type' => Subscription::ITEM_UNCHECKED,
+            'id' => $item->id
+        ], user()->selectedGroupID);
 
         return $item;
     }

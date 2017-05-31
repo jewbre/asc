@@ -23,7 +23,8 @@
         "schmunk42/yii2-giiant": "@stable",
         "facebook/graph-sdk": "^5.5",
         "google/apiclient": "^2.1",
-        "wildbit/postmark-php": "^2.3"
+        "wildbit/postmark-php": "^2.3",
+        "minishlink/web-push": "^1.4"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

@@ -26,7 +26,7 @@ UserSettingsAssets::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <?php $this->head() ?>
 
     <script type="application/json"
@@ -61,6 +61,8 @@ if (isset($this->params['modals']) && !empty($this->params['modals'])) {
         echo $this->render($modalPath);
     }
 }
+
+echo $this->render('//helpers/push-notifications-modal');
 
 echo $this->render('//group/create-new-group', ['viewModel' => $this->params['navigationViewModel']]);
 echo $this->render('//user/user-settings', ['viewModel' => $this->params['navigationViewModel']]);

@@ -10,6 +10,23 @@ var ShoppingListPresenter = (function () {
             .then(function (categories) {
             _this.view.setCategories(categories);
         });
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.addEventListener('message', function (event) {
+                console.log('New message');
+                var data = JSON.parse(event.data);
+                console.log(data);
+                switch (data.type) {
+                    case 'item-select':
+                        console.log("Selecting item");
+                        _this.view.selectItem(data.payload);
+                        break;
+                    case 'item-unselect':
+                        console.log("Unselecting item");
+                        _this.view.unselectItem(data.payload);
+                        break;
+                }
+            });
+        }
     }
     ShoppingListPresenter.prototype.finishShopping = function (items) {
         var _this = this;

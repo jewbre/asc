@@ -313,4 +313,38 @@ class ShoppingListView {
     public closeAddNewModal() : void {
         $('#addNewShoppingListItemForm').modal('close');
     }
+
+    public selectItem(id : number) : void {
+        this.toggleItemSelected(id, true);
+    }
+
+    public unselectItem(id : number) : void {
+        this.toggleItemSelected(id, false);
+    }
+
+    private toggleItemSelected(id : number, state : boolean) : void {
+        const filteredItems = this.items.filter((item : Item) => item.id == id);
+        if(filteredItems.length == 1) {
+            const item = filteredItems[0];
+            item.isChecked = state;
+            this.updateItem(item);
+        }
+    }
+
+    public buyItem(id : number) : void {
+        this.toggleItemBought(id, true);
+    }
+
+    public unbuyItem(id : number) : void {
+        this.toggleItemBought(id, false);
+    }
+
+    private toggleItemBought(id : number, state : boolean) : void {
+        const filteredItems = this.items.filter((item : Item) => item.id == id);
+        if(filteredItems.length == 1) {
+            const item = filteredItems[0];
+            item.isBought = state;
+            this.updateItem(item);
+        }
+    }
 }

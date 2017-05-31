@@ -243,6 +243,34 @@ var ShoppingListView = (function () {
     ShoppingListView.prototype.closeAddNewModal = function () {
         $('#addNewShoppingListItemForm').modal('close');
     };
+    ShoppingListView.prototype.selectItem = function (id) {
+        this.toggleItemSelected(id, true);
+    };
+    ShoppingListView.prototype.unselectItem = function (id) {
+        this.toggleItemSelected(id, false);
+    };
+    ShoppingListView.prototype.toggleItemSelected = function (id, state) {
+        var filteredItems = this.items.filter(function (item) { return item.id == id; });
+        if (filteredItems.length == 1) {
+            var item = filteredItems[0];
+            item.isChecked = state;
+            this.updateItem(item);
+        }
+    };
+    ShoppingListView.prototype.buyItem = function (id) {
+        this.toggleItemBought(id, true);
+    };
+    ShoppingListView.prototype.unbuyItem = function (id) {
+        this.toggleItemBought(id, false);
+    };
+    ShoppingListView.prototype.toggleItemBought = function (id, state) {
+        var filteredItems = this.items.filter(function (item) { return item.id == id; });
+        if (filteredItems.length == 1) {
+            var item = filteredItems[0];
+            item.isBought = state;
+            this.updateItem(item);
+        }
+    };
     return ShoppingListView;
 }());
 ShoppingListView.SELECT_ITEM_BOX_HEIGHT = 84;
