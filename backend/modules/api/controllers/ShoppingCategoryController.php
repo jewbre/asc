@@ -12,6 +12,7 @@ namespace backend\modules\api\controllers;
  * This is the class for REST controller "GroupController".
  */
 use backend\modules\api\controllers\base\BaseController;
+use common\models\ShoppingCategory;
 
 class ShoppingCategoryController extends BaseController
 {
@@ -21,9 +22,17 @@ class ShoppingCategoryController extends BaseController
     {
         $actions = parent::actions();
 
+        unset($actions['index']);
         unset($actions['create']);
         unset($actions['update']);
 
         return $actions;
+    }
+
+    public function actionIndex()
+    {
+        return ShoppingCategory::findAll([
+            'groupID' => user()->selectedGroupID
+        ]);
     }
 }
