@@ -261,7 +261,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function getAvatar()
     {
         if($this->avatar) {
-            return preg_replace('/https?:/','', $this->avatar);
+            return preg_replace('/https?:/','https:', $this->avatar);
         }
 
         return 'https://www.gravatar.com/avatar/' . md5($this->email);
