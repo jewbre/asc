@@ -89,7 +89,7 @@ class CreateAction extends BaseCreateAction
         return $model;
     }
 
-    private function updateDebts($payer, $participants, $groupID, $amount)
+    private function updateDebts($payer, $participants, $groupID, $startAmount)
     {
         $totalPeopleInBill = (count($participants) + 1);
         foreach ($participants as $p) {
@@ -98,11 +98,11 @@ class CreateAction extends BaseCreateAction
             if ($payer->id < $participant->id) {
                 $firstPerson = $payer;
                 $secondPerson = $participant;
-                $amount = $amount / $totalPeopleInBill;
+                $amount = $startAmount / $totalPeopleInBill;
             } else {
                 $firstPerson = $participant;
                 $secondPerson = $payer;
-                $amount = -$amount / $totalPeopleInBill;
+                $amount = -$startAmount / $totalPeopleInBill;
             }
 
             $dept = Debt::findOne([
