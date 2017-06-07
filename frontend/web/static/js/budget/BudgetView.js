@@ -23,8 +23,9 @@ var BudgetView = (function () {
     };
     BudgetView.prototype.displayBudget = function (budget) {
         this.budget = budget;
-        $('#budget-amount,#currentBudgetAmount').text(budget.amount + " " + budget.currency.shortcode);
-        $('#newBudgetAmount').text(budget.amount + this.getCurrentInputValue() + " " + budget.currency.shortcode);
+        var budgetAmount = parseFloat(budget.amount + '').toFixed(2);
+        $('#budget-amount,#currentBudgetAmount').text(budgetAmount + " " + budget.currency.shortcode);
+        $('#newBudgetAmount').text(budgetAmount + this.getCurrentInputValue() + " " + budget.currency.shortcode);
     };
     BudgetView.prototype.showAddToBudgetModal = function () {
         $('#addToBudget').modal('open');

@@ -31,12 +31,13 @@ class BudgetView {
 
     public displayBudget(budget : Budget) {
         this.budget = budget;
+        const budgetAmount = parseFloat(budget.amount + '').toFixed(2);
         $('#budget-amount,#currentBudgetAmount').text(
-            `${budget.amount} ${budget.currency.shortcode}`
+            `${budgetAmount} ${budget.currency.shortcode}`
         );
 
         $('#newBudgetAmount').text(
-            `${budget.amount + this.getCurrentInputValue()} ${budget.currency.shortcode}`
+            `${budgetAmount + this.getCurrentInputValue()} ${budget.currency.shortcode}`
         );
     }
 
