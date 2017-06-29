@@ -56,6 +56,9 @@ class BillController extends BaseController
         $bills = Bill::find()
             ->where('groupID = :group', [ 'group' => user()->selectedGroupID ])
             ->offset( ($page - 1) * self::PER_PAGE)
+            ->orderBy([
+                'created_at' => SORT_DESC
+            ])
             ->limit(self::PER_PAGE)
             ->all();
 
